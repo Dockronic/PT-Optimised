@@ -1,0 +1,173 @@
+gonna say some stuff or smth
+
+okay why the fuck extracted is so unorganized? I deleted some "Unused" sprites THAT ARE USED
+
+
+I didn't even know there are bubbles after being hitted by a giant beer lol
+
+
+mcpig/sertif are so lazy to delete all these stuff LMAO though no judge because yeah it hella takes a lot
+of time,,
+
+TV DEBRIS IS USED WHAT? WHY IS GRAY 
+
+wanted to dm author of pt-extracted to ask if I can organize everything ("unused" to thei folders) but I thought
+that it's probably it is like in the official original decomp. if is that so then sertif is very bad at organizing LOL
+
+removed unused lines from the code just for fun. no more character == "V"!
+
+making pacifist ranks wohoo that's for my mod
+
+TreyIsh is so goddamn cool guy please dm him saying "you're cool"
+same for Floral the Gal, Aitornado_8, PastaG7
+also SlavaWOW
+heh
+they're cool
+seriously
+do this
+DO IT.
+
+
+want to work on scoutdigo so bad but I will be declined unfortunately
+
+WHY THE FUCK spr_player_ungroundedattack IS USED IT DOESN'T EVEN HAVE PISS-YELLOW CLOTHES
+og pizza tower is so weird for me now, a lot of bugs and weird stuff. gonna make a mod which fix all these
+
+daily bugs wohoo!!!
+
+well not so daily
+
+
+OKAY AFTER SOME DAYS WITHOUT WORKING GONNA START DOING SCRIPTS i mean removing it haha also objectsss
+lol there are many people on ds server now. kris noise is real!!!
+
+if you reading this, dm me "Okie Dockie!" as always
+
+mak n sauce is so mean, he didn't even say "sorry" :/  yeah I'm a crykiddo what now
+
+pepcooter and scooter rock ARE USED. they are invisible in the game, but they are used to make 
+new save intro properly. if you delete them, stuff will break
+
+spr_ratblock1 is a mask (hitbox) for rat blocks
+
+WTF POGO NOISE WHAT, HOW TO FIX THAT??
+nvm I just commented "break;"
+
+spitcheese is bugged??? it shots a lot of time
+IDK HOW TO FIX FUCK NO I DON'T WANT TO START FROM SCRATCH
+added bombreset = 100 to pepperonigoblin_throw code. it got fixed! though NOT ACCURATE DECOMP.
+
+I'm so scared to delete rest of the objects, what if I break EVERYTHING
+though decomp is already good, compiles in literally a minute.
+but what if I remove all the objects? idk idk! maybe less than a minute?
+gonna make a github repo now.
+
+nearly every sprite was deleted! super cool
+
+IT'S EVEN WORSE WITH OBJECTS. A LOT OF USED OBJECTS ARE IN UNUSED FOLDER
+
+NO I'M NOT GONNA REMOVE OBJ_PLAYER2 THERE ARE A LOT OF SCRIPTS TO CHANGE
+
+why in the world obj_pizzacoinindicator is in Gimmicks folder, it became unused in 2018-2019 (i dont remember)
+
+obj_bombblock is used as a parent for pizzaballblock FOR WHATEVER REASOM so bomblock is actually used
+
+I didn't know Peppino Clones had a unique spawner! (obj_baddiecameraspawner). It's identical to
+default spawner, but it spawns enemies off-screen
+
+left werenoise dev team because I'm in the bad mood also I'm useless there now
+
+obj_cullingsystem is used for Peppibot Factory bgs being animated I guess.
+
+obj_cutscene_handler is used in gnomecustomer
+
+obj_pizzafacebrick is used I think
+
+feeling even worse now because nobody from the werenoise dev team asked me what happened. Now I really feel 
+myself useless
+thing is I could make stuff but usually other people take my job because they want to. it's alright
+if I don't know how to do blahblah, but I could make a lot of stuff without a help . .. 
+
+my sisters leaves us in two days to another. kinda sux, but hey, at least I get a bigger room and I will
+be home alone for nine days! ha ha!
+
+want to work on glub's "Save the Toppins!" thing but I can't dm him fuck.
+
+want to work on pt Plus but who cares about me right
+
+WHAT THE FUCK TOWER_#UP IS USED???? HOLY SHIT
+
+started to think that it will be impossible to contribute in mods I want to since I will always feel useless
+and someone will take my job. ru translation scoutdigo? fishibi! glub's mod? ss and sd team! pt plus? nuh uh! 
+who are you boy?
+that's why I really want to make my own mod, and probably gonna make it alone.
+Huge respect to Trey, I think the only one who actually respects me as the worker. I just show him
+stuff I'm working on from time to time and he literally asked me if I could work on his stuff as a coder.
+<3
+
+obj_null?!?!?! BALDI'S BASICS REFERENCE
+
+I guess that's all for the objects, don't want to break stuff so there gonna be a little more.
+I don't want to delete scripts too...... DOES IT MEAN... IT"S FINISHED??
+
+shd_rainbow? pizza tower but gay?! my favourite update!
+
+some unused sprites are in used foler :///.Talking about heat and rage anims for baddies
+
+sprite1122 - black bg for some stuff (Mainmenu, etc.)
+sprite1033 - trigger for something (Achievements, bucket, etc.)
+Sprite4102 - a window to "Outside" of the Tower after pizzaface hall
+Sprite3518 - decoration for Kidsparty
+sprite10332478 - a trigger too, also used for pepperman and vigi bossfights
+sprite1030 - race trigger, blocks, etc.
+sprite10293 - tile destroy thing
+sprite1029 - whatever
+
+I wonder why McPig/Sertif didn't named them.... especially winodw and a kidsparty deco.
+
+bg_productiontube used in industrial_5 but it's in the WAR folder. wow. (have a feeling I added it myself...)
+
+I love how sprites from CTOP are in the hub group while any other level are in levelnamegroup
+
+pillarsecret my beloved
+
+editor_macros has collisionflags so script is used.
+Command is used for.... debug commands
+
+Scootertransition is used for the new save file intro
+Titlescreen is unused but referenced in the code
+same for hub_loadingscreen
+
+YYP IS 712KB OH MY GOD I need to make it 700!!
+just for no reason.
+
+shotgunbullet is used
+
+there are a lot of unused noise sprites FUCK
+
+710KB NOW NO WAY
+
+708KB fuck I think it's impossible to do 700 I really don't know what to delete
+
+final round is mod sorry the only good thing is pepperman
+
+YAY 705KB NOW
+
+obj_slaphitbox, revolvershot, play2, junk, are here to not possibly break stuff. Null is used kinda
+
+spr_playerN_machpunch1 is used for mach3hit WTFFFF
+
+I'm gonna left squished and clown tv because they are technically used they are just invisible
+
+704KB btw I think it's done
+
+yeah I think it's done, needs some fixes and that's it. gonna post a new build
+
+sadly but new build is just 2MB less than a previous one (current one - 62MB). But it's alright, it's all
+about a Gamemaker Decomp, not a mod.
+
+OH NO I DELETED FAKE PEPPINO HALL TILESET!!!!!!!!!!!
+
+shower appears for some reason even if you checked this cutscene already. HUH! WEIRD!
+
+new build.....
