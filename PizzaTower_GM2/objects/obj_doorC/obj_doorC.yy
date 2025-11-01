@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "obj_doorC",
   "spriteId": {
-    "name": "spr_doorC",
-    "path": "sprites/spr_doorC/spr_doorC.yy",
+    "name": "sprite1023",
+    "path": "sprites/sprite1023/sprite1023.yy",
   },
   "solid": false,
   "visible": false,
