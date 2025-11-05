@@ -1088,7 +1088,7 @@ else
 	}
 	hurt_buffer = -1;
 }
-if ((room == Realtitlescreen && instance_exists(obj_mainmenuselect)) || room == Mainmenu || room == Longintro || room == Endingroom || room == Creditsroom || room == Johnresurrectionroom)
+if ((room == rm_init && instance_exists(obj_mainmenuselect)) || room == Mainmenu || room == Longintro || room == Endingroom || room == Creditsroom || room == Johnresurrectionroom)
 {
 	state = states.titlescreen;
 }
@@ -1631,7 +1631,7 @@ if (restartbuffer > 0)
 }
 if ((y > (room_height + 300) || y < -800) && !place_meeting(x, y, obj_verticalhallway) && restartbuffer <= 0 && !verticalhallway && state != states.gameover && state != states.gotoplayer && !global.levelreset && room != boss_pizzaface && room != tower_outside && room != boss_pizzafacefinale && state != states.gameover && !instance_exists(obj_backtohub_fadeout) && state != states.backtohub)
 {
-	if (room != Mainmenu && room != tower_outside && room != Realtitlescreen && room != Longintro && room != Endingroom && room != Johnresurrectionroom && room != Creditsroom && room != rank_room)
+	if (room != Mainmenu && room != tower_outside && room != rm_init && room != Longintro && room != Endingroom && room != Johnresurrectionroom && room != Creditsroom && room != rank_room)
 	{
 		visible = true;
 		with (obj_camera)

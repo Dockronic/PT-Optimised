@@ -5,9 +5,9 @@ if (instance_number(object_index) > 1)
 }
 levels =
 [
+  entrance_secret1,
+  entrance_secret2,
   entrance_secret3,
-  entrance_secret4,
-  entrance_secret5,
   medieval_secret4,
   medieval_secret5,
   medieval_secret6,

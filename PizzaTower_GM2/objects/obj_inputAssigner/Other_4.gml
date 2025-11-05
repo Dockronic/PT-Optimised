@@ -5,7 +5,7 @@ if (room == characterselect)
 		player_input_device[1] = -2;
 	}
 }
-if (room == Realtitlescreen)
+if (room == rm_init)
 {
 	player_input_device[0] = -2;
 	player_input_device[1] = -2;

@@ -1,5 +1,5 @@
 pal_swap_init_system_fix(shd_pal_swapper);
-global.roommessage = "PIZZA TOWER WESTERN BUILD V3";
+global.roommessage = "LOADING";
 global.longintro = true;
 tdp_text_init();
 global.holiday = holidays.normal;
@@ -10,3 +10,4 @@ if (month == 10 || (month == 11 && day <= 14))
 {
 	global.holiday = holidays.halloween;
 }
+surface_depth_disable(true)

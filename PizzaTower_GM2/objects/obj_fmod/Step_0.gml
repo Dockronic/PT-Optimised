@@ -9,7 +9,7 @@ if (!global.steam_api)
 		}
 	}
 }
-else if (room != Loadiingroom)
+else if (room != rm_preinit)
 {
 	if (steam_is_screenshot_requested())
 	{

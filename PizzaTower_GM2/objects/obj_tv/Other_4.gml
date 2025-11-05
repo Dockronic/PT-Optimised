@@ -81,7 +81,7 @@ switch (global.leveltosave)
 		tv_bg_index = 19;
 		break;
 }
-if (special_prompts == noone && room != Realtitlescreen && room != characterselect)
+if (special_prompts == noone && room != rm_init && room != characterselect)
 {
 	special_prompts = ds_map_create();
 	ini_open(concat("saveData", global.currentsavefile, ".ini"));
@@ -99,7 +99,7 @@ if (special_prompts == noone && room != Realtitlescreen && room != charactersele
 	ds_map_set(special_prompts, "rocket", ini_read_real("Prompts", "rocket", 0));
 	ini_close();
 }
-if (room == Realtitlescreen)
+if (room == rm_init)
 {
 	if (special_prompts != noone)
 	{

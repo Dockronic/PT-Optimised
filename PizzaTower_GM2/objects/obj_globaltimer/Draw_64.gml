@@ -1,4 +1,4 @@
-if (!global.option_timer || room == Realtitlescreen || room == Longintro || room == Finalintro || room == Mainmenu || room == hub_loadingscreen || room == Creditsroom || room == Johnresurrectionroom || room == rank_room || room == characterselect || instance_exists(obj_titlecard) || !global.option_hud)
+if (!global.option_timer || room == rm_init || room == Longintro || room == Finalintro || room == Mainmenu || room == hub_loadingscreen || room == Creditsroom || room == Johnresurrectionroom || room == rank_room || room == characterselect || instance_exists(obj_titlecard) || !global.option_hud)
 {
 	exit;
 }

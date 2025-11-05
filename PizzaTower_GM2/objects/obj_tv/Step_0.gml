@@ -7,7 +7,7 @@ if (global.combotime > 0 && global.combo > 0)
 {
 	visualcombo = global.combo;
 }
-if (room == Realtitlescreen || room == Longintro || room == Mainmenu || room == rank_room || room == timesuproom  || room == characterselect || room == hub_loadingscreen || (string_copy(room_get_name(room), 1, 5) == "tower" && !global.panic))
+if (room == rm_init || room == Longintro || room == Mainmenu || room == rank_room || room == timesuproom  || room == characterselect || room == hub_loadingscreen || (string_copy(room_get_name(room), 1, 5) == "tower" && !global.panic))
 {
 	visible = false;
 	sprite_index = spr_tv_off;

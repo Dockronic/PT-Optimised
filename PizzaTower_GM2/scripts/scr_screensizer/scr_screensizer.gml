@@ -28,7 +28,7 @@ function screen_apply_size()
 
 function screen_apply_vsync()
 {
-	if (room != Loadiingroom)
+	if (room != rm_preinit)
 	{
 		trace("Applying VSync: ", global.option_vsync);
 		display_reset(0, global.option_vsync);
