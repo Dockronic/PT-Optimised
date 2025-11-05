@@ -33,6 +33,6 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Character Select",
-    "path": "folders/Objects/Menues/Character Select.yy",
+    "path": "folders/Objects/Menus/Character Select.yy",
   },
 }

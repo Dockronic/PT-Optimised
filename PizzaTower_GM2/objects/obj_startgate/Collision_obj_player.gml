@@ -44,11 +44,6 @@ if ((floor(obj_player1.image_index) == (obj_player1.image_number - 1) && obj_pla
 		{
 			global.wave = 0;
 			global.maxwave = ((global.minutes * 60) + global.seconds) * 60;
-			if (global.panicbg)
-			{
-				scr_panicbg_init();
-			}
-			global.snickchallenge = true;
 			global.collect = 10000;
 			with (obj_camera)
 			{

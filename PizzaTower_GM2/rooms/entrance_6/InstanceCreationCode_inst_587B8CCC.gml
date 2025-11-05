@@ -1,1 +1,1 @@
-targetRoom = entrance_6c;
+targetRoom = entrance_6a;

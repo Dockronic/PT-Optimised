@@ -34,6 +34,6 @@
   "overriddenProperties": [],
   "parent": {
     "name": "File Select",
-    "path": "folders/Objects/Menues/File Select.yy",
+    "path": "folders/Objects/Menus/File Select.yy",
   },
 }

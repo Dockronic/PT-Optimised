@@ -175,20 +175,6 @@ function scr_player_mach2()
 			state = states.climbwall;
 		}
 	}
-	if (!grounded && place_meeting(x + sign(hsp), y, obj_climbablewall) && !place_meeting(x + sign(hsp), y, obj_destructibles) && !place_meeting(x + sign(hsp), y, obj_metalblock))
-	{
-		var _climb = true;
-		if (!ispeppino)
-		{
-			_climb = ledge_bump(32);
-		}
-		if (_climb)
-		{
-			wallspeed = movespeed;
-			grabclimbbuffer = 0;
-			state = states.climbwall;
-		}
-	}
 	if (!instance_exists(dashcloudid) && grounded)
 	{
 		with (instance_create(x, y, obj_dashcloud))
@@ -351,7 +337,7 @@ function scr_player_mach2()
 	{
 		sprite_index = spr_player_mortjumpstart;
 	}
-	if (state != states.machslide && state != states.unknown300 && scr_solid(x + xscale, y) && !scr_slope() && (scr_solid_slope(x + sign(hsp), y) || place_meeting(x + sign(hsp), y, obj_solid)) && !place_meeting(x + sign(hsp), y, obj_destructibles) && !place_meeting(x + sign(hsp), y, obj_climbablewall) && grounded)
+	if (state != states.machslide && state != states.unknown300 && scr_solid(x + xscale, y) && !scr_slope() && (scr_solid_slope(x + sign(hsp), y) || place_meeting(x + sign(hsp), y, obj_solid)) && !place_meeting(x + sign(hsp), y, obj_destructibles) && grounded)
 	{
 		if (skateboarding)
 		{

@@ -11,7 +11,10 @@
   "managed": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "obj_doorID",
+    "path": "objects/obj_doorID/obj_doorID.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -26,7 +29,9 @@
   "physicsShapePoints": [],
   "eventList": [],
   "properties": [],
-  "overriddenProperties": [],
+  "overriddenProperties": [
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"ID","path":"objects/obj_doorID/obj_doorID.yy",},"objectId":{"name":"obj_doorID","path":"objects/obj_doorID/obj_doorID.yy",},"value":"A",},
+  ],
   "parent": {
     "name": "Warps",
     "path": "folders/Objects/Room Structure/Warps.yy",

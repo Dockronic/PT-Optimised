@@ -280,20 +280,6 @@ function scr_player_mach3()
 					state = states.climbwall;
 				}
 			}
-			if (!grounded && place_meeting(x + sign(hsp), y, obj_climbablewall) && !place_meeting(x + sign(hsp), y, obj_destructibles) && !place_meeting(x + sign(hsp), y, obj_metalblock))
-			{
-				var _climb = true;
-				if (!ispeppino)
-				{
-					_climb = ledge_bump(40);
-				}
-				if (_climb)
-				{
-					wallspeed = movespeed;
-					grabclimbbuffer = 0;
-					state = states.climbwall;
-				}
-			}
 			if (input_buffer_slap > 0 && !key_up && shotgunAnim == false && !global.pistol && sprite_index != spr_dashpadmach)
 			{
 				input_buffer_slap = 0;
@@ -350,7 +336,7 @@ function scr_player_mach3()
 					scr_pistolshoot(states.mach3);
 				}
 			}
-			if ((scr_solid(x + sign(hsp), y)) && !scr_slope() && (scr_solid_slope(x + sign(hsp), y) || place_meeting(x + sign(hsp), y, obj_solid)) && !place_meeting(x + sign(hsp), y, obj_metalblock) && !place_meeting(x + sign(hsp), y, obj_destructibles) && !place_meeting(x + sign(hsp), y, obj_climbablewall) && grounded)
+			if ((scr_solid(x + sign(hsp), y)) && !scr_slope() && (scr_solid_slope(x + sign(hsp), y) || place_meeting(x + sign(hsp), y, obj_solid)) && !place_meeting(x + sign(hsp), y, obj_metalblock) && !place_meeting(x + sign(hsp), y, obj_destructibles) && grounded)
 			{
 				var _bump = true;
 				if (ispeppino || noisemachcancelbuffer <= 0)
