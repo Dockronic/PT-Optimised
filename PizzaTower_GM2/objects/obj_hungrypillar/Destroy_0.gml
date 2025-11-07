@@ -27,7 +27,7 @@ if (ds_list_find_index(global.saveroom, id) == -1 && global.snickchallenge == fa
 		case entrance_10:
 			global.fill = 1860;
 			break;
-		case medieval_10:
+		case medieval_11:
 			global.fill = 2040;
 			break;
 		case ruin_11:
@@ -145,7 +145,7 @@ if (ds_list_find_index(global.saveroom, id) == -1 && global.snickchallenge == fa
 			global.minutes = 2;
 			global.seconds = 30;
 			break;
-		case medieval_10:
+		case medieval_11:
 			global.minutes = 2;
 			global.seconds = 15;
 			break;

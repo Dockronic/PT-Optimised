@@ -21,10 +21,10 @@ if (room != chateau_secret2)
 }
 switch (room)
 {
-	case medieval_secret4:
+	case medieval_secret1:
 		startstate = states.knightpep;
 		break;
-	case medieval_secret5:
+	case medieval_secret2:
 		startstate = states.knightpep;
 		break;
 	case badland_secret2:

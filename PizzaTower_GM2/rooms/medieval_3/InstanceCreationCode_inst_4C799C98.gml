@@ -1,1 +1,1 @@
-targetRoom = medieval_3b;
+targetRoom = medieval_4;

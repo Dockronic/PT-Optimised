@@ -92,10 +92,10 @@ add_music(medieval_1, "event:/music/w1/medieval", "event:/music/w1/medievalsecre
 			s = 0;
 			break;
 		case medieval_3:
-		case medieval_5:
+		case medieval_6:
 			s = 0;
 			break;
-		case medieval_6:
+		case medieval_7:
 			s = 2;
 			break;
 	}

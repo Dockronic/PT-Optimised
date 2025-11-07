@@ -1,2 +1,2 @@
-targetRoom = medieval_9b;
+targetRoom = medieval_10;
 depth = 100;
