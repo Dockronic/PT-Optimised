@@ -16,6 +16,41 @@ switch (state)
 	case states.grabbed:
 		scr_enemy_grabbed();
 		break;
+	case states.underground:
+		var player = instance_nearest(x, y, obj_player);
+		hsp = 0;
+		if (underground)
+		{
+			if (vsp < 0)
+			{
+				vsp = 0;
+			}
+			sprite_index = spr_minijohn_underground;
+			visible = false;
+			if (player.x > (x - 80) && player.x < (x + 80) && y <= (player.y + 60) && y >= (player.y - 60) && (player.state == states.freefallland || player.sprite_index == player.spr_piledriverland || (player.state == states.ratmountbounce && player.vsp > 0)))
+			{
+				fmod_event_one_shot_3d("event:/sfx/enemies/treasureguy", x, y);
+				notification_push(notifications.treasureguy_uncovered, [room, object_index, id]);
+				underground = false;
+				visible = true;
+				if (player.x != x)
+				{
+					image_xscale = sign(x - player.x);
+				}
+				sprite_index = spr_treasureguy_stun;
+				vsp = -4;
+				repeat (3)
+				{
+					create_debris(x, y, spr_debris);
+				}
+			}
+		}
+		else if (grounded && vsp > 0)
+		{
+			state = states.walk;
+			sprite_index = idlespr;
+		}
+		break;
 }
 if (state == states.underground)
 {
