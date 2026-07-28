@@ -46,7 +46,6 @@ if (place_meeting(x, y - s, obj_player))
 			}
 			if (!other.used)
 			{
-				ramp = true;
 				other.used = true;
 			}
 			ramp_buffer = 16;

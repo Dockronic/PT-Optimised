@@ -4,7 +4,7 @@ function scr_player_freefallprep()
 	if (!grounded)
 	{
 		hsp = move * movespeed;
-		if (move != xscale && momemtum == true && movespeed != 0)
+		if (move != xscale && momemtum && movespeed != 0)
 		{
 			movespeed -= 0.05;
 		}
@@ -12,7 +12,7 @@ function scr_player_freefallprep()
 		{
 			momemtum = false;
 		}
-		if ((move == 0 && momemtum == false) || scr_solid(x + hsp, y))
+		if ((move == 0 && !momemtum) || scr_solid(x + hsp, y))
 		{
 			movespeed = 0;
 			mach2 = 0;
@@ -54,7 +54,7 @@ function scr_player_freefallprep()
 	if (ANIMATION_END)
 	{
 		state = states.freefall;
-		if (shotgunAnim == false)
+		if (!shotgunAnim)
 		{
 			sprite_index = spr_bodyslamfall;
 		}

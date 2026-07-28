@@ -1,32 +1,3 @@
-function add_secrets_achievement(_secret, _level_array)
-{
-	var b = add_achievement_notify(concat("secrets", _secret), noone, function(_secret)
-	{
-		var type = _secret[0];
-		if (type == notifications.level_finished)
-		{
-			var n = levelarray;
-			var _unfinished = false;
-			ini_open_from_string(obj_savesystem.ini_str);
-			for (var i = 0; i < array_length(n); i++)
-			{
-				var b = n[i];
-				var s = ini_read_real("Secret", b, 0);
-				if (s < 3)
-				{
-					_unfinished = true;
-				}
-			}
-			ini_close();
-			if (!_unfinished)
-			{
-				achievement_unlock(name, noone, spr_achievement_farm, 0);
-			}
-		}
-	});
-	b.levelarray = _level_array;
-}
-
 function add_rank_achievements(_world, _rank, _spr, _index, _level_array)
 {
 	var b = add_achievement_notify(concat(_rank, "ranks", _world), noone, function(_world)

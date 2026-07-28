@@ -18,11 +18,6 @@ function scr_checkanystick(_device, _threshold = 0.5)
 	}
 }
 
-function scr_check_menu_key(_key)
-{
-	return global.key_start != _key && global.key_slap != _key && global.key_taunt != _key;
-}
-
 function scr_check_menu_repeats(_inputname, _key, _is_gamepad)
 {
 	if (!_is_gamepad && _key == vk_escape && (_inputname == "menu_back" || _inputname == "menu_start"))

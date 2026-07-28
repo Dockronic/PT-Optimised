@@ -7,5 +7,17 @@ if (other.state != states.handstandjump && !hasgrabbed)
 }
 else if (!move)
 {
-	event_inherited();
+	if (!grabbed && (other.state == states.handstandjump || other.state == states.punch || other.state == states.lungeattack) && !unpickable)
+	{
+		with (other)
+		{
+			image_index = 0;
+			sprite_index = spr_haulingstart;
+			baddiegrabbedID = other.id;
+			grabbingenemy = true;
+			state = states.grab;
+		}
+		playerid = other.object_index;
+		grabbed = true;
+	}
 }

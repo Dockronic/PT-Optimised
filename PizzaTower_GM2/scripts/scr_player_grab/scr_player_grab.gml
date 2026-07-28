@@ -28,7 +28,7 @@ function scr_player_grab()
 			var _railinst = instance_place(x, y + 1, obj_railparent);
 			hsp = (move * movespeed) + (_railinst.movespeed * _railinst.dir);
 		}
-		if (heavy == false)
+		if (!heavy)
 		{
 			if (sprite_index != spr_swingding)
 			{
@@ -96,7 +96,7 @@ function scr_player_grab()
 					image_speed = 0.6;
 				}
 			}
-			else if (heavy == true)
+			else if (heavy)
 			{
 				image_speed = 0.1;
 			}
@@ -120,7 +120,7 @@ function scr_player_grab()
 			{
 				movespeed = 2;
 			}
-			if (momemtum == false)
+			if (!momemtum)
 			{
 				hsp = move * movespeed;
 			}
@@ -128,7 +128,7 @@ function scr_player_grab()
 			{
 				hsp = xscale * movespeed;
 			}
-			if (move != 0 && move != xscale && momemtum == true && movespeed != 0)
+			if (move != 0 && move != xscale && momemtum && movespeed != 0)
 			{
 				movespeed -= 0.05;
 			}
@@ -161,7 +161,7 @@ function scr_player_grab()
 			momemtum = false;
 		}
 		landAnim = true;
-		if (!key_jump2 && jumpstop == false && vsp < 0.5 && stompAnim == false)
+		if (!key_jump2 && !jumpstop && vsp < 0.5 && !stompAnim)
 		{
 			vsp /= 20;
 			jumpstop = true;
@@ -170,7 +170,7 @@ function scr_player_grab()
 		{
 			ladderbuffer--;
 		}
-		if (scr_solid(x, y - 1) && jumpstop == false && jumpAnim == true)
+		if (scr_solid(x, y - 1) && !jumpstop && jumpAnim)
 		{
 			vsp = grav;
 			jumpstop = true;
@@ -224,7 +224,7 @@ function scr_player_grab()
 		scr_fmod_soundeffect(jumpsnd, x, y);
 		sprite_index = spr_haulingjump;
 		instance_create(x, y, obj_highjumpcloud2);
-		if (heavy == false)
+		if (!heavy)
 		{
 			vsp = -11;
 		}
@@ -329,7 +329,7 @@ function scr_player_grab()
 	{
 		image_speed = 0.35;
 	}
-	else if (heavy == true)
+	else if (heavy)
 	{
 		image_speed = 0.1;
 	}

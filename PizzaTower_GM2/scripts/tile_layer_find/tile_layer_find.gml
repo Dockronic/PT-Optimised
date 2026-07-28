@@ -32,7 +32,6 @@ function tile_layer_find(argument0, argument1, argument2)
 				var __tileXscale = layer_tile_get_xscale(__els[__j]);
 				var __tileYscale = layer_tile_get_yscale(__els[__j]);
 				
-				// Fast(ish) path with more early-outs
 				if ((__tileXscale >= 0) && (__tileYscale >= 0))
 				{			
 					var __tileX = layer_tile_get_x(__els[__j]);						

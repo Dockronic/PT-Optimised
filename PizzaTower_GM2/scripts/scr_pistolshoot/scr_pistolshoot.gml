@@ -9,7 +9,7 @@ function scr_pistolshoot(_state, _enable_charge = false)
 	{
 		exit;
 	}
-	if ((pistolcooldown <= 0 && state == _state && state != states.bump && instance_number(obj_pistolbullet) < 3) || pistolchargeshooting == true)
+	if ((pistolcooldown <= 0 && state == _state && state != states.bump && instance_number(obj_pistolbullet) < 3) || pistolchargeshooting)
 	{
 		input_buffer_shoot = 0;
 		pistolanim = spr_pistolshot;
@@ -18,7 +18,6 @@ function scr_pistolshoot(_state, _enable_charge = false)
 		machslideAnim = false;
 		landAnim = false;
 		jumpAnim = false;
-		crouchslideAnim = false;
 		crouchAnim = false;
 		stompAnim = false;
 		if (_state == states.mach3 || _state == states.mach2)

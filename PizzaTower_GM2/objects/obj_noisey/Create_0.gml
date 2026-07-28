@@ -7,18 +7,9 @@ vsp = 0;
 x_to = x;
 y_to = y;
 dir = 0;
-float_hsp = 0;
-float_vsp = 0;
 state = states.walk;
 stunned = 0;
 alarm[0] = 150;
-roaming = true;
-collectdrop = 5;
-flying = false;
-straightthrow = false;
-cigar = false;
-cigarcreate = false;
-stomped = false;
 shot = false;
 reset = false;
 hp = 1;
@@ -30,7 +21,6 @@ walkspr = spr_noisey_walk;
 grabbedspr = spr_noisey_grabbed;
 scaredspr = spr_noisey_scared;
 flash = false;
-slapped = false;
 birdcreated = false;
 boundbox = false;
 spr_dead = spr_noisey_dead;
@@ -43,7 +33,7 @@ grabbedby = 0;
 stuntouchbuffer = 0;
 ragedash = 0;
 ragecooldown = 0;
-if (!obj_player1.ispeppino)
+if (!obj_player.ispeppino)
 {
 	spr_palette = spr_noiseboss_palette;
 	usepalette = true;

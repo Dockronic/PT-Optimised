@@ -32,16 +32,7 @@ function camera_zoom(_zoom, _zoomspd)
 		targetzoom = clamp(targetzoom, 0, max_zoom);
 		if (_zoomspd != undefined)
 		{
-			zoomspd = abs(_zoomspd);
 		}
-	}
-}
-
-function camera_set_zoom(_zoom)
-{
-	with (obj_camera)
-	{
-		zoom = _zoom;
 	}
 }
 
@@ -63,33 +54,6 @@ function try_solid(_xspd, _yspd, _obj, _iteration_count)
 	x = old_x;
 	y = old_y;
 	return n;
-}
-
-function ledge_bump_vertical(_iteration_count, _yspd)
-{
-	var old_x = x;
-	var old_y = y;
-	y += (_yspd * 4);
-	var dirs = [-1, 1];
-	for (var i = 0; i < array_length(dirs); i++)
-	{
-		var ledge_dir = dirs[i];
-		var tx = try_solid(ledge_dir, 0, obj_solid, _iteration_count);
-		y = old_y;
-		if (tx != -1)
-		{
-			x -= (tx * ledge_dir);
-			y += _yspd;
-			if (scr_solid(x, y))
-			{
-				x = old_x;
-				y = old_y;
-				return true;
-			}
-			return false;
-		}
-	}
-	return true;
 }
 
 function ledge_bump(_iteration_count, _xspd = 4)
@@ -126,25 +90,6 @@ function instance_create_unique(_x, _y, _obj)
 	}
 	var b = instance_create(_x, _y, _obj);
 	return b;
-}
-
-function get_solid_difference(_xspd, _yspd, _iteration_count)
-{
-	var old_x = x;
-	var old_y = y;
-	var n = 0;
-	for (var i = 0; i < _iteration_count; i++)
-	{
-		x += _xspd;
-		y += _yspd;
-		if (!scr_solid(x, y))
-		{
-			n++;
-		}
-	}
-	x = old_x;
-	y = old_y;
-	return n;
 }
 
 function trace()
@@ -218,41 +163,4 @@ function bbox_in_camera(_cam, _threshold = 0)
 	var cam_w = camera_get_view_width(_cam);
 	var cam_h = camera_get_view_height(_cam);
 	return bbox_left < (cam_x + cam_w + _threshold) && bbox_right > (cam_x - _threshold) && bbox_top < (cam_y + cam_h + _threshold) && bbox_bottom > (cam_y - _threshold);
-}
-
-function instance_nearest_random(_obj, _range)
-{
-	var l = instance_furthest(x, y, _obj);
-	var list = ds_list_create();
-	for (var i = 0; i < instance_number(_obj); i++)
-	{
-		b = instance_find(_obj, i);
-		var t = distance_to_object(b);
-		if (t <= l)
-		{
-			ds_list_add(list, b);
-		}
-	}
-	var b = undefined;
-	if (ds_list_size(list) > 0)
-	{
-		var n = irandom(_range);
-		if (ds_list_size(list) < n)
-		{
-			n = ds_list_size(list) - 1;
-		}
-		b = ds_list_find_value(list, ds_list_size(list) - n);
-	}
-	ds_list_destroy(list);
-	return b;
-}
-
-function instance_random(_obj)
-{
-	return instance_find(_obj, irandom(instance_number(_obj) - 1));
-}
-
-function heat_calculate(_val)
-{
-	return _val;
 }

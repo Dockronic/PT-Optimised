@@ -4,11 +4,11 @@ if (ini_read_real("w3stick", "door", false) || ini_read_real("Highscore", "fores
 	instance_destroy();
 }
 ini_close();
-if (global.panic == true)
+if (global.panic)
 {
 	instance_destroy();
 }
-if (!obj_player1.ispeppino && !global.swapmode)
+if (!obj_player.ispeppino && !global.swapmode)
 {
 	instance_destroy();
 }

@@ -202,7 +202,6 @@ function scr_player_jetpackjump()
 		image_index = 0;
 		sprite_index = spr_suplexdashjumpstart;
 		flash = true;
-		suplexmove = true;
 		fmod_event_instance_play(suplexdashsnd);
 		state = states.handstandjump;
 		movespeed = 5;
@@ -211,7 +210,7 @@ function scr_player_jetpackjump()
 	{
 		movespeed = 0;
 	}
-	if (sprite_index == spin && jetpackbounce == true && place_meeting(x + xscale, y, obj_solid) && !place_meeting(x + xscale, y, obj_destructibles))
+	if (sprite_index == spin && jetpackbounce && place_meeting(x + xscale, y, obj_solid) && !place_meeting(x + xscale, y, obj_destructibles))
 	{
 		jetpackdash = false;
 		instance_create(x + (xscale * 10), y, obj_bangeffect);

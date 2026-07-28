@@ -182,21 +182,12 @@ function scr_player_bombpepup()
 	hsp = 0;
 	mach2 = 0;
 	jumpAnim = true;
-	dashAnim = true;
 	landAnim = false;
-	moveAnim = true;
-	stopAnim = true;
-	crouchslideAnim = true;
 	crouchAnim = false;
-	machhitAnim = false;
 	if (scr_solid(x, y - 1) && !place_meeting(x, y - 1, obj_destructibles))
 	{
 		pizzapepper = 0;
 		a = 0;
-		//if (sprite_index == spr_player_supersidejump)
-		//{
-		//	sprite_index = spr_player_supersidejumpland;
-		//}
 		if (sprite_index == spr_superjump || sprite_index == spr_superspringplayer)
 		{
 			sprite_index = spr_superjumpland;
@@ -220,7 +211,6 @@ function scr_player_bombpepup()
 		fmod_event_one_shot_3d("event:/sfx/pep/groundpound", x, y);
 		image_index = 0;
 		state = states.Sjumpland;
-		machhitAnim = false;
 	}
 	if (bombup_dir == 1 && scr_solid(x, y + 1) && !place_meeting(x, y + 1, obj_destructibles))
 	{
@@ -260,13 +250,8 @@ function scr_player_bombpepside()
 		movespeed += 0.5;
 	}
 	jumpAnim = true;
-	dashAnim = true;
 	landAnim = false;
-	moveAnim = true;
-	stopAnim = true;
-	crouchslideAnim = true;
 	crouchAnim = false;
-	machhitAnim = false;
 	with (instance_place(x + hsp, y, obj_metalblock))
 	{
 		instance_destroy();
@@ -288,7 +273,6 @@ function scr_player_bombpepside()
 			{
 				stun = true;
 				alarm[0] = 200;
-				ministun = false;
 				vsp = -5;
 				hsp = 0;
 			}
@@ -312,7 +296,7 @@ function scr_player_bombpep()
 	{
 		input_buffer_jump = 0;
 	}
-	if (!key_jump2 && jumpstop == false && vsp < 0.5 && stompAnim == false)
+	if (!key_jump2 && !jumpstop && vsp < 0.5 && !stompAnim)
 	{
 		vsp /= 2;
 		jumpstop = true;
@@ -365,9 +349,8 @@ function scr_player_bombpep()
 	if (bombpeptimer == 0 && sprite_index == spr_bombpeprunabouttoexplode)
 	{
 		hurted = true;
-		//scr_losepoints();
 		instance_create(x, y, obj_bombexplosion);
-		GamepadSetVibration((object_index == obj_player1) ? 0 : 1, 1, 1, 0.9);
+		GamepadSetVibration(0, 1, 1, 0.9);
 		sprite_index = spr_bombpepend;
 	}
 	if (bombpeptimer > 0)
@@ -378,13 +361,13 @@ function scr_player_bombpep()
 	{
 		instance_create(x + 10, y + 10, obj_bumpeffect);
 		xscale *= -1;
-		GamepadSetVibration((object_index == obj_player1) ? 0 : 1, 0.2, 0.2, 0.4);
+		GamepadSetVibration(0, 0.2, 0.2, 0.4);
 	}
 	if (scr_solid(x - 1, y) && xscale == -1 && hsp != 0 && (!place_meeting(x + sign(hsp), y, obj_slope) || scr_solid_slope(x + sign(hsp), y)))
 	{
 		instance_create(x - 10, y + 10, obj_bumpeffect);
 		xscale *= -1;
-		GamepadSetVibration((object_index == obj_player1) ? 0 : 1, 0.2, 0.2, 0.4);
+		GamepadSetVibration(0, 0.2, 0.2, 0.4);
 	}
 	if (input_buffer_jump > 0 && can_jump && hsp != 0)
 	{

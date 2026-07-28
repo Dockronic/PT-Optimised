@@ -55,20 +55,19 @@ if (_transfo)
 	{
 		notification_push(notifications.priest_touched, [room, id, _state]);
 		ds_list_add(global.saveroom, id);
-		var val = 500;
-		global.collect += val;
+		global.collect += 500;
 		global.combotime = 60;
 		with (instance_create(x + 16, y, obj_smallnumber))
 		{
-			number = string(val);
+			number = string(500);
 		}
 		scr_sound_multiple("event:/sfx/misc/collect", x, y);
 		if (escape)
 		{
 			ds_list_add(global.escaperoom, id);
 		}
-		var d = round(val / 16);
-		for (var i = 0; i < val; i += d)
+		var d = round(500 / 16);
+		for (var i = 0; i < 500; i += d)
 		{
 			create_collect(other.x + irandom_range(-60, 60), other.y + irandom_range(-60, 60), choose(spr_shroomcollect, spr_tomatocollect, spr_cheesecollect, spr_sausagecollect, spr_pineapplecollect), d);
 		}

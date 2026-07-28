@@ -57,22 +57,6 @@ switch (state)
 				hsp = 0;
 				sprite_index = spr_pizzaslug_idle;
 				break;
-			case states.turn:
-				image_speed = 0.35;
-				substate_buffer = 5;
-				if (sprite_index != spr_pizzaslug_turn)
-				{
-					image_index = 0;
-					sprite_index = spr_pizzaslug_turn;
-				}
-				if (sprite_index == spr_pizzaslug_turn && ANIMATION_END)
-				{
-					image_xscale *= -1;
-					substate_buffer = substate_max;
-					substate = states.idle;
-					sprite_index = spr_pizzaslug_idle;
-				}
-				break;
 			case states.pizzagoblinthrow:
 				state = states.pizzagoblinthrow;
 				substate_buffer = 0;
@@ -83,12 +67,6 @@ switch (state)
 		break;
 	case states.idle:
 		scr_enemy_idle();
-		break;
-	case states.turn:
-		scr_enemy_turn();
-		break;
-	case states.land:
-		scr_enemy_land();
 		break;
 	case states.hit:
 		scr_enemy_hit();
@@ -106,7 +84,7 @@ switch (state)
 		scr_enemy_rage();
 		break;
 }
-if (state == states.stun && stunned > 100 && birdcreated == false)
+if (state == states.stun && stunned > 100 && !birdcreated)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -118,7 +96,7 @@ if (state != states.stun)
 {
 	birdcreated = false;
 }
-if (flash == true && alarm[2] <= 0)
+if (flash && alarm[2] <= 0)
 {
 	alarm[2] = 0.15 * room_speed;
 }
@@ -127,7 +105,7 @@ if (state == states.walk && substate != states.turn)
 {
 	if ((player.x > (x - 400) && player.x < (x + 400)) && (y <= (player.y + 60) && y >= (player.y - 60)) && ragecooldown == 0)
 	{
-		if (global.stylethreshold >= 3 || elite)
+		if (elite)
 		{
 			if (x != player.x)
 			{
@@ -167,7 +145,7 @@ if (state != states.stun)
 {
 	thrown = false;
 }
-if (boundbox == false)
+if (!boundbox)
 {
 	with (instance_create(x, y, obj_baddiecollisionbox))
 	{

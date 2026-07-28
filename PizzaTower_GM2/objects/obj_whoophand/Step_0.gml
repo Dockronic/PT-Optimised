@@ -6,7 +6,7 @@ else
 {
 	image_yscale = 1;
 }
-if (stop == true)
+if (stop)
 {
 	speed = Approach(speed, 0, 0.5);
 }

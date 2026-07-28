@@ -4,7 +4,7 @@ if (!global.option_vibration)
 }
 with (obj_player)
 {
-	var _pindex = (object_index == obj_player1) ? 0 : 1;
+	var _pindex = 0;
 	_dvc = other.player_input_device[_pindex];
 	if (state != other.prevstate[_pindex])
 	{
@@ -103,12 +103,6 @@ with (obj_player)
 				GamepadSetVibration(_pindex, 0.4, 0.4, 0.8);
 				break;
 			case states.stringfall:
-				GamepadSetVibration(_pindex, 0.7, 0.7, 0.8);
-				break;
-			case states.stringjump:
-				GamepadSetVibration(_pindex, 0.7, 0.7, 0.8);
-				break;
-			case states.stringfling:
 				GamepadSetVibration(_pindex, 0.7, 0.7, 0.8);
 				break;
 			case states.jetpackjump:

@@ -15,7 +15,7 @@ function scr_player_knightpepslopes()
 		hsp = xscale * movespeed;
 	}
 	image_speed = 0.35;
-	if (!key_jump2 && jumpstop == false && vsp < 0.5 && stompAnim == false)
+	if (!key_jump2 && !jumpstop && vsp < 0.5 && !stompAnim)
 	{
 		vsp /= 2;
 		jumpstop = true;

@@ -9,10 +9,6 @@ if (grounded && vsp > 0)
 {
 	instance_destroy();
 }
-//if (sprite_index == spr_dynamite && countdown < 60)
-//{
-//	sprite_index = spr_dynamiteabouttoexplode;
-//}
 if (countdown > 0)
 {
 	countdown--;

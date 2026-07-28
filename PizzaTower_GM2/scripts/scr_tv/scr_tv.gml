@@ -7,117 +7,15 @@ function tv_set_idle()
 	}
 }
 
-function tv_reset()
-{
-	with (obj_tv)
-	{
-		state = states.normal;
-		sprite_index = spr_tv_idle;
-		ds_list_clear(tvprompts_list);
-	}
-}
-
-function tv_create_prompt(_text, _type, _spr, _textspd)
-{
-	return [_text, _type, _spr, _textspd];
-}
-
-function tv_push_prompt(_text, _type, _spr, _textspd)
-{
-	with (obj_tv)
-	{
-		var b = [_text, _type, _spr, _textspd];
-		var play = false;
-		switch (_type)
-		{
-			case tv_prompttypes.normal:
-				play = true;
-				ds_list_insert(tvprompts_list, 0, b);
-				break;
-			case tv_prompttypes.triggered:
-				var placed = false;
-				for (var i = 0; i < ds_list_size(tvprompts_list); i++)
-				{
-					var b2 = ds_list_find_value(tvprompts_list, i);
-					if (b2[1] == tv_prompttypes.transformation)
-					{
-						if (i == 0)
-						{
-							play = true;
-						}
-						ds_list_insert(tvprompts_list, i, b);
-						placed = true;
-						break;
-					}
-				}
-				if (!placed)
-				{
-					ds_list_add(tvprompts_list, b);
-				}
-				break;
-			case tv_prompttypes.transformation:
-				ds_list_add(tvprompts_list, b);
-				break;
-		}
-		if (play)
-		{
-			state = states.normal;
-		}
-	}
-}
-
-function tv_push_prompt_array(_prompt)
-{
-	for (var i = 0; i < array_length(_prompt); i++)
-	{
-		with (obj_tv)
-		{
-			var b = _prompt[i];
-			tv_push_prompt(b[0], b[1], b[2], b[3]);
-		}
-	}
-}
-
-function tv_push_prompt_once(_prompt, _ini_key)
-{
-	with (obj_tv)
-	{
-		if (special_prompts == noone)
-		{
-			return false;
-		}
-		var b = ds_map_find_value(special_prompts, _ini_key);
-		if (is_undefined(b))
-		{
-			return false;
-		}
-		if (b != 1)
-		{
-			tv_push_prompt(_prompt[0], _prompt[1], _prompt[2], _prompt[3]);
-			ds_map_set(special_prompts, _ini_key, 1);
-			ini_open_from_string(obj_savesystem.ini_str);
-			ini_write_real("Prompts", _ini_key, 1);
-			obj_savesystem.ini_str = ini_close();
-			return true;
-		}
-		return false;
-	}
-}
-
-function tv_default_condition()
-{
-	return place_meeting(x, y, obj_player);
-}
-
 function tv_get_palette()
 {
-	if (!instance_exists(obj_player1))
+	if (!instance_exists(obj_player))
 	{
 		exit;
 	}
-	var _info = obj_player1.ispeppino ? get_pep_palette_info() : get_noise_palette_info();
+	var _info = obj_player.ispeppino ? get_pep_palette_info() : get_noise_palette_info();
 	spr_palette = _info.spr_palette;
-	if (obj_player1.isgustavo && obj_player1.ispeppino)
+	if (obj_player.isgustavo && obj_player.ispeppino)
 	{
 		spr_palette = spr_ratmountpalette;
 	}
@@ -125,11 +23,11 @@ function tv_get_palette()
 	patterntexture = _info.patterntexture;
 }
 
-function tv_do_expression(_spr, _reset_palette = false, _make_peppino = false)
+function tv_do_expression(_spr, _make_peppino = false)
 {
 	with (obj_tv)
 	{
-		if (expressionsprite != _spr && bubblespr == noone)
+		if (expressionsprite != _spr)
 		{
 			state = states.whitenoise;
 			expressionsprite = _spr;
@@ -169,16 +67,16 @@ function tv_do_expression(_spr, _reset_palette = false, _make_peppino = false)
 						expressionsprite = spr_tv_happyG;
 						if (irandom(100) <= 50)
 						{
-							fmod_event_one_shot_3d("event:/sfx/voice/brickok", obj_player1.x, obj_player1.y);
+							fmod_event_one_shot_3d("event:/sfx/voice/brickok", obj_player.x, obj_player.y);
 						}
 					}
 					if (irandom(100) <= 50)
 					{
-						scr_fmod_soundeffect(obj_player1.snd_voiceok, obj_player1.x, obj_player1.y);
+						scr_fmod_soundeffect(obj_player.snd_voiceok, obj_player.x, obj_player.y);
 					}
 					break;
 			}
-			if (!_make_peppino && instance_exists(obj_player1) && !obj_player1.ispeppino)
+			if (!_make_peppino && instance_exists(obj_player) && !obj_player.ispeppino)
 			{
 				var n = asset_get_index(sprite_get_name(_spr) + "N");
 				if (n > -1)
@@ -186,24 +84,16 @@ function tv_do_expression(_spr, _reset_palette = false, _make_peppino = false)
 					expressionsprite = n;
 				}
 			}
-			if (_reset_palette)
-			{
-				reset_palette = true;
-			}
-			else
-			{
-				reset_palette = false;
-			}
 		}
 	}
 }
 
 function scr_tv_get_transfo_sprite()
 {
-	var _state = obj_player1.state;
+	var _state = obj_player.state;
 	if (_state == states.backbreaker || _state == states.chainsaw)
 	{
-		_state = obj_player1.tauntstoredstate;
+		_state = obj_player.tauntstoredstate;
 	}
 	var _spr = noone;
 	if (instance_exists(obj_bucketfollower))
@@ -224,17 +114,17 @@ function scr_tv_get_transfo_sprite()
 			break;
 		case states.fireass:
 			_spr = spr_tv_fireass;
-			if (obj_player1.sprite_index == obj_player1.spr_scaredjump1 || obj_player1.sprite_index == obj_player1.spr_scaredjump2)
+			if (obj_player.sprite_index == obj_player.spr_scaredjump1 || obj_player.sprite_index == obj_player.spr_scaredjump2)
 			{
 				_spr = spr_tv_scaredjump;
 			}
 			break;
 		case states.tumble:
-			if (obj_player1.sprite_index == obj_player1.spr_tumble || obj_player1.sprite_index == obj_player1.spr_tumblestart || obj_player1.sprite_index == obj_player1.spr_tumbleend)
+			if (obj_player.sprite_index == obj_player.spr_tumble || obj_player.sprite_index == obj_player.spr_tumblestart || obj_player.sprite_index == obj_player.spr_tumbleend)
 			{
 				_spr = spr_tv_tumble;
 			}
-			else if (obj_player1.shotgunAnim)
+			else if (obj_player.shotgunAnim)
 			{
 				_spr = spr_tv_shotgun;
 			}
@@ -247,7 +137,7 @@ function scr_tv_get_transfo_sprite()
 			_spr = spr_tv_ghost;
 			break;
 		case states.stunned:
-			if (obj_player1.sprite_index == obj_player1.spr_squished)
+			if (obj_player.sprite_index == obj_player.spr_squished)
 			{
 				_spr = spr_tv_squished;
 			}
@@ -260,7 +150,7 @@ function scr_tv_get_transfo_sprite()
 		case states.mach3:
 		case states.machslide:
 		case states.bump:
-			with (obj_player1)
+			with (obj_player)
 			{
 				if (shotgunAnim)
 				{
@@ -275,7 +165,7 @@ function scr_tv_get_transfo_sprite()
 		case states.freefallprep:
 		case states.freefall:
 		case states.freefallland:
-			if (obj_player1.shotgunAnim)
+			if (obj_player.shotgunAnim)
 			{
 				_spr = spr_tv_shotgun;
 			}
@@ -336,17 +226,17 @@ function scr_tv_get_transfo_sprite()
 		case states.climbwall:
 		case states.machroll:
 		case states.grind:
-			if (obj_player1.skateboarding)
+			if (obj_player.skateboarding)
 			{
 				_spr = spr_tv_clown;
 			}
-			else if (obj_player1.shotgunAnim)
+			else if (obj_player.shotgunAnim)
 			{
 				_spr = spr_tv_shotgun;
 			}
 			break;
 	}
-	with (obj_player1)
+	with (obj_player)
 	{
 		if (state == states.actor && sprite_index == spr_tumble)
 		{

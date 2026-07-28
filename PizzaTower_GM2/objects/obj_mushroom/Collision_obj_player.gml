@@ -1,4 +1,4 @@
-if (other.cutscene == false && sprite_index != spr_bigmushroom_bounce && other.state != states.gotoplayer)
+if (!other.cutscene && sprite_index != spr_bigmushroom_bounce && other.state != states.gotoplayer)
 {
 	other.jumpstop = true;
 	with (other)

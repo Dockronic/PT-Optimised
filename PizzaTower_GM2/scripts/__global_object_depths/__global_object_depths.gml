@@ -92,7 +92,7 @@ function __global_object_depths() {
     global.__objectDepths[84] = 0; // obj_reverseminipillar
     global.__objectDepths[85] = 0; // obj_minipillar
     global.__objectDepths[86] = 2; // obj_spike
-    global.__objectDepths[87] = 0; // obj_null
+    global.__objectDepths[87] = 0; // (removed obj_null)
     global.__objectDepths[88] = 0; // obj_healthpickup
     global.__objectDepths[89] = 0; // obj_shotgunpickup
     global.__objectDepths[90] = 0; // obj_spaghetti
@@ -213,7 +213,6 @@ function __global_object_depths() {
     global.__objectDepths[205] = -7; // obj_bulletimpact
     global.__objectDepths[206] = -7; // obj_bulletdisappear
     global.__objectDepths[207] = -7; // obj_chargeeffect
-    global.__objectDepths[208] = 0; // obj_pogoeffect
     global.__objectDepths[209] = 0; // obj_chainsaweffect
     global.__objectDepths[210] = 0; // obj_explosioneffect
     global.__objectDepths[211] = 0; // obj_pistoleffect
@@ -333,7 +332,7 @@ function __global_object_depths() {
     global.__objectNames[84] = "obj_reverseminipillar";
     global.__objectNames[85] = "obj_minipillar";
     global.__objectNames[86] = "obj_spike";
-    global.__objectNames[87] = "obj_null";
+    global.__objectNames[87] = "";
     global.__objectNames[88] = "obj_healthpickup";
     global.__objectNames[89] = "obj_shotgunpickup";
     global.__objectNames[90] = "obj_spaghetti";
@@ -454,7 +453,6 @@ function __global_object_depths() {
     global.__objectNames[205] = "obj_bulletimpact";
     global.__objectNames[206] = "obj_bulletdisappear";
     global.__objectNames[207] = "obj_chargeeffect";
-    global.__objectNames[208] = "obj_pogoeffect";
     global.__objectNames[209] = "obj_chainsaweffect";
     global.__objectNames[210] = "obj_explosioneffect";
     global.__objectNames[211] = "obj_pistoleffect";

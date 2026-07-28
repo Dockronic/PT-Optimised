@@ -4,4 +4,3 @@ with (instance_create(x, y, obj_ghosttransparency))
 	sprite_index = other.sprite_index;
 	image_xscale = other.image_xscale;
 }
-away = false;

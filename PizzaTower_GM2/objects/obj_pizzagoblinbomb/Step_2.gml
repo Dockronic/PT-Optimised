@@ -1,4 +1,4 @@
-if (defused == true)
+if (defused)
 {
 	countdown -= 0.5;
 }

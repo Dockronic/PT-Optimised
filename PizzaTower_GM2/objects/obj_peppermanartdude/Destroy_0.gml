@@ -1,4 +1,4 @@
-if (noshake == false)
+if (!noshake)
 {
 	instance_create(x, y, obj_slapstar);
 	instance_create(x, y, obj_slapstar);

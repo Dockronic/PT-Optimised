@@ -1,10 +1,6 @@
 with (other)
 {
-	if (character == "V")
-	{
-		scr_hurtplayer(id);
-	}
-	else if (!isgustavo && state != states.ghost && state != states.ghostpossess && state != states.ghostcaught && state != states.actor && state != states.parry && state != states.gotoplayer)
+	if (!isgustavo && state != states.ghost && state != states.ghostpossess && state != states.ghostcaught && state != states.actor && state != states.parry && state != states.gotoplayer)
 	{
 		if (ispeppino)
 		{

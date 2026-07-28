@@ -16,7 +16,6 @@ function scr_playerN_hookshot()
 		jumpAnim = true;
 		jumpstop = false;
 		image_index = 0;
-		freefallstart = 0;
 	}
 	if (dir != xscale)
 	{
@@ -47,10 +46,6 @@ function scr_playerN_hookshot()
 			}
 		}
 	}
-	//if (ANIMATION_END && sprite_index == spr_playerN_hookshot1)
-	//{
-	//	sprite_index = spr_playerN_hookshot2;
-	//}
 	if (move != 0)
 	{
 		if (movespeed < 8)

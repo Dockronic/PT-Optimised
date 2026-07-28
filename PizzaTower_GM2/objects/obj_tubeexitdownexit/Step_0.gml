@@ -15,8 +15,7 @@ if (state == states.tube)
 					y--;
 				}
 			}
-			var p = (object_index == obj_player1) ? 0 : 1;
-			GamepadSetVibration(p, 1, 1, 0.9);
+			GamepadSetVibration(0, 1, 1, 0.9);
 		}
 	}
 	with (playerid)

@@ -1,4 +1,4 @@
-if (floor(image_index) == 2 && canthrowbomb == true)
+if (floor(image_index) == 2 && canthrowbomb)
 {
 	with (instance_create(x + (image_xscale * 10), y - 20, obj_bomb))
 	{
@@ -8,7 +8,7 @@ if (floor(image_index) == 2 && canthrowbomb == true)
 	}
 	canthrowbomb = false;
 }
-if (ANIMATION_END && canthrowbomb == false)
+if (ANIMATION_END && !canthrowbomb)
 {
 	image_speed = 0;
 }

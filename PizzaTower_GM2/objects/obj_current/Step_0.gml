@@ -3,7 +3,7 @@ if (place_meeting(x, y - 1, obj_player))
 {
 	with (obj_player)
 	{
-		if (state != states.golf && state != states.tackle && state != states.gotoplayer && state != states.stringfall && state != states.stringjump && state != states.stringfling)
+		if (state != states.golf && state != states.tackle && state != states.gotoplayer && state != states.stringfall)
 		{
 			if (place_meeting(x, y + 1, other))
 			{

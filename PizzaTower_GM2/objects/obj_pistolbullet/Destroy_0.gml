@@ -1,4 +1,4 @@
-if (sprite_index != spr_null)
+if (sprite_index != noone)
 {
 	with (instance_create(x, y, obj_rancherbullet_debris))
 	{

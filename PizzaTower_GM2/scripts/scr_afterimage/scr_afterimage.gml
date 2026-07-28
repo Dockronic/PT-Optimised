@@ -34,7 +34,7 @@ function create_mach3effect(_x, _y, _spr, _subimg, _not_mach3 = false)
 		image_yscale: 1,
 		visible: true,
 		identifier: afterimagetype.mach3effect,
-		playerid: obj_player1,
+		playerid: obj_player,
 		alpha: 1
 	};
 	if (_not_mach3)
@@ -100,7 +100,6 @@ function create_firemouth_afterimage(_x, _y, _spr, _subimg, _xscale)
 	with (b)
 	{
 		fadeout = false;
-		fadeoutstate = noone;
 		identifier = afterimagetype.firemouth;
 		alarm[0] = -1;
 		alarm[1] = -1;
@@ -108,9 +107,7 @@ function create_firemouth_afterimage(_x, _y, _spr, _subimg, _xscale)
 		image_xscale = _xscale;
 		image_blend = make_color_rgb(248, 112, 24);
 		alpha = 0.8;
-		basealpha = 1;
 		playerid = noone;
-		vertical = false;
 		maxmovespeed = 10;
 	}
 	return b;
@@ -122,7 +119,6 @@ function create_blue_afterimage(_x, _y, _spr, _subimg, _xscale)
 	with (b)
 	{
 		fadeout = false;
-		fadeoutstate = noone;
 		identifier = afterimagetype.blue;
 		alarm[0] = -1;
 		alarm[1] = -1;
@@ -130,9 +126,7 @@ function create_blue_afterimage(_x, _y, _spr, _subimg, _xscale)
 		image_xscale = _xscale;
 		image_blend = make_color_rgb(44, 126, 228);
 		alpha = 0.8;
-		basealpha = 1;
 		playerid = noone;
-		vertical = false;
 		maxmovespeed = 10;
 	}
 	return b;
@@ -144,7 +138,6 @@ function create_noise_afterimage(_x, _y, _spr, _subimg, _xscale)
 	with (b)
 	{
 		fadeout = false;
-		fadeoutstate = noone;
 		identifier = afterimagetype.noise;
 		alarm[0] = -1;
 		alarm[1] = -1;
@@ -152,9 +145,7 @@ function create_noise_afterimage(_x, _y, _spr, _subimg, _xscale)
 		image_xscale = _xscale;
 		image_blend = c_white;
 		alpha = 0.9;
-		basealpha = 1;
 		playerid = noone;
-		vertical = false;
 		maxmovespeed = 10;
 	}
 	return b;
@@ -176,7 +167,6 @@ function create_blur_afterimage(_x, _y, _spr, _subimg, _xscale)
 	with (b)
 	{
 		fadeout = false;
-		fadeoutstate = noone;
 		identifier = afterimagetype.blur;
 		alarm[0] = -1;
 		alarm[1] = -1;

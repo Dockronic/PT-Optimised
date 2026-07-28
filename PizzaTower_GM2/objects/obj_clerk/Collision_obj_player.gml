@@ -1,4 +1,4 @@
-if ((other.instakillmove == true || other.state == states.handstandjump || other.state == states.mach2) && !death)
+if ((other.instakillmove || other.state == states.handstandjump || other.state == states.mach2) && !death)
 {
 	death = true;
 	var t = other.id;

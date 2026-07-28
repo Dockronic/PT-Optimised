@@ -1,17 +1,12 @@
 with (other)
 {
-	if (character == "V")
+	if (scr_transformationcheck())
 	{
-		scr_hurtplayer(object_index);
-	}
-	else if (scr_transformationcheck())
-	{
-		if (state != states.firemouth && state != states.parry && hurted == false)
+		if (state != states.firemouth && state != states.parry && !hurted)
 		{
 			fmod_event_one_shot_3d("event:/sfx/firemouth/start", x, y);
 			create_transformation_tip(lang_get_value("firemouthtip"), "firemouth");
 			firemouthflames = false;
-			is_firing = false;
 			hsp = 0;
 			movespeed = 0;
 			state = states.firemouth;

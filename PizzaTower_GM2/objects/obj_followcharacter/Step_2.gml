@@ -2,12 +2,12 @@ if (lock)
 {
 	exit;
 }
-if (followid != noone && !instance_exists(obj_player1))
+if (followid != noone && !instance_exists(obj_player))
 {
 	exit;
 }
-playerid = obj_player1.id;
-if (playerid.state != states.ladder && playerid.state != states.door && playerid.state != states.comingoutdoor)
+playerid = obj_player.id;
+if (obj_player.state != states.ladder && obj_player.state != states.door && obj_player.state != states.comingoutdoor)
 {
 	if (space < maxspace && dir == -1)
 	{
@@ -22,9 +22,9 @@ else
 {
 	space = Approach(space, 0, spaceaccel);
 }
-if (dir != playerid.xscale)
+if (dir != obj_player.xscale)
 {
-	dir = playerid.xscale;
+	dir = obj_player.xscale;
 }
 if (followid == noone && object_index != obj_swapmodefollow && instance_exists(obj_swapmodefollow))
 {
@@ -35,10 +35,10 @@ if (followid != noone && !instance_exists(followid))
 	followid = noone;
 }
 var tx = round(xoffset * space);
-var xx = (followid == noone) ? playerid.x : followid.x;
-var yy = (followid == noone) ? playerid.y : followid.y;
-var msk = (followid == noone) ? playerid.mask_index : followid.mask_index;
-var ixs = (followid == noone) ? playerid.xscale : followid.image_xscale;
+var xx = (followid == noone) ? obj_player.x : followid.x;
+var yy = (followid == noone) ? obj_player.y : followid.y;
+var msk = (followid == noone) ? obj_player.mask_index : followid.mask_index;
+var ixs = (followid == noone) ? obj_player.xscale : followid.image_xscale;
 ds_queue_enqueue(followqueue, xx + tx);
 ds_queue_enqueue(followqueue, yy);
 ds_queue_enqueue(followqueue, msk);
@@ -63,9 +63,7 @@ if (ds_queue_size(followqueue) > (LAG_STEPS * 2))
 	}
 	mask_index = ds_queue_dequeue(followqueue);
 	image_xscale = ds_queue_dequeue(followqueue);
-	lastplayerposx = _x;
-	lastplayerposy = _y;
 }
-image_xscale = playerid.xscale * playerid.scale_xs;
-image_yscale = playerid.yscale * playerid.scale_ys;
+image_xscale = obj_player.xscale * obj_player.scale_xs;
+image_yscale = obj_player.yscale * obj_player.scale_ys;
 following_moonwalk_fix();

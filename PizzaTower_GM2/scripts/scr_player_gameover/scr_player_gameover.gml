@@ -15,28 +15,22 @@ function scr_player_gameover()
 	alarm[7] = -1;
 	alarm[8] = -1;
 	alarm[9] = -1;
-	//if (ANIMATION_END && sprite_index == spr_deathstart)
-	//{
-	//	alarm[10] = 5;
-	//	vsp = -10;
-	//	sprite_index = spr_deathend;
-	//}
 	hurted = false;
 	inv_frames = false;
-	if (place_meeting(x + floor(hsp), y, obj_null))
+	if (place_meeting(x + floor(hsp), y, noone))
 	{
 		x = floor(x);
-		while (!place_meeting(x + sign(hsp), y, obj_null))
+		while (!place_meeting(x + sign(hsp), y, noone))
 		{
 			x += sign(hsp);
 		}
 		hsp = 0;
 	}
 	x += hsp;
-	if (place_meeting(x, y + floor(vsp), obj_null))
+	if (place_meeting(x, y + floor(vsp), noone))
 	{
 		y = floor(y);
-		while (!place_meeting(x, y + sign(vsp), obj_null))
+		while (!place_meeting(x, y + sign(vsp), noone))
 		{
 			y += sign(vsp);
 		}

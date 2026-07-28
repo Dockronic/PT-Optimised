@@ -5,7 +5,7 @@ function __background_get_internal(argument0, argument1, argument2)
     var __backinfo = argument2;
     
     if ((__backinfo[0] == -1)
-    	|| (layer_background_exists(__backinfo[1], __backinfo[0]) == false))	// this can happen when we change between backgrounds and foregrounds (because layers and elements get destroyed)
+    	|| (!layer_background_exists(__backinfo[1], __backinfo[0])))	// this can happen when we change between backgrounds and foregrounds (because layers and elements get destroyed)
     {
     	// Try getting the background info again from the bind index
     	__backinfo = __background_get_element(__bind);

@@ -100,7 +100,6 @@ function scr_player_shotgunjump()
 			with (instance_create(x + (xscale * 30), y + 60, obj_shotgunbullet))
 			{
 				image_xscale = other.xscale;
-				//sprite_index = sprite10391;
 				spdh = -10;
 				spd = 0;
 				shotgun = true;
@@ -108,7 +107,6 @@ function scr_player_shotgunjump()
 			with (instance_create(x + (xscale * 30), y + 60, obj_shotgunbullet))
 			{
 				image_xscale = other.xscale;
-				//sprite_index = sprite10391;
 				spdh = -10;
 				spd = 5;
 				shotgun = true;
@@ -116,7 +114,6 @@ function scr_player_shotgunjump()
 			with (instance_create(x + (xscale * 30), y + 60, obj_shotgunbullet))
 			{
 				image_xscale = other.xscale;
-				//sprite_index = sprite10391; just in case
 				spdh = -10;
 				spd = -5;
 				shotgun = true;

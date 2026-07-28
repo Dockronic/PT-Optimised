@@ -1,4 +1,4 @@
-if (visible == true)
+if (visible)
 {
 	repeat (irandom_range(1, 3))
 	{

@@ -1,5 +1,5 @@
 var shakex = 0;
-if (touched == true)
+if (touched)
 {
 	shakex = random_range(-3, 3);
 }

@@ -24,7 +24,7 @@ else
 {
 	h_velocity = abs(hmovespeed);
 }
-if (escape == true && global.panic == false)
+if (escape && !global.panic)
 {
 	vmovespeed = 0;
 	hmovespeed = 0;

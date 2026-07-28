@@ -1,3 +1,11 @@
+enum collisionflags
+{
+	secret = 1,
+	on_slope = 2,
+	on_floor = 4,
+}
+
+
 function scr_collide()
 {
 	grounded = false;

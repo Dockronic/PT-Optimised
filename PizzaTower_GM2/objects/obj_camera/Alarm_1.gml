@@ -1,4 +1,4 @@
-if (global.panic == true && !instance_exists(obj_ghostcollectibles))
+if (global.panic && !instance_exists(obj_ghostcollectibles))
 {
 	global.seconds -= 1;
 	if (global.collect >= 5 && !instance_exists(obj_ghostcollectibles))
@@ -18,7 +18,7 @@ if (global.panic == true && !instance_exists(obj_ghostcollectibles))
 		global.minutes -= 1;
 	}
 }
-if (global.timedgate == true || global.miniboss == true)
+if (global.timedgate)
 {
 	global.seconds -= 1;
 	if (global.seconds < 0)

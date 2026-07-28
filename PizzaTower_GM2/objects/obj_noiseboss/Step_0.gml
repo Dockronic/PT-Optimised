@@ -1,5 +1,5 @@
 
-targetplayer = obj_player1.id;
+targetplayer = obj_player.id;
 wastedhits = 8 - elitehit;
 if (elitehit <= 1 && pizzahead)
 {
@@ -85,9 +85,6 @@ switch (state)
 	case states.pizzaheadjump:
 		scr_boss_pizzaheadjump();
 		break;
-	case states.pummel:
-		scr_enemy_pummel();
-		break;
 	case states.staggered:
 		scr_enemy_staggered();
 		break;
@@ -142,7 +139,7 @@ if (!doise)
 if (state == states.phase1hurt && doise)
 {
 	image_speed = 0.35;
-	image_index = obj_player1.image_index;
+	image_index = obj_player.image_index;
 }
 if (droptrap && (state == states.walk || state == states.stun))
 {
@@ -183,7 +180,6 @@ if (state == states.stun)
 	if (grounded && vsp > 0 && savedthrown)
 	{
 		stunned = 1;
-		idle_timer = 1;
 	}
 }
 else
@@ -231,12 +227,12 @@ if (prevhp != elitehit)
 		if (global.playerhit >= 3)
 		{
 			global.playerhit = 0;
-			instance_create(obj_player1.x, -32, obj_hppickup);
+			instance_create(obj_player.x, -32, obj_hppickup);
 		}
 	}
 	prevhp = elitehit;
 }
-if (state == states.stun && stunned > 100 && birdcreated == false)
+if (state == states.stun && stunned > 100 && !birdcreated)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -294,7 +290,7 @@ if (state != states.stun)
 {
 	birdcreated = false;
 }
-if (flash == true && alarm[2] <= 0)
+if (flash && alarm[2] <= 0)
 {
 	alarm[2] = 0.15 * room_speed;
 }
@@ -306,7 +302,7 @@ if (state != states.stun)
 {
 	thrown = false;
 }
-if (boundbox == false)
+if (!boundbox)
 {
 	with (instance_create(x, y, obj_baddiecollisionbox))
 	{

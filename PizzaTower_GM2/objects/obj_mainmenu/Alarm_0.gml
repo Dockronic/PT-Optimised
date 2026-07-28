@@ -1,9 +1,8 @@
 if (!showswap)
 {
 	global.swapmode = false;
-	with (obj_player1)
+	with (obj_player)
 	{
-		character = "P";
 		ispeppino = other.shownoise ? false : true;
 		scr_characterspr();
 	}

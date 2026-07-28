@@ -5,47 +5,23 @@ function scr_player_handstandjump()
 	move = key_left + key_right;
 	momemtum = true;
 	dir = xscale;
-	if (global.attackstyle != 3)
-	{
 		if (movespeed < 10)
+	{
+		if ((sprite_index == spr_player_pistolshot) && movespeed < 8)
 		{
-			if ((sprite_index == spr_player_pistolshot) && movespeed < 8)
-			{
-				movespeed += 0.25;
-			}
-			else if (sprite_index == spr_player_lunge && movespeed < 12)
-			{
-				movespeed += 0.8;
-			}
-			else if (movespeed < 10)
-			{
-				movespeed += 0.5;
-			}
+			movespeed += 0.25;
+		}
+		else if (sprite_index == spr_player_lunge && movespeed < 12)
+		{
+			movespeed += 0.8;
+		}
+		else if (movespeed < 10)
+		{
+			movespeed += 0.5;
 		}
 	}
-	else
-	{
-		if (movespeed < 10)
-		{
-			if ((sprite_index == spr_player_pistolshot) && movespeed < 8)
-			{
-				movespeed += 0.25;
-			}
-			else if (movespeed < 10)
-			{
-				movespeed += 0.5;
-			}
-		}
-		if (global.pummeltest && !instance_exists(lungeattackID))
-		{
-			with (instance_create(x, y, obj_lungehitbox))
-			{
-				playerid = other.id;
-				other.lungeattackID = id;
-			}
-		}
-	}
-	if (shoot == true)
+
+	if (shoot)
 	{
 		var attackdash = spr_player_pistolshot;
 	}
@@ -59,16 +35,12 @@ function scr_player_handstandjump()
 	}
 	var airattackdash = spr_suplexdashjump;
 	var airattackdashstart = spr_suplexdashjumpstart;
-	if (global.attackstyle == 2)
-	{
-		vsp = 0;
-	}
-	if (!key_jump2 && jumpstop == false && vsp < 0.5 && stompAnim == false)
+	if (!key_jump2 && !jumpstop && vsp < 0.5 && !stompAnim)
 	{
 		vsp /= 20;
 		jumpstop = true;
 	}
-	if (input_buffer_jump > 0 && can_jump && !key_down && global.attackstyle != 2)
+	if (input_buffer_jump > 0 && can_jump && !key_down)
 	{
 		fmod_event_instance_play(rollgetupsnd);
 		input_buffer_jump = 0;
@@ -85,23 +57,17 @@ function scr_player_handstandjump()
 		image_index = 0;
 		sprite_index = airattackdashstart;
 	}
-	if (grounded && sprite_index == airattackdash && (!key_attack || character == "N") && global.attackstyle != 2)
+	if (grounded && sprite_index == airattackdash && !key_attack)
 	{
-		if (global.attackstyle != 3)
+				state = states.normal;
+		if (move != xscale)
 		{
-			state = states.normal;
-			if (move != xscale)
-			{
-				movespeed = 2;
-			}
+			movespeed = 2;
 		}
-		else
-		{
-			sprite_index = attackdash;
-			image_index = image_number - 6;
-		}
+	
+
 	}
-	if (grounded && sprite_index == airattackdash && key_attack && character != "N" && global.attackstyle != 2)
+	if (grounded && sprite_index == airattackdash && key_attack)
 	{
 		state = states.mach2;
 	}
@@ -119,7 +85,7 @@ function scr_player_handstandjump()
 		state = states.mach2;
 		grav = 0.5;
 	}
-	if (scr_mach_check_dive() && grounded && global.attackstyle != 2)
+	if (scr_mach_check_dive() && grounded)
 	{
 		with (instance_create(x, y, obj_jumpdust))
 		{
@@ -130,7 +96,6 @@ function scr_player_handstandjump()
 		grav = 0.5;
 		sprite_index = spr_crouchslip;
 		image_index = 0;
-		machhitAnim = false;
 		state = states.tumble;
 		fmod_event_instance_play(snd_crouchslide);
 	}

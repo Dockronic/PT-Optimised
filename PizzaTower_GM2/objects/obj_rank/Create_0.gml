@@ -75,7 +75,6 @@ else
 text_pos = 0;
 toppin_index = 0;
 toppin_state = states.jump;
-toppin_buffer = 0;
 brown = false;
 brownfade = 0;
 alarm[2] = 400;

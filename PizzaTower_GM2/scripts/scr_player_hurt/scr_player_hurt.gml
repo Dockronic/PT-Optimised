@@ -13,7 +13,6 @@ function scr_player_hurt()
 	mach2 = 0;
 	bounce = false;
 	jumpAnim = true;
-	dashAnim = true;
 	if (grounded)
 	{
 		landAnim = false;
@@ -23,14 +22,9 @@ function scr_player_hurt()
 		landAnim = true;
 	}
 	jumpstop = false;
-	moveAnim = true;
-	stopAnim = true;
-	crouchslideAnim = true;
 	crouchAnim = false;
-	machhitAnim = false;
 	hit_connected = false;
 	hurted = true;
-	turning = false;
 	skateboarding = false;
 	alarm[5] = 2;
 	alarm[7] = 80;

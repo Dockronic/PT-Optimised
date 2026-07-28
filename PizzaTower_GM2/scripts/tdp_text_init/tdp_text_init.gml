@@ -14,15 +14,6 @@ function tdp_text_init()
 		wave = 2,
 	}
 	
-	enum tokentypes
-	{
-		set = 0,
-		identifier = 1,
-		string = 2,
-		constant = 3,
-		last = 4,
-	}
-	
 	global.tdp_text_surface = noone;
 	global.tdp_text_queue = ds_queue_create();
 	global.tdp_text_enabled = false;

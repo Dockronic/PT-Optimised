@@ -18,7 +18,7 @@ if (state != states.grabbing && other.state != states.bombgrab && x == xstart &&
 			image_speed = 0.35;
 		}
 		state = states.actor;
-		if (boxxed == false)
+		if (!boxxed)
 		{
 			sprite_index = spr_catched;
 		}

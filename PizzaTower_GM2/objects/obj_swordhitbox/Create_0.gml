@@ -1,3 +1,1 @@
-playerid = obj_player1;
-xscale = playerid.xscale;
-bumpeffect = false;
+xscale = obj_player.xscale;

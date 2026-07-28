@@ -1,2 +1,2 @@
-ID = obj_null;
+ID = noone;
 depth = 10;

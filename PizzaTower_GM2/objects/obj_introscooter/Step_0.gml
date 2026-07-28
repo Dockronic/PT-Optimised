@@ -1,36 +1,5 @@
 switch (state)
 {
-	case 1:
-		x += movespeed;
-		if (x >= 358)
-		{
-			x = 358;
-			movespeed = 0;
-		}
-		if (boulder_x <= x)
-		{
-			boulder_index = 1;
-			state++;
-			vsp = -18;
-			sprite_index = spr_player_machfreefall;
-		}
-		break;
-	case 2:
-		x += 16;
-		y += vsp;
-		if (vsp < 20)
-		{
-			vsp += grav;
-		}
-		if (y > ystart)
-		{
-			y = ystart;
-		}
-		if (x > (room_width + 100))
-		{
-			state++;
-		}
-		break;
 	case 3:
 		fade = Approach(fade, 1, 0.1);
 		fmod_event_one_shot("event:/sfx/intro/pepgustavointro");
@@ -44,7 +13,7 @@ switch (state)
 				sprite_index = spr_towerintro;
 				depth = -6;
 			}
-			if (obj_player1.ispeppino && !global.swapmode)
+			if (obj_player.ispeppino && !global.swapmode)
 			{
 				with (instance_create(246, 405, obj_introprop))
 				{
@@ -120,8 +89,4 @@ switch (state)
 			}
 		}
 		break;
-}
-if (movespeed == 0)
-{
-	boulder_x -= 20;
 }

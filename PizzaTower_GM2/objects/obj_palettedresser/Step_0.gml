@@ -1,8 +1,8 @@
-if (obj_player1.ispeppino != ispeppino)
+if (obj_player.ispeppino != ispeppino)
 {
-	ispeppino = obj_player1.ispeppino;
+	ispeppino = obj_player.ispeppino;
 	paletteselect = 0;
-	if (obj_player1.ispeppino)
+	if (obj_player.ispeppino)
 	{
 		palettes = player_palettes[0];
 	}
@@ -10,7 +10,7 @@ if (obj_player1.ispeppino != ispeppino)
 	{
 		palettes = player_palettes[1];
 	}
-	with (obj_player1)
+	with (obj_player)
 	{
 		if (paletteselect > 2)
 		{

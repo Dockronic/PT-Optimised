@@ -1,7 +1,3 @@
-with (obj_player2)
-{
-	state = states.titlescreen;
-}
 switch (state)
 {
 	case states.jump:
@@ -64,7 +60,6 @@ switch (state)
 				{
 					hsp = choose(-_spd, _spd);
 					vsp = choose(-_spd, _spd);
-					playerid = obj_player1.id;
 				}
 			}
 			fmod_event_one_shot_3d("event:/sfx/pizzahead/beatdown", x, y);
@@ -209,34 +204,21 @@ switch (state)
 		switch (floor(image_index))
 		{
 			case 0:
-				pizzahead_x = 10;
 				break;
 			case 1:
-				pizzahead_x = 5;
 				break;
 			case 2:
-				pizzahead_x = 0;
 				break;
 			case 3:
-				pizzahead_x = -5;
 				break;
 			case 4:
-				pizzahead_x = -10;
 				break;
 			case 5:
-				pizzahead_x = -5;
 				break;
 			case 6:
-				pizzahead_x = 0;
 				break;
 			case 7:
-				pizzahead_x = 5;
 				break;
-		}
-		pizzahead_front = false;
-		if (floor(image_index) >= 5 && floor(image_index) <= 7)
-		{
-			pizzahead_front = true;
 		}
 		break;
 }

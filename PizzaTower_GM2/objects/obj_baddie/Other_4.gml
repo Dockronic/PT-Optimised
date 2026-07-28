@@ -4,7 +4,7 @@ if (ds_list_find_index(global.baddieroom, id) != -1)
 	_destroyed = true;
 	instance_destroy();
 }
-if (escape == true && !_destroyed)
+if (escape && !_destroyed)
 {
 	if (escapespawnID == noone)
 	{
@@ -19,11 +19,10 @@ if (escape == true && !_destroyed)
 if (elite && object_index != obj_robot)
 {
 	hp += 1;
-	elitehp = hp;
 }
 if (object_index == obj_cheeseslime && snotty)
 {
-	if (global.panic == true)
+	if (global.panic)
 	{
 		ds_list_add(global.baddieroom, id);
 		instance_destroy();

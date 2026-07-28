@@ -3,8 +3,6 @@ image_speed = 0.5;
 vsp = 10;
 state = states.jump;
 superslam = false;
-pizzahead_x = 0;
-pizzahead_front = false;
 piledrivershot = false;
 snd = fmod_event_create_instance("event:/sfx/pizzahead/finale");
 if (room == boss_pizzafacefinale)

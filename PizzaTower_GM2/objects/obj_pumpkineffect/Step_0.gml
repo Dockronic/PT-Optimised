@@ -1,5 +1,5 @@
-var tx = playerid.x - 32;
-var ty = playerid.y - 60 - 64;
+var tx = obj_player.x - 32;
+var ty = obj_player.y - 60 - 64;
 switch (state)
 {
 	case 0:

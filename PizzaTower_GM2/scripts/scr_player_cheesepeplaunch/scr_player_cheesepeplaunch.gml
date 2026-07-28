@@ -39,6 +39,5 @@ function scr_player_cheesepeplaunch()
 			wallspeed = 0;
 		}
 		movespeed = 0;
-		sticktime = 10;
 	}
 }

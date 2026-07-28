@@ -2,7 +2,7 @@ function scr_add_grannypizzaboss(_ini_section, _ini_key, _icon)
 {
 	var q = scr_add_grannypizzalevel(_ini_key, _icon, false, false, false, true);
 	ini_open_from_string(obj_savesystem.ini_str);
-	if (ini_read_real(_ini_section, "unlocked", false) == false)
+	if (!ini_read_real(_ini_section, "unlocked", false))
 	{
 		array_pop(levelarray);
 	}

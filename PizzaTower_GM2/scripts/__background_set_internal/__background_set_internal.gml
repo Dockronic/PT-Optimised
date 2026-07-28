@@ -16,7 +16,6 @@ function __background_set_internal(argument0, argument1, argument2, argument3)
     
     if (__prop == e__BG.Foreground)
     {
-    	// This requires quite a bit of extra logic (we need to modify our layer list)
     	if (round(__val) != round(__isfore))
     	{
     		// okay, we have a mismatch

@@ -1,8 +1,7 @@
 # PT-Optimised
 <img width="479" height="252" alt="optimised logo" src="https://github.com/user-attachments/assets/e3fc0617-7d04-4581-8409-266699a96265" />
 
-
-An optimised version of **Pizza Tower EXtracted**, a semi-accurate decompilation of Pizza Tower. The main difference is that nearly every unused sprite, script, room, etc. was removed. It was done with these reasons:
+An optimised version of [Pizza Tower EXtracted](https://github.com/setupwitch/Pizza-Tower-EXtracted), a semi-accurate decompilation of Pizza Tower. The main difference is that nearly every unused sprite, script, room, etc. was removed. It was done with these reasons:
 1. Memory leaks. Pizza Tower had a lot of textures, and a lot of them are unused, which could cause a memory leak while compiling a game through GameMaker.
 2. More comfortable working. Now you can easily find something used and add new without lags.
 3. That's it. I made this decomp so I could work faster without lags and stuff.... if you don't have a PC which runs Cyberpunk 2077 at 600FPS then you can use this decomp...
@@ -77,7 +76,7 @@ HAVE FUN NOW MOVING ON EXTRACTED DESCRIPTION
 
   (OPTIONAL) Disable `Real-time protection` in Windows Security, since this is going to copy a large amount of files it is heavily recommended.
 
-  1. Download the 0.8.2.0 release build for [UndertaleModTool](https://github.com/UnderminersTeam/UndertaleModTool/releases/tag/0.8.2.0).
+  1. Download the release build for [UndertaleModTool](https://github.com/UnderminersTeam/UndertaleModTool/releases/).
 
   2. Open the data.win file for Pizza Tower.
 
@@ -98,11 +97,13 @@ HAVE FUN NOW MOVING ON EXTRACTED DESCRIPTION
   <img src=".github/Guide5.png">
   
   6. Edit or remove the .gitignore file from the repository, this will allow you to commit the assets in git.
+
+  7. I would reccomend moving all PizzaTower_GM2 files to the root of the repository.
 </details>
 
 # Find an issue or inaccuracy?
 
-Please [report](https://github.com/crystallizedsparkle/Pizza-Tower-EXtracted/issues/new/choose) it!
+Please [report](https://github.com/crystallizedsparkle/Pizza-Tower-EXtracted/issues/new/choose) it! not here.
 
 <img width="81" height="67" alt="spr_candysona_deadDock" src="https://github.com/user-attachments/assets/76de59c1-f226-478a-bcdd-f62ea28f89fc" />
 

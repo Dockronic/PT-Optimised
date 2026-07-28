@@ -1,4 +1,4 @@
-with (obj_player1)
+with (obj_player)
 {
 	global.player_damage = 0;
 	global.swap_damage[0] = 0;
@@ -9,7 +9,6 @@ with (obj_player1)
 	global.pistol = false;
 	global.leveltorestart = noone;
 	global.leveltosave = noone;
-	global.startgate = false;
 	ds_list_clear(global.saveroom);
 	ds_list_clear(global.baddieroom);
 	pistolanim = noone;
@@ -34,5 +33,4 @@ with (instance_create(0, 0, obj_backtohub_fadeout))
 {
 	fadealpha = 1;
 	fadein = false;
-	pos_player = true;
 }

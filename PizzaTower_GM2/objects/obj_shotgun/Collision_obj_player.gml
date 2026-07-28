@@ -31,7 +31,6 @@ if (!instance_exists(obj_backtohub_fadeout) && (!instance_exists(obj_pause) || o
 					}
 				}
 			}
-			global.heattime = 60;
 		}
 	}
 }

@@ -1,1 +1,1 @@
-image_xscale = playerid.xscale;
+image_xscale = obj_player.xscale;

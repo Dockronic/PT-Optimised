@@ -2,7 +2,7 @@
 var palinfo = get_pep_palette_info();
 spr_palette = palinfo.spr_palette;
 paletteselect = palinfo.paletteselect;
-targetplayer = obj_player1.id;
+targetplayer = obj_player.id;
 if (!pizzahead)
 {
 	wastedhits = 6 - elitehit;
@@ -75,9 +75,6 @@ switch (state)
 	case states.grabbed:
 		scr_boss_grabbed();
 		break;
-	case states.pummel:
-		scr_enemy_pummel();
-		break;
 }
 boss_update_pizzaheadKO(spr_bossfight_fakepephp, spr_bossfight_fakepeppalette);
 if (phase == 2 && state != states.stun && state != states.deformed)
@@ -110,7 +107,6 @@ if (state == states.stun)
 	if (thrown)
 	{
 		formed = false;
-		deformedtimer = 480;
 	}
 }
 if (flashbuffer > 0)
@@ -130,9 +126,9 @@ if (state == states.stun)
 {
 	instance_destroy(obj_grabmarker);
 }
-if (instance_exists(obj_player1))
+if (instance_exists(obj_player))
 {
-	if (!obj_player1.ispeppino || global.swapmode)
+	if (!obj_player.ispeppino || global.swapmode)
 	{
 		instance_destroy(obj_grabmarker);
 	}
@@ -158,7 +154,6 @@ if (prevhp != elitehit)
 		}
 		deformed_cooldown = attack.cooldown;
 		deformed_timer = timer;
-		deformed_dir = 1;
 		global.playerhit++;
 		boss_do_pizzaheadKO();
 		if (phase == 2)
@@ -171,7 +166,7 @@ if (prevhp != elitehit)
 		if (global.playerhit >= 3 && (pizzahead || phase != 2 || wastedhits < 6))
 		{
 			global.playerhit = 0;
-			instance_create(obj_player1.x, -15, obj_hppickup);
+			instance_create(obj_player.x, -15, obj_hppickup);
 		}
 	}
 	prevhp = elitehit;
@@ -228,7 +223,6 @@ if (state == states.stun)
 	if (grounded && vsp > 0 && savedthrown)
 	{
 		stunned = 1;
-		idle_timer = 1;
 		ammo = 6;
 	}
 }
@@ -236,7 +230,7 @@ else
 {
 	savedthrown = false;
 }
-if (state == states.stun && stunned > 100 && birdcreated == false)
+if (state == states.stun && stunned > 100 && !birdcreated)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -287,7 +281,7 @@ if (state != states.stun)
 {
 	birdcreated = false;
 }
-if (flash == true && alarm[2] <= 0)
+if (flash && alarm[2] <= 0)
 {
 	alarm[2] = 0.15 * room_speed;
 }
@@ -299,7 +293,7 @@ if (state != states.stun)
 {
 	thrown = false;
 }
-if (boundbox == false)
+if (!boundbox)
 {
 	with (instance_create(x, y, obj_baddiecollisionbox))
 	{

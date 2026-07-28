@@ -3,15 +3,9 @@ switch (state)
 	case states.idle:
 		scr_enemy_idle();
 		break;
-	case states.turn:
-		scr_enemy_turn();
-		break;
 	case states.walk:
 		scr_enemy_walk();
 		hsp = 0;
-		break;
-	case states.land:
-		scr_enemy_land();
 		break;
 	case states.hit:
 		scr_enemy_hit();
@@ -28,14 +22,8 @@ switch (state)
 	case states.chase:
 		scr_enemy_chase();
 		break;
-	case states.pummel:
-		scr_enemy_pummel();
-		break;
 	case states.staggered:
 		scr_enemy_staggered();
-		break;
-	case states.rage:
-		scr_enemy_rage();
 		break;
 }
 if (state == states.walk || state == states.idle)
@@ -45,7 +33,7 @@ if (state == states.walk || state == states.idle)
 		sprite_index = spr_golfdemon_idle;
 	}
 }
-if (state == states.stun && stunned > 100 && birdcreated == false)
+if (state == states.stun && stunned > 100 && !birdcreated)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -61,7 +49,7 @@ if (state != states.stun)
 {
 	birdcreated = false;
 }
-if (flash == true && alarm[2] <= 0)
+if (flash && alarm[2] <= 0)
 {
 	alarm[2] = 0.15 * room_speed;
 }
@@ -120,7 +108,7 @@ if (state != states.stun)
 {
 	thrown = false;
 }
-if (boundbox == false)
+if (!boundbox)
 {
 	with (instance_create(x, y, obj_baddiecollisionbox))
 	{

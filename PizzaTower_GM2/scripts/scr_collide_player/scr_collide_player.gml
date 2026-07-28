@@ -65,7 +65,7 @@ function scr_collide_player()
 					{
 						y -= k;
 					}
-					if (state != states.ghost && state != states.rocket && state != states.unknown300)
+					if (state != states.ghost && state != states.rocket)
 					{
 						if (!scr_solid_player(x + sh, y) && !scr_solid_player(x + sh, y + 1) && scr_solid_player(x + sh, y + (k + 1)))
 						{
@@ -140,7 +140,7 @@ function scr_collide_player()
 	grounded |= (vsp > 0 && !place_meeting(x, y, obj_platform) && place_meeting(x, y + 1, obj_platform));
 	grinding = !place_meeting(x, y, obj_grindrail) && place_meeting(x, y + 1, obj_grindrail);
 	grounded |= grinding;
-	if (platformid != noone || (place_meeting(x, y + 1, obj_movingplatform) && !place_meeting(x, y - 3, obj_movingplatform)) || place_meeting(x, y + 8, obj_movingplatform && !place_meeting(x, y + 6, obj_movingplatform)))
+	if (platformid != noone || (place_meeting(x, y + 1, obj_movingplatform) && !place_meeting(x, y - 3, obj_movingplatform)) || (place_meeting(x, y + 8, obj_movingplatform) && !place_meeting(x, y + 6, obj_movingplatform)))
 	{
 		grounded = true;
 	}

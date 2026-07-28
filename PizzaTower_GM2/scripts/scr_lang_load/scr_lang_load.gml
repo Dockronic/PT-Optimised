@@ -24,19 +24,6 @@ function lang_load_fonts(_language)
 	}
 }
 
-function lang_unload_font(_language)
-{
-	var lang = ds_map_find_value(global.lang_map, _language);
-	if (ds_map_find_value(lang, "custom_fonts"))
-	{
-		font_delete(ds_map_find_value(global.font_map, concat("tutorialfont_", _language)));
-		font_delete(ds_map_find_value(global.font_map, concat("creditsfont_", _language)));
-		font_delete(ds_map_find_value(global.font_map, concat("bigfont_", _language)));
-		font_delete(ds_map_find_value(global.font_map, concat("smallfont_", _language)));
-		font_delete(ds_map_find_value(global.font_map, concat("captionfont_", _language)));
-	}
-}
-
 function scr_lang_load_update()
 {
 	if (global.offload_lang != noone && global.offload_lang != "en")

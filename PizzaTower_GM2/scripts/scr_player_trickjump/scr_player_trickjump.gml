@@ -62,6 +62,5 @@ function scr_player_trickjump()
 			image_index = 0;
 		}
 		global.collect += (ramp_points * 100);
-		ramp = false;
 	}
 }

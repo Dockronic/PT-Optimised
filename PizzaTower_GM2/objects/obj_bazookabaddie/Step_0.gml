@@ -6,14 +6,8 @@ switch (state)
 	case states.charge:
 		scr_enemy_charge();
 		break;
-	case states.turn:
-		scr_enemy_turn();
-		break;
 	case states.walk:
 		hsp = 0;
-		break;
-	case states.land:
-		scr_enemy_land();
 		break;
 	case states.hit:
 		scr_enemy_hit();
@@ -27,11 +21,8 @@ switch (state)
 	case states.grabbed:
 		scr_enemy_grabbed();
 		break;
-	case states.rage:
-		scr_enemy_rage();
-		break;
 }
-if (state == states.stun && stunned > 100 && birdcreated == false)
+if (state == states.stun && stunned > 100 && !birdcreated)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -60,7 +51,7 @@ if (x != player.x && grounded && player.x > (x - 500) && player.x < (x + 500) &&
 		state = states.pizzagoblinthrow;
 	}
 }
-if (flash == true && alarm[2] <= 0)
+if (flash && alarm[2] <= 0)
 {
 	alarm[2] = 0.15 * room_speed;
 }
@@ -76,7 +67,7 @@ if (state != states.stun)
 {
 	thrown = false;
 }
-if (boundbox == false)
+if (!boundbox)
 {
 	with (instance_create(x, y, obj_baddiecollisionbox))
 	{

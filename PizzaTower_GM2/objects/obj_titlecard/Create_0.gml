@@ -1,7 +1,6 @@
 fadein = false;
 fadealpha = 0;
 start = false;
-loading = false;
 group_arr = noone;
 title_music = noone;
 offload_arr = noone;

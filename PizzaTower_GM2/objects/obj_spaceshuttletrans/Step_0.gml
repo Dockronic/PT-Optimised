@@ -24,7 +24,6 @@ if (y > (obj_spaceshuttlestop.y - 18))
 				{
 					stun = true;
 					alarm[0] = 200;
-					ministun = false;
 					vsp = -5;
 					hsp = 0;
 				}

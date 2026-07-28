@@ -1,12 +1,11 @@
-var tx = playerid.x;
-var ty = playerid.y - 60;
+var tx = obj_player.x;
+var ty = obj_player.y - 60;
 var acc = 0.2;
 switch (state)
 {
 	case 0:
 		if (place_meeting(x, y, obj_player))
 		{
-			playerid = obj_player1.id;
 			state++;
 			global.combotime = 60;
 			ds_list_add(global.saveroom, id);

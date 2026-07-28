@@ -1,11 +1,11 @@
-if (showtext == true)
+if (showtext)
 {
 	if (yi < 30)
 	{
 		yi += 5;
 	}
 }
-if (showtext == false)
+if (!showtext)
 {
 	if (yi > -50)
 	{

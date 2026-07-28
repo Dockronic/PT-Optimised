@@ -2,12 +2,11 @@ if (state != states.parry && state != states.backbreaker)
 {
 	exit;
 }
-var my_id = id;
 var other_baddie = other.id;
 var can_parry = false;
 with (other_baddie)
 {
-	if (instance_exists(baddieID) && baddieID.thrown == true && baddieID != other.id)
+	if (instance_exists(baddieID) && baddieID.thrown && baddieID != other.id)
 	{
 		can_parry = true;
 	}

@@ -17,26 +17,6 @@ switch (state)
 		{
 			var buffstring = buffer_read(loadbuff, buffer_string);
 			ini_open_from_string(buffstring);
-			global.entrancecutscene = ini_read_real("cutscene", "entrance", false);
-			global.medievalcutscene = ini_read_real("cutscene", "medieval", false);
-			global.ruincutscene = ini_read_real("cutscene", "ruin", false);
-			global.dungeoncutscene = ini_read_real("cutscene", "dungeon", false);
-			global.desertcutscene = ini_read_real("cutscene", "desert", false);
-			global.graveyardcutscene = ini_read_real("cutscene", "graveyard", false);
-			global.farmcutscene = ini_read_real("cutscene", "farm", false);
-			global.spacecutscene = ini_read_real("cutscene", "space", false);
-			global.beachcutscene = ini_read_real("cutscene", "beach", false);
-			global.forestcutscene = ini_read_real("cutscene", "forest", false);
-			global.pinballcutscene = ini_read_real("cutscene", "pinball", false);
-			global.golfcutscene = ini_read_real("cutscene", "golf", false);
-			global.streetcutscene = ini_read_real("cutscene", "street", false);
-			global.sewercutscene = ini_read_real("cutscene", "sewer", false);
-			global.factorycutscene = ini_read_real("cutscene", "factory", false);
-			global.freezercutscene = ini_read_real("cutscene", "freezer", false);
-			global.chateaucutscene = ini_read_real("cutscene", "chateau", false);
-			global.mansioncutscene = ini_read_real("cutscene", "mansion", false);
-			global.kidspartycutscene = ini_read_real("cutscene", "kidsparty", false);
-			global.warcutscene = ini_read_real("cutscene", "war", false);
 			global.entrancetreasure = ini_read_real("Treasure", "entrance", false);
 			global.medievaltreasure = ini_read_real("Treasure", "medieval", false);
 			global.ruintreasure = ini_read_real("Treasure", "ruin", false);

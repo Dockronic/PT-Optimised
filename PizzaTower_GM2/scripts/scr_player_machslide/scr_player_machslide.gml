@@ -86,12 +86,6 @@ function scr_player_machslide()
 			launch_buffer = 20;
 		}
 	}
-	//if (sprite_index == spr_player_crouchslide && movespeed == 0 && grounded)
-	//{
-	//	facehurt = true;
-	//	state = states.normal;
-	//	sprite_index = spr_facehurtup;
-	//}
 	if (input_buffer_shoot > 0)
 	{
 		if (shotgunAnim)

@@ -1,17 +1,3 @@
-function scr_piggyblock_destroy()
-{
-	if (bbox_in_camera(view_camera[0]))
-	{
-		with (other)
-		{
-			if (instakillmove && (place_meeting(x + 1, y, other) || place_meeting(x - 1, y, other) || place_meeting(x, y + 1, other) || place_meeting(x, y - 1, other)))
-			{
-				instance_destroy(other);
-			}
-		}
-	}
-}
-
 function scr_ratblock_destroy()
 {
 	if (place_meeting(x, y, obj_canonexplosion))

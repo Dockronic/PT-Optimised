@@ -40,6 +40,5 @@ function scr_player_ratmounttrickjump()
 			landAnim = true;
 		}
 		global.collect += (ramp_points * 100);
-		ramp = false;
 	}
 }

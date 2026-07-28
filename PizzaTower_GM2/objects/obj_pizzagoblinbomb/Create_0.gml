@@ -7,7 +7,6 @@ drop = true;
 grounded = false;
 state = states.normal;
 playerid = noone;
-pizzagoblin = false;
 platformid = noone;
 hsp_carry = 0;
 vsp_carry = 0;

@@ -184,3 +184,12 @@ fine too, I'm gonna return it back.
 hiddenobject is an unused object which makes collectables appear if you touch obj_hiddenobjecttrigger
 for some reason it is used in scr_deactivate_escape. very weird script I dunno what does it do
 and why it is used in obj_inputAssigner
+
+resourceorder isnt needed.
+
+08.07.2026 - hi its me mackery i cleaned literally everything hahahahaha. This feels like spaghetti code, i havent seen yandere sim code before, but i am guessing its not as bad.
+no more obj_player2
+no more obj_player1
+no more leftover vigilante character stuff!!!!
+no more pogo noise!!
+i killed null btw, hes dead.

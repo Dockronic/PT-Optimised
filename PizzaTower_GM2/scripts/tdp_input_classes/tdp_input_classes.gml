@@ -173,24 +173,20 @@ function tdp_input_action(_type, _value, _joystickdir = 0) constructor
 	
 	type = _type;
 	value = _value;
-	has_axis_value = false;
 	axis_value = 0;
 	if (type == tdp_input_actiontypes.gamepad_axis)
 	{
-		has_axis_value = true;
 		custom_deadzone = false;
 		joystick_direction = _joystickdir;
 		custom_deadzone_press = "input_controller_deadzone_press";
 		custom_deadzone_vertical = "input_controller_deadzone_vertical";
 		custom_deadzone_horizontal = "input_controller_deadzone_deadzone";
-		custom_deadzone_side = "input_controller_deadzone_side";
 		axis_value = 0;
 		stickpressed[0] = false;
 		stickpressed[1] = false;
 	}
 	if (is_array(value))
 	{
-		has_axis_value = true;
 		axis_value = 0;
 	}
 	pressed = false;

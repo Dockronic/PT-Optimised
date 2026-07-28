@@ -7,14 +7,8 @@ switch (state)
 	case states.charge:
 		scr_enemy_charge();
 		break;
-	case states.turn:
-		scr_enemy_turn();
-		break;
 	case states.walk:
 		scr_enemy_walk();
-		break;
-	case states.land:
-		scr_enemy_land();
 		break;
 	case states.hit:
 		scr_enemy_hit();
@@ -28,17 +22,11 @@ switch (state)
 	case states.grabbed:
 		scr_enemy_grabbed();
 		break;
-	case states.pummel:
-		scr_enemy_pummel();
-		break;
 	case states.staggered:
 		scr_enemy_staggered();
 		break;
-	case states.rage:
-		scr_enemy_rage();
-		break;
 }
-if (state == states.stun && stunned > 100 && birdcreated == false)
+if (state == states.stun && stunned > 100 && !birdcreated)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -66,7 +54,7 @@ else
 {
 	grav = 0;
 }
-if (flash == true && alarm[2] <= 0)
+if (flash && alarm[2] <= 0)
 {
 	alarm[2] = 0.15 * room_speed;
 }
@@ -80,7 +68,7 @@ if (state != states.charge)
 }
 if (sprite_index == spr_ancho_chargestart && ANIMATION_END)
 {
-	if (hitboxcreate == false && state == states.charge)
+	if (!hitboxcreate && state == states.charge)
 	{
 		hitboxcreate = true;
 		with (instance_create(x, y, obj_forkhitbox))
@@ -96,30 +84,9 @@ if (ragebuffer > 0)
 {
 	ragebuffer--;
 }
-if ((player.x > (x - 400) && player.x < (x + 400)) && (y <= (player.y + 60) && y >= (player.y - 60)) && important == false)
+if ((player.x > (x - 400) && player.x < (x + 400)) && (y <= (player.y + 60) && y >= (player.y - 60)) && !important)
 {
-	if (state != states.rage && ragebuffer == 0 && elite && (state == states.walk || state == states.charge))
-	{
-		state = states.rage;
-		//sprite_index = spr_ancho_rage1;
-		if (x != player.x)
-		{
-			image_xscale = -sign(x - player.x);
-		}
-		ragebuffer = 100;
-		image_index = 0;
-		image_speed = 0.5;
-		flash = true;
-		alarm[4] = 5;
-		with (instance_create(x, y, obj_forkhitbox))
-		{
-			sprite_index = spr_bighitbox;
-			mask_index = spr_bighitbox;
-			ID = other.id;
-		}
-		create_heatattack_afterimage(x, y, sprite_index, image_index, image_xscale);
-	}
-	else if (x != player.x && state != states.charge && y == ystart && important == false)
+	if (x != player.x && state != states.charge && y == ystart && !important)
 	{
 		if (state == states.walk)
 		{
@@ -144,7 +111,7 @@ if (state != states.stun)
 {
 	thrown = false;
 }
-if (boundbox == false)
+if (!boundbox)
 {
 	with (instance_create(x, y, obj_baddiecollisionbox))
 	{

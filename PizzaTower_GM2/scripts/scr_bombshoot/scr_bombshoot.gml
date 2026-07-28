@@ -7,13 +7,11 @@ function scr_bombshoot(_state)
 		image_index = 0;
 		sprite_index = spr_playerN_noisebombkick;
 		fmod_event_one_shot_3d("event:/sfx/playerN/bombthrow", x, y);
-		savedgrounded = grounded;
 		state = states.bombthrow;
 		pistolcooldown = 50;
 		machslideAnim = false;
 		landAnim = false;
 		jumpAnim = false;
-		crouchslideAnim = false;
 		crouchAnim = false;
 		stompAnim = false;
 		windingAnim = 0;
@@ -26,16 +24,3 @@ function scr_bombshoot(_state)
 	}
 }
 
-function scr_bomb_do_boss_phase2(_boss)
-{
-	with (_boss)
-	{
-		fmod_event_one_shot("event:/sfx/misc/blackoutpunch");
-		instance_create_unique(0, 0, obj_blackoutline);
-		instance_create_unique(0, 0, obj_superattackeffect);
-		state = states.phase1hurt;
-		hsp = 0;
-		vsp = 0;
-		buildup = 100;
-	}
-}

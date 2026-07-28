@@ -8,5 +8,4 @@ offset_y = 5;
 depth = 51;
 last_current_time = current_time;
 timer = current_time;
-timecount = noone;
 alarm[0] = 1;

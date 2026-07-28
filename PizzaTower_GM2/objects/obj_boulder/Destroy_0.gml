@@ -1,4 +1,4 @@
-if (escape == false || (escape == true && global.panic == true))
+if (escape == false || (escape && global.panic))
 {
 	with (instance_create(x, y, obj_sausageman_dead))
 	{

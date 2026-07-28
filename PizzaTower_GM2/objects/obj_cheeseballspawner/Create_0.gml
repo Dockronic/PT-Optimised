@@ -1,4 +1,4 @@
-baddieid = obj_null;
+baddieid = noone;
 content = 0;
 mask_index = spr_baddiespawner;
 refresh = 100;

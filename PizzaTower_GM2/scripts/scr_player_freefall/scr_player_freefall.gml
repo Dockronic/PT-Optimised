@@ -26,8 +26,6 @@ function scr_player_freefall()
 					image_xscale = other.xscale;
 					playerid = other.id;
 					maxmovespeed = 6;
-					vertical = true;
-					fadeoutstate = states.freefall;
 				}
 			}
 			if (piledrivereffect > 0)
@@ -64,7 +62,7 @@ function scr_player_freefall()
 		{
 			hsp = 0;
 		}
-		if (move != xscale && momemtum == true && movespeed != 0)
+		if (move != xscale && momemtum && movespeed != 0)
 		{
 			movespeed -= 0.05;
 		}
@@ -77,7 +75,7 @@ function scr_player_freefall()
 			dir = move;
 			movespeed = 0;
 		}
-		if ((move == 0 && momemtum == false) || scr_solid(x + hsp, y))
+		if ((move == 0 && !momemtum) || scr_solid(x + hsp, y))
 		{
 			movespeed = 0;
 			mach2 = 0;
@@ -145,7 +143,7 @@ function scr_player_freefall()
 			{
 				sprite_index = spr_player_poundcancel2;
 			}
-			else if (shotgunAnim == false)
+			else if (!shotgunAnim)
 			{
 				sprite_index = spr_bodyslamland;
 			}
@@ -188,21 +186,11 @@ function scr_player_freefall()
 				bounce = false;
 			}
 			create_particle(x, y + 3, particletypes.groundpoundeffect, 0);
-			freefallstart = 0;
 		}
 	}
 	image_speed = 0.35;
 	if (sprite_index == spr_bodyslamstart)
 	{
 		image_speed = 0.4;
-	}
-	if (character == "M")
-	{
-		if (!key_down)
-		{
-			state = states.jump;
-			sprite_index = spr_fall;
-			image_index = 0;
-		}
 	}
 }

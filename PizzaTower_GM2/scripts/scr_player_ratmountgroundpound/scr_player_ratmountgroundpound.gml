@@ -9,7 +9,7 @@ function scr_player_ratmountgroundpound()
 	}
 	move = key_left + key_right;
 	hsp = movespeed;
-	if (brick == true)
+	if (brick)
 	{
 		state = states.ratmountjump;
 		sprite_index = spr_player_ratmountfall;

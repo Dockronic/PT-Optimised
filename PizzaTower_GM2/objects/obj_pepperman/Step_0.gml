@@ -1,5 +1,5 @@
 
-targetplayer = obj_player1.id;
+targetplayer = obj_player.id;
 wastedhits = 10 - elitehit;
 if (elitehit <= 1 && phase == 2 && destroyable)
 {
@@ -51,9 +51,6 @@ switch (state)
 		break;
 	case states.grabbed:
 		scr_boss_grabbed();
-		break;
-	case states.pummel:
-		scr_enemy_pummel();
 		break;
 	case states.staggered:
 		scr_enemy_staggered();
@@ -132,7 +129,6 @@ if (state == states.stun)
 	if (grounded && vsp > 0 && savedthrown)
 	{
 		stunned = 1;
-		idle_timer = 1;
 		if (wastedhits >= 10 && phase == 2 && !pizzahead)
 		{
 			instance_destroy(obj_pepper_marbleblock);
@@ -173,7 +169,7 @@ if (prevhp != elitehit)
 		if (global.playerhit >= 3)
 		{
 			global.playerhit = 0;
-			instance_create(obj_player1.x, -32, obj_hppickup);
+			instance_create(obj_player.x, -32, obj_hppickup);
 		}
 	}
 	prevhp = elitehit;
@@ -196,7 +192,7 @@ else if (instance_exists(hitboxID))
 {
 	instance_destroy(hitboxID);
 }
-if (state == states.stun && stunned > 100 && birdcreated == false)
+if (state == states.stun && stunned > 100 && !birdcreated)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -249,7 +245,7 @@ if (state != states.stun)
 {
 	birdcreated = false;
 }
-if (flash == true && alarm[2] <= 0)
+if (flash && alarm[2] <= 0)
 {
 	alarm[2] = 0.15 * room_speed;
 }
@@ -266,7 +262,7 @@ else
 {
 	_art = elitehit <= 3;
 }
-if (_art && artdudes == false)
+if (_art && !artdudes)
 {
 	alarm[8] = 600;
 	artdudes = true;
@@ -275,7 +271,7 @@ if (state != states.stun)
 {
 	thrown = false;
 }
-if (boundbox == false)
+if (!boundbox)
 {
 	with (instance_create(x, y, obj_baddiecollisionbox))
 	{

@@ -1,4 +1,4 @@
-targetplayer = obj_player1.id;
+targetplayer = obj_player.id;
 switch (state)
 {
 	case states.monsteridle:
@@ -37,7 +37,6 @@ switch (state)
 		{
 			image_xscale *= -1;
 		}
-		scr_monster_detect_audio();
 		if (scr_monster_detect(300, room_height, targetplayer))
 		{
 			state = states.monsterchase;
@@ -154,25 +153,10 @@ switch (state)
 			state = states.monsterchase;
 		}
 		break;
-	case states.monsterrun:
-		targetplayer = instance_nearest(x, y, obj_player);
-		hsp = image_xscale * 6;
-		if (place_meeting(x + sign(hsp), y, obj_monstersolid) && (!place_meeting(x + sign(hsp), y, obj_monsterslope) || place_meeting(x + sign(hsp), y - 4, obj_solid)))
-		{
-			state = states.monsterwalk;
-		}
-		if (scr_monster_detect(300, room_height, targetplayer))
-		{
-			state = states.monsterchase;
-		}
-		break;
-	case states.monsterinvestigate:
-		scr_monsterinvestigate(10, spr_monstershroom_chase, spr_monstershroom_idle);
-		break;
 }
 if (object_index == obj_robotmonster || object_index == obj_hillbillymonster)
 {
-	if (state == states.monsterchase || state == states.monsterrun || state == states.monsterinvestigate)
+	if (state == states.monsterchase)
 	{
 		instance_destroy(instance_place(x + hsp, y, obj_destructibles));
 		instance_destroy(instance_place(x + hsp, y, obj_spike));

@@ -1,4 +1,4 @@
-if (hurted == true && hurtfx == false)
+if (hurted && !hurtfx)
 {
 	instance_create(x + (sprite_width / 2), y + (sprite_height / 2), obj_bangeffect);
 	repeat (4)
@@ -19,11 +19,11 @@ if (hurted == true && hurtfx == false)
 	}
 	hurtfx = true;
 }
-if (flash == true && alarm[1] <= 0)
+if (flash && alarm[1] <= 0)
 {
 	alarm[1] = 0.15 * room_speed;
 }
-if (hurted == true)
+if (hurted)
 {
 	hurtx = random_range(2, -2);
 }

@@ -134,7 +134,6 @@ function scr_player_tumble()
 		particle_set_scale(particletypes.jumpdust, xscale, 1);
 		create_particle(x, y, particletypes.jumpdust, 0);
 		movespeed = 12;
-		//sprite_index = spr_breakdancesuper;
 	}
 	if (sprite_index == spr_tumblestart && ANIMATION_END)
 	{
@@ -164,7 +163,7 @@ function scr_player_tumble()
 			sprite_index = spr_wallsplat;
 		}
 	}
-	if (!key_jump2 && jumpstop == false && vsp < 0.5 && stompAnim == false)
+	if (!key_jump2 && !jumpstop && vsp < 0.5 && !stompAnim)
 	{
 		vsp /= 2;
 		jumpstop = true;

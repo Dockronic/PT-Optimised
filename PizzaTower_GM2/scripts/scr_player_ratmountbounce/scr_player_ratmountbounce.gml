@@ -59,7 +59,7 @@ function scr_player_ratmountbounce()
 			particle_set_scale(particletypes.jumpdust, xscale, 1);
 			create_particle(x, y, particletypes.jumpdust, 0);
 			input_buffer_slap = 0;
-			if (brick == true)
+			if (brick)
 			{
 				with (instance_create(x, y, obj_brickcomeback))
 				{
@@ -85,7 +85,6 @@ function scr_player_ratmountbounce()
 			{
 				fmod_event_one_shot_3d("event:/sfx/ratmount/walljump1", x, y);
 				state = states.ratmountclimbwall;
-				sticktime = 15;
 				xscale = sign(hsp);
 				landAnim = false;
 			}

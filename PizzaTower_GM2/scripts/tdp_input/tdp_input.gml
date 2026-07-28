@@ -17,11 +17,6 @@ function tdp_input_init()
 	}
 }
 
-function tdp_input_destroy()
-{
-	ds_map_destroy(global.input_list);
-}
-
 function tdp_input_add(_input)
 {
 	ds_map_set(global.input_list, _input.name, _input);

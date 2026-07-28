@@ -1,4 +1,4 @@
-if (global.timedgatetimer == true)
+if (global.timedgatetimer)
 {
 	sprite_index = spr_button_pressed;
 }

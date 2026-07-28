@@ -7,7 +7,7 @@ if (boss_func != noone)
 	boss_func();
 }
 boss_prevhp = boss_hp;
-if (bossspr == spr_vsnoise && (!obj_player1.ispeppino || global.swapmode))
+if (bossspr == spr_vsnoise && (!obj_player.ispeppino || global.swapmode))
 {
 	bossspr = spr_vsdoise;
 	vstitle = spr_vstitle_doise;
@@ -22,17 +22,13 @@ if (!global.bossintro)
 else if (room != rank_room)
 {
 	state = states.normal;
-	with (obj_player1)
+	with (obj_player)
 	{
 		state = states.normal;
 		hsp = 0;
 		movespeed = 0;
 		flash = false;
 		x = roomstartx;
-	}
-	with (obj_player2)
-	{
-		visible = false;
 	}
 	alarm[4] = 2;
 	with (obj_pepperman)

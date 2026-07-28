@@ -90,9 +90,6 @@ function scr_player_boxxedpepjump()
 	else
 	{
 		noisejetpack = 1000;
-		if (key_jump3 && noisejetpack > 0)
-		{
-		}
 		if (key_jump2 && noisejetpack > 0)
 		{
 			target_vsp -= 0.2;

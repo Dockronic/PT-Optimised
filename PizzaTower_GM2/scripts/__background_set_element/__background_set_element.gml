@@ -1,6 +1,5 @@
 function __background_set_element(argument0, argument1, argument2, argument3, argument4, argument5, argument6, argument7, argument8, argument9, argument10, argument11, argument12, argument13, argument14)
 {
-    // NOTE: this script will only work properly if you're using the standard depth range (-16000 to 16000)
     var __bind = argument0;
     var __vis = argument1;
     var __fore = argument2;
@@ -17,8 +16,6 @@ function __background_set_element(argument0, argument1, argument2, argument3, ar
     var __blend = argument13;
     var __alpha = argument14;
     
-    //var __nearestdepth = -15000;
-    //var __farthestdepth = 15999;
     var __nearestdepth = 1000000000;
     var __farthestdepth = -1000000000;
     var __depthinc = 100;
@@ -98,8 +95,6 @@ function __background_set_element(argument0, argument1, argument2, argument3, ar
     __farthestdepth += __depthinc + 1000;		// add some margin for the background layers
     __nearestdepth -= __depthinc;
     
-    //__farthestdepth = max(__farthestdepth, 15999);
-    //__nearestdepth = min(__nearestdepth, -15000);
     __farthestdepth = max(__farthestdepth, 2147483600);
     __nearestdepth = min(__nearestdepth, -2147482000);
     
@@ -108,7 +103,7 @@ function __background_set_element(argument0, argument1, argument2, argument3, ar
     	if (__slots[__i] != -1)
     	{
     		var __depth = 0;
-    		if (__isforeground[__i] == true)
+    		if (__isforeground[__i])
     		{
     			__depth = __nearestdepth - (__i * __depthinc);
     		}
@@ -138,7 +133,7 @@ function __background_set_element(argument0, argument1, argument2, argument3, ar
     }
     else
     {
-    	if (__fore == true)
+    	if (__fore)
     	{
     		__layername = __fgstring + string(__bind);
     		__layerdepth = __nearestdepth - (__bind * __depthinc);
@@ -150,7 +145,6 @@ function __background_set_element(argument0, argument1, argument2, argument3, ar
     	}
     }
     
-    // If we already have a background in this slot, nuke it
     var __layerid;
     if (__bind == -1)
     {

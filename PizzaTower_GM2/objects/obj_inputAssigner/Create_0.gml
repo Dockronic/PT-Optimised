@@ -1,11 +1,6 @@
 player_input_device[0] = -2;
 player_input_device[1] = -2;
 switch_input_buffer = 0;
-switch_operation_mode = switch_get_operation_mode();
-switch_swap_ready_buffer = 0;
-swap_cancelled = false;
-switch_mode = 0;
-switch_saved_input = -2;
 mode = 0;
 player_index = 0;
 device_selected[0] = false;
@@ -23,24 +18,6 @@ vibration[0][2] = 0;
 vibration[1][0] = 0;
 vibration[1][1] = 0;
 vibration[1][2] = 0;
-
-switch_get_single_player = function(_device)
-{
-	while (true)
-	{
-		switch_controller_joycon_set_holdtype(1);
-		switch_controller_set_supported_styles(31);
-		switch_controller_support_set_singleplayer_only(true);
-		switch_controller_support_set_player_min(1);
-		switch_controller_support_set_player_max(1);
-		var result = switch_controller_support_show();
-		if (result == 0)
-		{
-			player_input_device[_device] = switch_controller_support_get_selected_id();
-			break;
-		}
-	}
-};
 
 for (var i = 0; i < gamepad_get_device_count(); i++)
 {

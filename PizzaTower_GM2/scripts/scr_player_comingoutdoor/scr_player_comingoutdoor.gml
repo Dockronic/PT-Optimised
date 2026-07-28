@@ -2,13 +2,8 @@ function scr_player_comingoutdoor()
 {
 	mach2 = 0;
 	jumpAnim = true;
-	dashAnim = true;
 	landAnim = false;
-	moveAnim = true;
-	stopAnim = true;
-	crouchslideAnim = true;
 	crouchAnim = true;
-	machhitAnim = false;
 	hsp = 0;
 	if (c < c_red) // 255
 	{

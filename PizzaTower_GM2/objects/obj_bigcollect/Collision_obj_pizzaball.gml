@@ -1,17 +1,10 @@
-
-global.heattime = 60;
-with (obj_camera)
-{
-	healthshaketime = 60;
-}
 fmod_event_one_shot("event:/sfx/misc/collectpizza");
 instance_destroy();
 global.combotime = 60;
-var val = heat_calculate(value);
-global.collect += val;
-create_collect(x, y, sprite_index, val);
+global.collect += value;
+create_collect(x, y, sprite_index, value);
 with (instance_create(x + 16, y, obj_smallnumber))
 {
-	number = string(val);
+	number = string(other.value);
 }
-tv_do_expression(spr_tv_exprcollect, true);
+tv_do_expression(spr_tv_exprcollect);

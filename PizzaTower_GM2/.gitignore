@@ -1,0 +1,4 @@
+# For use in projects
+
+# Ignore resource orders
+**/*.resource_order

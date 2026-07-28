@@ -1,6 +1,5 @@
 current_arr = 0;
 count = 8;
-collectcount = 3;
 hsp = 0;
 vsp = 0;
 grav = 0.5;

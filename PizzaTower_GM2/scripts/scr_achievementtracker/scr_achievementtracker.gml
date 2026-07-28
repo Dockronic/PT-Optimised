@@ -19,7 +19,7 @@ function add_achievement_update(_name, _update_rate, _creationcode, _updatefunc,
 	if (_unlock == false)
 	{
 		ini_open_from_string(obj_savesystem.ini_str_options);
-		if (ini_read_real(_ini_section, _ini_key, false) == true)
+		if (ini_read_real(_ini_section, _ini_key, false))
 		{
 			trace(_ini_key, " already unlocked");
 			q.unlocked = true;
@@ -51,7 +51,7 @@ function add_achievement_notify(_name, _creationcode, _func, _unlock = true, _in
 	if (_unlock == false)
 	{
 		ini_open_from_string(obj_savesystem.ini_str_options);
-		if (ini_read_real(_ini_section, _ini_key, false) == true)
+		if (ini_read_real(_ini_section, _ini_key, false))
 		{
 			trace(_ini_key, " already unlocked");
 			q.unlocked = true;

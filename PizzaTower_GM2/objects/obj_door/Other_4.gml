@@ -6,7 +6,7 @@ if (ds_list_find_index(global.saveroom, id) != -1)
 {
 	visited = true;
 }
-if (visited == true && sprite_index != spr_pumpkingate && sprite_index != spr_cheftaskdoor && sprite_index != spr_elevatordown1 && sprite_index != spr_elevatordown2 && sprite_index != spr_elevatordown3 && sprite_index != spr_elevatordown4)
+if (visited && sprite_index != spr_pumpkingate && sprite_index != spr_cheftaskdoor && sprite_index != spr_elevatordown1 && sprite_index != spr_elevatordown2 && sprite_index != spr_elevatordown3 && sprite_index != spr_elevatordown4)
 {
 	sprite_index = spr_doorvisited;
 }
@@ -58,7 +58,7 @@ if (sprite_index == spr_cheftaskdoor)
 	for (var i = 0; i < array_length(arr); i++)
 	{
 		var b = arr[i];
-		if (ini_read_real("achievements", b, false) == false)
+		if (!ini_read_real("achievements", b, false))
 		{
 			_found = true;
 			break;

@@ -76,9 +76,6 @@ switch (state)
 			state = states.turn;
 		}
 		break;
-	case states.land:
-		scr_enemy_land();
-		break;
 	case states.hit:
 		scr_enemy_hit();
 		break;
@@ -92,14 +89,11 @@ switch (state)
 	case states.grabbed:
 		scr_enemy_grabbed();
 		break;
-	case states.pummel:
-		scr_enemy_pummel();
-		break;
 	case states.staggered:
 		scr_enemy_staggered();
 		break;
 }
-if (state == states.stun && stunned > 100 && birdcreated == false)
+if (state == states.stun && stunned > 100 && !birdcreated)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -111,7 +105,7 @@ if (state != states.stun)
 {
 	birdcreated = false;
 }
-if (flash == true && alarm[2] <= 0)
+if (flash && alarm[2] <= 0)
 {
 	alarm[2] = 0.15 * room_speed;
 }
@@ -137,7 +131,7 @@ if (bombreset > 0)
 {
 	bombreset--;
 }
-targetplayer = global.coop ? instance_nearest(x, y, obj_player) : obj_player1;
+targetplayer = obj_player;
 if (x != targetplayer.x && state == states.walk && state != states.pizzagoblinthrow && obj_player.state != states.tumble && bombreset <= 0 && grounded)
 {
 	if ((targetplayer.x > (x - 80) && targetplayer.x < (x + 80)) && (y <= (targetplayer.y + 30) && y >= (targetplayer.y - 30)))
@@ -155,7 +149,7 @@ if (grounded && state == states.pizzagoblinthrow && floor(image_index) == 3)
 {
 	vsp = -5;
 }
-if (boundbox == false)
+if (!boundbox)
 {
 	with (instance_create(x, y, obj_baddiecollisionbox))
 	{

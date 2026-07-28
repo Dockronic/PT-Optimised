@@ -34,7 +34,6 @@ for (var i = 0; i < 3; i++)
 			case tile_forestplain: t = spr_forestplaintile; break;
 			case tileset_freezer: t = bg_tilefreezer; break;
 			case tileset_freezer2: t = tile_freezer2; break;
-			//case tileset_graveyard1: t = tile_graveyard1; break;
 			case tileset_graveyardinterior: t = tile_graveyard3; break;
 			case tileset_graveyardunderground: t = tile_graveyard2; break;
 			case tile_factory_tileset: t = tile_factory; break;

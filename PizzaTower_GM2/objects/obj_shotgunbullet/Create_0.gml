@@ -8,4 +8,4 @@ pistol = false;
 minigun = false;
 shotgun = false;
 brick = false;
-brickid = obj_null;
+brickid = noone;

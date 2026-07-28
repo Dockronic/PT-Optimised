@@ -6,14 +6,8 @@ switch (state)
 	case states.charge:
 		scr_enemy_charge();
 		break;
-	case states.turn:
-		scr_enemy_turn();
-		break;
 	case states.walk:
 		scr_enemy_walk();
-		break;
-	case states.land:
-		scr_enemy_land();
 		break;
 	case states.hit:
 		scr_enemy_hit();
@@ -39,7 +33,7 @@ if (state != states.charge && sprite_index != spr_pizzaboy)
 {
 	scr_scareenemy();
 }
-if (state == states.stun && stunned > 100 && birdcreated == false)
+if (state == states.stun && stunned > 100 && !birdcreated)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -150,7 +144,6 @@ if (sprite_index == spr_pizzaboy)
 			sprite_index = spr_ninja_uppercut;
 			image_index = 0;
 			state = states.charge;
-			roaming = true;
 			vsp = -14;
 			hsp = image_xscale * 4;
 			inv_timer = 5;
@@ -194,7 +187,7 @@ else
 {
 	invincible = false;
 }
-if (flash == true && alarm[2] <= 0)
+if (flash && alarm[2] <= 0)
 {
 	alarm[2] = 0.15 * room_speed;
 }
@@ -206,7 +199,7 @@ if (state != states.stun)
 {
 	thrown = false;
 }
-if (boundbox == false)
+if (!boundbox)
 {
 	with (instance_create(x, y, obj_baddiecollisionbox))
 	{

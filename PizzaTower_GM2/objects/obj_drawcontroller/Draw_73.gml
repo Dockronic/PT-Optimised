@@ -123,9 +123,9 @@ if (kidsparty_lightning || dark_lightning)
 			draw_rectangle(0, 0, cw, ch, false);
 			gpu_set_blendmode(bm_subtract);
 			draw_set_color(c_white);
-			for (var i = 0; i < 2; i++)
+			for (var i = 0; i < 1; i++)
 			{
-				var _player = asset_get_index(concat("obj_player", i + 1));
+				var _player = obj_player;
 				draw_set_alpha(circle_alpha_out);
 				with (_player)
 				{

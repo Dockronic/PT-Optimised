@@ -35,7 +35,7 @@ if (!other.ignore_grind && (other.state != states.tumble || (other.sprite_index 
 	{
 		with (other)
 		{
-			if (brick == true && ispeppino)
+			if (brick && ispeppino)
 			{
 				with (instance_create(x, y, obj_brickcomeback))
 				{

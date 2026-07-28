@@ -3,7 +3,6 @@ function scr_hub_bg_init(_mult = 1)
 	bgsprite = spr_gate_entranceBG;
 	bgsprite_number = sprite_get_number(bgsprite);
 	bgsprite_width = sprite_get_width(bgsprite);
-	bgsprite_height = sprite_get_height(bgsprite);
 	bgspritepos = 0;
 	bgspriteposstart = 0;
 	bgalpha = 1;
@@ -18,7 +17,6 @@ function scr_hub_bg_reinit(_xoffset, _yoffset)
 {
 	bgsprite_number = sprite_get_number(bgsprite);
 	bgsprite_width = sprite_get_width(bgsprite);
-	bgsprite_height = sprite_get_height(bgsprite);
 	for (var i = 0; i < bgsprite_number; i++)
 	{
 		bgspritepos[i] = 0;

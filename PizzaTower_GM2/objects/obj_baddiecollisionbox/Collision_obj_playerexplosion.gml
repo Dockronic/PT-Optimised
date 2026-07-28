@@ -15,9 +15,7 @@ if (instance_exists(baddieID) && baddieID.invtime == 0 && baddieID.state != stat
 		fmod_event_one_shot_3d("event:/sfx/pep/punch", x, y);
 		if (!baddieID.important)
 		{
-			global.style += (5 + global.combo);
 			global.combotime = 60;
-			global.heattime = 60;
 		}
 		var lag = 2;
 		baddieID.hitLag = lag;

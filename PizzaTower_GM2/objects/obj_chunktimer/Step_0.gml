@@ -1,13 +1,13 @@
-if (global.panic == true && global.fill > 0 && !instance_exists(obj_ghostcollectibles) && !global.tutorial_room)
+if (global.panic && global.fill > 0 && !instance_exists(obj_ghostcollectibles) && !global.tutorial_room)
 {
 	global.fill -= 0.2;
 }
-if (global.fill <= 0 && global.panic == true && !global.tutorial_room && !instance_exists(obj_pizzaface))
+if (global.fill <= 0 && global.panic && !global.tutorial_room && !instance_exists(obj_pizzaface))
 {
 	var s = string_letters(room_get_name(room));
 	if (string_copy(s, 1, 5) != "tower")
 	{
-		instance_create(obj_player1.x, obj_player1.y, obj_pizzaface);
+		instance_create(obj_player.x, obj_player.y, obj_pizzaface);
 		fmod_event_one_shot("event:/sfx/pizzaface/laugh");
 	}
 	else
@@ -30,7 +30,7 @@ if (global.fill <= 0 && global.panic == true && !global.tutorial_room && !instan
 			visible = true;
 			image_blend = c_white;
 			audio_stop_all();
-			if (object_index == obj_player1 && ispeppino && !global.swapmode)
+			if (ispeppino && !global.swapmode)
 			{
 				stop_music();
 			}

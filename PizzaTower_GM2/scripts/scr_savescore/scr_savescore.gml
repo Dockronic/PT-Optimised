@@ -1,26 +1,22 @@
 function scr_savescore(_level)
 {
-	if ((global.collect + global.collectN) >= global.srank)
+	if (global.collect >= global.srank)
 	{
 		global.rank = "s";
 		if (scr_is_p_rank())
 		{
 			global.rank = "p";
 		}
-		if (global.snickchallenge == true)
-		{
-			global.SAGEsnicksrank = true;
-		}
 	}
-	else if ((global.collect + global.collectN) > global.arank)
+	else if (global.collect > global.arank)
 	{
 		global.rank = "a";
 	}
-	else if ((global.collect + global.collectN) > global.brank)
+	else if (global.collect > global.brank)
 	{
 		global.rank = "b";
 	}
-	else if ((global.collect + global.collectN) > global.crank)
+	else if (global.collect > global.crank)
 	{
 		global.rank = "c";
 	}

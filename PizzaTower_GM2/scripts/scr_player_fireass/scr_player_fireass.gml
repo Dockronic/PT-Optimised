@@ -35,7 +35,7 @@ function scr_player_fireass()
 		{
 			fireasslock = false;
 		}
-		if (fireasslock == false)
+		if (!fireasslock)
 		{
 			if (move != 0)
 			{

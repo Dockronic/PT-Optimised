@@ -67,45 +67,6 @@ function screen_apply_fullscreen(_fullscreen)
 	}
 }
 
-function surface_safe_set_target(_surf)
-{
-	surface_reset_target();
-	surface_set_target(_surf);
-}
-
-function set_gui_target(_surf)
-{
-	while (surface_get_target() != -1 && surface_get_target() != application_surface)
-	{
-		surface_reset_target();
-	}
-	surface_set_target(_surf);
-}
-
-function surface_safe_reset_target()
-{
-	if (surface_get_target() != -1 && surface_get_target() != application_surface)
-	{
-		surface_reset_target();
-	}
-}
-
-function reset_gui_target()
-{
-	while (surface_get_target() != -1 && surface_get_target() != application_surface)
-	{
-		surface_reset_target();
-	}
-	with (obj_screensizer)
-	{
-		if (!surface_exists(gui_surf))
-		{
-			exit;
-		}
-		surface_set_target(gui_surf);
-	}
-}
-
 function reset_blendmode()
 {
 	gpu_set_blendmode_ext(bm_max, bm_inv_src_alpha);
@@ -160,15 +121,6 @@ function get_resolution_height(_res, _ratio = aspectratios.ratio_16_9)
 	return global.resolutions[_ratio][_res][1];
 }
 
-function get_resolution(_res, _ratio = aspectratios.ratio_16_9)
-{
-	if (_res < 0 || _res >= array_length(global.resolutions[_ratio]))
-	{
-		return noone;
-	}
-	return global.resolutions[_ratio][_res];
-}
-
 function screen_clear(_color = c_black)
 {
 	draw_rectangle_color(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, _color, _color, _color, _color, false);
@@ -181,7 +133,6 @@ function get_options()
 	+	> gml_Script_get_options (locals=3, argc=0)
 	*/
 	// im going to assume that the local count issue is due to debug-exclusive lang stuff?
-	// if someone knows please correct this.
 	
 	// artificially inflate variable count
 	if (IS_DEBUG)

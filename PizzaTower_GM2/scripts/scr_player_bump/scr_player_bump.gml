@@ -5,7 +5,6 @@ function scr_player_bump()
 		movespeed = 0;
 		mach2 = 0;
 		var _gus = sprite_index == spr_player_ratmountbump || sprite_index == spr_lonegustavo_bump;
-		start_running = true;
 		alarm[4] = 14;
 		if (grounded && vsp > 0)
 		{

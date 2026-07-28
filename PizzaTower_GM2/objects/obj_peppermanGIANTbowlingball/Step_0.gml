@@ -1,4 +1,4 @@
-if (fall == false)
+if (!fall)
 {
 	if (image_xscale == 1)
 	{
@@ -9,7 +9,7 @@ if (fall == false)
 		x = Approach(x, room_width - 64, 1);
 	}
 }
-if (fall == true)
+if (fall)
 {
 	x += (image_xscale * 7);
 }

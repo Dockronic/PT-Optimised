@@ -1,6 +1,4 @@
 {
-  "extensionId": null,
-  "resourceVersion": "1.0",
   "resourceType": "GMExtensionConfigSet",
   "configurables": {
     "f02a30b0-9e77-4e85-9d82-3ef7babc05d1": null,
@@ -18,7 +16,7 @@
     "fc7d5b5e-1344-49ee-bca6-8579b0c68d50": null,
     "2d6a1c61-98e7-4289-8eff-d70ef6dac1ff": {
       "Default": {
-        "value": "D:\\\\Pt-OptimisedReal\\\\PT-Optimised\\\\PizzaTower_GM2\\\\extensions\\\\Steamworks"
+        "value": "C:\\\\steamworks_sdk"
       }
     },
     "c37a2e1d-c82f-4d90-9d0a-b4a2b3b3da08": null,
@@ -28,5 +26,7 @@
       }
     },
     "96a61e5d-c4ac-4104-b5ac-c8ef936e2609": null
-  }
+  },
+  "extensionId": null,
+  "resourceVersion": "1.0"
 }

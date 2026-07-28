@@ -20,12 +20,6 @@ function scr_solid_player(_x, _y)
 						_collided = true;
 					}
 					break;
-				//case obj_mach3solid:
-				//	if (state != states.mach3 && (state != states.machslide || sprite_index != spr_mach3boost) && (state != states.chainsaw || tauntstoredstate != states.mach3))
-				//	{
-				//		_collided = true;
-				//	}
-				//	break;
 				default:
 					_collided = true;
 			}
@@ -81,12 +75,6 @@ function scr_solid_player(_x, _y)
 		y = old_y;
 		return true;
 	}
-	if (state == states.grind && check_slope_player(obj_grindrailslope))
-	{
-		x = old_x;
-		y = old_y;
-		return true;
-	}
 	x = old_x;
 	y = old_y;
 	return false;
@@ -101,18 +89,15 @@ function check_slope_player(_slope)
 		{
 			var object_side = 0;
 			var slope_start = 0;
-			var slope_end = 0;
 			if (image_xscale > 0)
 			{
 				object_side = other.bbox_right;
 				slope_start = bbox_bottom;
-				slope_end = bbox_top;
 			}
 			else
 			{
 				object_side = other.bbox_left;
 				slope_start = bbox_top;
-				slope_end = bbox_bottom;
 			}
 			var m = (sign(image_xscale) * (bbox_bottom - bbox_top)) / (bbox_right - bbox_left);
 			slope = slope_start - round(m * (object_side - bbox_left));

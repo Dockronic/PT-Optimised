@@ -12,7 +12,6 @@ function scr_player_crouch()
 	}
 	movespeed = 4;
 	mask_index = spr_crouchmask;
-	turning = false;
 	if (!grounded && !key_jump)
 	{
 		jumpAnim = false;
@@ -30,11 +29,11 @@ function scr_player_crouch()
 		image_index = 0;
 		mask_index = spr_player_mask;
 	}
-	if (crouchAnim == false)
+	if (!crouchAnim)
 	{
 		if (move == 0)
 		{
-			if (shotgunAnim == false)
+			if (!shotgunAnim)
 			{
 				sprite_index = spr_crouch;
 			}
@@ -45,7 +44,7 @@ function scr_player_crouch()
 		}
 		if (move != 0)
 		{
-			if (shotgunAnim == false)
+			if (!shotgunAnim)
 			{
 				sprite_index = spr_crawl;
 			}
@@ -55,11 +54,11 @@ function scr_player_crouch()
 			}
 		}
 	}
-	if (crouchAnim == true)
+	if (crouchAnim)
 	{
 		if (move == 0)
 		{
-			if (shotgunAnim == false)
+			if (!shotgunAnim)
 			{
 				sprite_index = spr_couchstart;
 			}
@@ -87,34 +86,6 @@ function scr_player_crouch()
 		image_index = 0;
 		crouchAnim = true;
 		jumpAnim = true;
-	}
-	if (key_shoot2 && character == "V" && !instance_exists(dynamite_inst))
-	{
-		if (move == 0)
-		{
-			movespeed = 0;
-		}
-		state = states.dynamite;
-		image_index = 0;
-		sprite_index = spr_playerV_dynamitethrow;
-		with (instance_create(x, y, obj_dynamite))
-		{
-			image_xscale = other.xscale;
-			movespeed = 0;
-			vsp = -6;
-			other.dynamite_inst = id;
-			playerid = other.id;
-		}
-	}
-	if (key_slap2 && character == "V")
-	{
-		if (move == 0)
-		{
-			movespeed = 0;
-		}
-		state = states.revolver;
-		image_index = 0;
-		sprite_index = spr_playerV_revolverstart;
 	}
 	image_speed = 0.45;
 }

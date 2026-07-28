@@ -12,7 +12,6 @@ switch (state)
 }
 if (!round_timer_init)
 {
-	round_timer = round_timermax;
 	round_timer_init = true;
 }
 player_index += 0.35;

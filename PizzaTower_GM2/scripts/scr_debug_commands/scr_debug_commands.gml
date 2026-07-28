@@ -75,9 +75,6 @@ function TextList_Add(_type, _text)
 {
 	with (obj_debugcontroller)
 	{
-		if (DEBUG)
-		{
-			ds_list_add(text_list, [_type, _text]);
-		}
+		ds_list_add(text_list, [_type, _text]);
 	}
 }

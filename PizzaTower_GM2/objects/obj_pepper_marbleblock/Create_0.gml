@@ -1,11 +1,8 @@
 hp = 3;
 number = 0;
 maxhp = hp;
-parentID = noone;
 spotID = noone;
-blockID = noone;
 death = false;
-statue = true;
 fall = false;
 contemplated = false;
 hitX = x;

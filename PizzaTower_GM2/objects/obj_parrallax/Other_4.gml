@@ -114,8 +114,6 @@ bg_ZH2_speed = layer_get_hspeed("Backgrounds_stillZH2");
 bg_ZH2_offset = layer_get_vspeed("Backgrounds_stillZH2");
 fg_1xoffset = layer_get_x("Foreground_1");
 fg_1yoffset = layer_get_y("Foreground_1");
-fg_2xoffset = layer_get_x("Foreground_2");
-fg_2yoffset = layer_get_y("Foreground_2");
 fg_speed = layer_get_vspeed("Foreground_1");
 layer_depth("Foreground_1", -400);
 layer_depth("Foreground_Ground1", -401);

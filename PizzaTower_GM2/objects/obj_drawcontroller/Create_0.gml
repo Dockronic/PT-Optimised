@@ -21,7 +21,6 @@ patrolcone_tex = noone;
 flash_arr = [obj_vigilantecow, obj_targetguy];
 use_dark = false;
 dark_alpha = 1;
-dark_arr = ["Tiles_1", "Tiles_2", "Tiles_3", "Tiles_4"];
 objdark_arr =
 [
 	obj_playerbomb,
@@ -49,6 +48,5 @@ objdark_arr =
 	obj_hppickup,
 	obj_vigilantecow,
 	obj_stampedecloud,
-	//obj_ladderhorizontal,
 	obj_vigilanteshot
 ];

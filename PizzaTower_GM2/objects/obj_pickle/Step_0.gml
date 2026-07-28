@@ -11,14 +11,8 @@ switch (state)
 	case states.charge:
 		scr_enemy_charge();
 		break;
-	case states.turn:
-		scr_enemy_turn();
-		break;
 	case states.walk:
 		scr_enemy_walk();
-		break;
-	case states.land:
-		scr_enemy_land();
 		break;
 	case states.hit:
 		scr_enemy_hit();
@@ -39,7 +33,7 @@ switch (state)
 		scr_enemy_chase();
 		break;
 }
-if (state == states.stun && stunned > 100 && birdcreated == false)
+if (state == states.stun && stunned > 100 && !birdcreated)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -51,7 +45,7 @@ if (state != states.stun)
 {
 	birdcreated = false;
 }
-if (flash == true && alarm[2] <= 0)
+if (flash && alarm[2] <= 0)
 {
 	alarm[2] = 0.15 * room_speed;
 }
@@ -79,7 +73,7 @@ if (sprite_index == scaredspr)
 if (bombreset == 0 && state == states.walk)
 {
 	attacking = false;
-	targetplayer = global.coop ? instance_nearest(x, y, obj_player) : obj_player1;
+	targetplayer = obj_player;
 	if ((targetplayer.x > (x - threshold_x) && targetplayer.x < (x + threshold_x)) && (y <= (targetplayer.y + threshold_y) && y >= (targetplayer.y - threshold_y)))
 	{
 		attacking = true;
@@ -195,7 +189,7 @@ if (state == states.idle)
 		invincible = true;
 	}
 }
-if (boundbox == false)
+if (!boundbox)
 {
 	with (instance_create(x, y, obj_baddiecollisionbox))
 	{

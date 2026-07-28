@@ -19,7 +19,7 @@ combofill_y = _cy;
 shader_set(global.Pal_Shader);
 pal_swap_set(spr_tv_combofillpalette, (!global.combodropped && global.prank_enemykilled) ? 2 : 1, false);
 draw_sprite(spr_tv_combobubblefill, combofill_index, combofill_x, combofill_y);
-pal_swap_set(spr_tv_combopalette, (obj_player1.ispeppino && !global.swapmode) ? 0 : 1, false);
+pal_swap_set(spr_tv_combopalette, (obj_player.ispeppino && !global.swapmode) ? 0 : 1, false);
 lang_draw_sprite(spr_tv_combobubble, 0, _cx, _cy);
 draw_set_font(global.combofont2);
 draw_set_halign(fa_left);
@@ -41,13 +41,13 @@ if (room != rm_blank)
 	pattern_set(global.Base_Pattern_Color, sprite_index, image_index, image_xscale, image_yscale, patterntexture);
 	pal_swap_set(spr_palette, paletteselect, false);
 	draw_sprite_ext(sprite_index, image_index, tv_x + collect_x, tv_y + collect_y + hud_posY, 1, 1, 0, c_white, alpha);
-	var _red = global.noisejetpack && (obj_player1.ispeppino || obj_player1.noisepizzapepper);
+	var _red = global.noisejetpack && (obj_player.ispeppino || obj_player.noisepizzapepper);
 	if (_red)
 	{
 		pal_swap_set(spr_palette, 2, false);
 		draw_sprite_ext(sprite_index, image_index, tv_x + collect_x, tv_y + collect_y + hud_posY, 1, 1, 0, c_white, alpha);
 	}
-	if (!obj_player1.ispeppino || global.swapmode)
+	if (!obj_player.ispeppino || global.swapmode)
 	{
 		pal_swap_set(spr_tv_palette, 1, false);
 		var spr = spr_tv_empty;
@@ -59,7 +59,7 @@ if (room != rm_blank)
 	}
 	if (state == states.whitenoise)
 	{
-		if (!obj_player1.ispeppino || global.swapmode)
+		if (!obj_player.ispeppino || global.swapmode)
 		{
 			pal_swap_set(spr_tv_palette, 1, false);
 		}
@@ -78,22 +78,6 @@ if (room != rm_blank)
 	pattern_reset();
 }
 reset_shader_fix();
-if (bubblespr != noone)
-{
-	draw_sprite_ext(bubblespr, bubbleindex, SCREEN_WIDTH - 448, 53, 1, 1, 1, c_white, alpha);
-}
-if (!surface_exists(promptsurface))
-{
-	promptsurface = surface_create(290, 102);
-}
-surface_set_target(promptsurface);
-draw_clear_alpha(c_black, 0);
-draw_set_font(font1);
-draw_set_halign(fa_left);
-draw_set_valign(fa_middle);
-draw_set_halign(fa_left);
-surface_reset_target();
-draw_surface(promptsurface, SCREEN_WIDTH - 610, 0);
 draw_set_font(global.smallnumber_fnt);
 draw_set_halign(fa_center);
 if (global.panic)

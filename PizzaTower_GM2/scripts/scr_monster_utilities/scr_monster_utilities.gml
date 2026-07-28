@@ -160,7 +160,7 @@ function scr_puppet_detect()
 {
 	with (obj_player)
 	{
-		if ((object_index != obj_player2 || global.coop) && !place_meeting(x, y, obj_tutorialblock))
+		if (!place_meeting(x, y, obj_tutorialblock))
 		{
 			return id;
 		}
@@ -207,77 +207,3 @@ function scr_puppet_appear(_obj)
 	}
 }
 
-function scr_monsterinvestigate(_spd, _walkingspr, _idlespr)
-{
-	targetplayer = instance_nearest(x, y, obj_player);
-	image_speed = 0.35;
-	switch (investigatestate)
-	{
-		case 0:
-		case 1:
-			sprite_index = _walkingspr;
-			hsp = image_xscale * _spd;
-			if (place_meeting(x + sign(hsp), y, obj_monstersolid) && (!place_meeting(x + sign(hsp), y, obj_monsterslope) || place_meeting(x + sign(hsp), y - 4, obj_solid)))
-			{
-				investigatestate++;
-				image_xscale *= -1;
-			}
-			if (investigatestate == 1)
-			{
-				if ((image_xscale > 0 && x > (room_width / 2)) || (image_xscale < 0 && x < (room_width / 2)))
-				{
-					investigatestate = 2;
-					waitbuffer = 100;
-				}
-			}
-			break;
-		case 2:
-			sprite_index = _idlespr;
-			hsp = 0;
-			if (waitbuffer > 0)
-			{
-				waitbuffer--;
-			}
-			else
-			{
-				state = states.monsterwalk;
-				image_xscale *= -1;
-				instance_create(x, y, obj_patroller);
-			}
-			break;
-	}
-	if (scr_monster_detect(300, room_height, targetplayer))
-	{
-		state = states.monsterchase;
-	}
-}
-
-function scr_monster_detect_audio()
-{
-	if (scr_monster_audio_check())
-	{
-		if (!point_in_camera(x, y, view_camera[0]))
-		{
-			state = states.monsterinvestigate;
-			investigatestate = 0;
-		}
-		else
-		{
-			targetplayer = instance_nearest(x, y, obj_player);
-			if (object_index == obj_blobmonster)
-			{
-				state = states.fall;
-				gravdir *= -1;
-				chase = false;
-			}
-			else
-			{
-				state = states.monsterchase;
-			}
-		}
-	}
-}
-
-function scr_monster_audio_check()
-{
-}

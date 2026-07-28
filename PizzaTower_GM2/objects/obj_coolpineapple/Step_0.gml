@@ -9,17 +9,9 @@ switch (state)
 		grav = 0.5;
 		scr_enemy_charge();
 		break;
-	case states.turn:
-		grav = 0.5;
-		scr_enemy_turn();
-		break;
 	case states.walk:
 		grav = 0.5;
 		scr_enemy_walk();
-		break;
-	case states.land:
-		grav = 0.5;
-		scr_enemy_land();
 		break;
 	case states.hit:
 		grav = 0.5;
@@ -51,7 +43,7 @@ if (inv_timer <= 0)
 {
 	scr_scareenemy();
 }
-if (state == states.stun && stunned > 100 && birdcreated == false)
+if (state == states.stun && stunned > 100 && !birdcreated)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -155,61 +147,13 @@ switch (state)
 			grav = taunt_storedgrav;
 			state = taunt_storedstate;
 			hsp = taunt_storedhsp;
-			cooldown_count = cooldown_max;
 			movespeed = taunt_storedmovespeed;
 		}
 		break;
 	case states.punch:
-		//if (sprite_index == spr_coolpinea_ragestart)
-		//{
-		//	hsp = 0;
-		//	inv_timer = 0;
-		//	if (ANIMATION_END)
-		//	{
-		//		sprite_index = spr_coolpinea_rage;
-		//		breakdance_movespeed = 10;
-		//		hsp = breakdance_movespeed * image_xscale;
-		//	}
-		//}
-		//else
-		//{
-		//	breakdance_movespeed = Approach(breakdance_movespeed, 0, 0.25);
-		//	hsp = image_xscale * breakdance_movespeed;
-		//	if (place_meeting(x + sign(hsp), y, obj_solid))
-		//	{
-		//		image_xscale *= -1;
-		//		if (breakdance_movespeed < 3)
-		//		{
-		//			breakdance_movespeed = 5;
-		//		}
-		//		hsp = breakdance_movespeed * image_xscale;
-		//	}
-		//	if (trail_count > 0)
-		//	{
-		//		trail_count--;
-		//	}
-		//	else
-		//	{
-		//		with (create_red_afterimage(x, y, sprite_index, image_index - 1, image_xscale))
-		//		{
-		//			playerid = other.id;
-		//		}
-		//		trail_count = trail_max;
-		//	}
-		//	if (breakdance > 0)
-		//	{
-		//		breakdance--;
-		//	}
-		//	else
-		//	{
-		//		sprite_index = walkspr;
-		//		state = states.walk;
-		//		breakdanceinst = noone;
-		//	}
-		//}
 		break;
 }
-if (flash == true && alarm[2] <= 0)
+if (flash && alarm[2] <= 0)
 {
 	alarm[2] = 0.15 * room_speed;
 }
@@ -221,7 +165,7 @@ if (state != states.stun)
 {
 	thrown = false;
 }
-if (boundbox == false)
+if (!boundbox)
 {
 	with (instance_create(x, y, obj_baddiecollisionbox))
 	{

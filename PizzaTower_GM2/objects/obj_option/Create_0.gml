@@ -14,7 +14,6 @@ bg_alpha = [1, 0, 0, 0, 0];
 bg_x = 0;
 bg_y = 0;
 menus = [];
-lastmenu = 0;
 menu = 0;
 optionselected = 0;
 backbuffer = 0;

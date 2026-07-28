@@ -1,7 +1,7 @@
 var j = id;
 with (instance_place(x, y, obj_baddiecollisionbox))
 {
-	if (instance_exists(baddieID) && baddieID.thrown == true)
+	if (instance_exists(baddieID) && baddieID.thrown)
 	{
 		instance_destroy(j);
 	}

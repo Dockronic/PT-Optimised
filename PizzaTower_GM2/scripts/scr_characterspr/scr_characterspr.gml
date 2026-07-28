@@ -1,6 +1,6 @@
 function scr_characterspr()
 {
-	if (character == "P" && ispeppino)
+	if (ispeppino)
 	{
 		spr_idle = spr_player_idle;
 		spr_move = spr_player_move;
@@ -9,7 +9,6 @@ function scr_characterspr()
 		spr_idle = spr_player_idle;
 		spr_hurt = spr_player_hurt;
 		spr_jump = spr_player_jump;
-		spr_jump2 = spr_player_jump2;
 		spr_fall = spr_player_fall;
 		spr_crouch = spr_player_crouch;
 		spr_crouchjump = spr_player_crouchjump;
@@ -46,21 +45,15 @@ function scr_characterspr()
 		spr_catched = spr_player_catched;
 		spr_land2 = spr_player_land2;
 		spr_punch = spr_player_punch;
-		spr_shoulder = spr_player_shoulder;
-		spr_uppunch = spr_player_uppunch;
 		spr_stomp = spr_player_stomp;
 		spr_stompprep = spr_player_stompprep;
 		spr_crouch = spr_player_crouch;
 		spr_bump = spr_player_bump;
 		spr_victory = spr_player_victory;
 		spr_hurt = spr_player_hurt;
-		spr_climbwall = spr_player_climbwall;
-		//spr_grab = spr_player_grab;
 		spr_mach2jump = spr_player_mach2jump;
 		spr_Timesup = spr_player_timesup;
 		spr_deathend = spr_player_deathend;
-	//	spr_machpunch1 = spr_player_machpunch1;
-	//	spr_machpunch2 = spr_player_machpunch2;
 		spr_hurtjump = spr_player_jumphurt;
 		spr_entergate = spr_player_entergate;
 		spr_gottreasure = spr_player_gottreasure;
@@ -70,7 +63,6 @@ function scr_characterspr()
 		spr_suplexmash2 = spr_player_suplexmash2;
 		spr_suplexmash3 = spr_player_suplexmash3;
 		spr_suplexmash4 = spr_player_suplexmash4;
-		spr_tackle = spr_player_tackle;
 		spr_airdash1 = spr_player_airdash1;
 		spr_airdash2 = spr_player_airdash2;
 		spr_keyget = spr_player_keyget;
@@ -124,13 +116,10 @@ function scr_characterspr()
 		spr_tumblestart = spr_player_tumblestart;
 		spr_tumbleend = spr_player_tumbleend;
 		spr_tumble = spr_player_tumble;
-		spr_stunned = spr_player_stunned;
 		spr_clown = spr_player_clown;
 		spr_clownbump = spr_player_clownbump;
-		//spr_clowncrouch = spr_player_clowncrouch;
 		spr_clownfall = spr_player_clownjump;
 		spr_clownjump = spr_player_clownjump;
-		spr_clownwallclimb = spr_player_clownwallclimb;
 		spr_downpizzabox = spr_player_downpizzabox;
 		spr_uppizzabox = spr_player_uppizzabox;
 		spr_slipnslide = spr_player_slipnslide;
@@ -255,7 +244,7 @@ function scr_characterspr()
 		spr_breakdanceuppercut = spr_player_breakdanceuppercut;
 		spr_breakdanceuppercutend = spr_player_breakdanceuppercutend;
 	}
-	if (character == "N" || (character == "P" && !ispeppino))
+	if (!ispeppino)
 	{
 		spr_idle = spr_playerN_idle;
 		spr_move = spr_playerN_move;
@@ -263,7 +252,6 @@ function scr_characterspr()
 		spr_idle = spr_playerN_idle;
 		spr_hurt = spr_playerN_hurt;
 		spr_jump = spr_playerN_jump;
-		spr_jump2 = spr_player_jump2;
 		spr_fall = spr_playerN_fall;
 		spr_crouch = spr_playerN_crouch;
 		spr_crouchjump = spr_playerN_crouchjump;
@@ -306,35 +294,24 @@ function scr_characterspr()
 		spr_wallsplat = spr_playerN_wallsplat;
 		spr_land2 = spr_playerN_land2;
 		spr_punch = spr_playerN_punch;
-		spr_backkick = spr_playerN_backkick;
-		spr_shoulder = spr_playerN_shoulder;
-		spr_uppunch = spr_playerN_backkick;
 		spr_stomp = spr_playerN_stomp;
 		spr_stompprep = spr_playerN_stompprep;
-		spr_crouchslide = spr_playerN_crouchslip;
 		spr_crouch = spr_playerN_crouch;
 		spr_bump = spr_playerN_bump;
 		spr_victory = spr_playerN_victory;
 		spr_hurt = spr_playerN_hurt;
-		spr_climbwall = spr_playerN_climbwall;
-	//	spr_grab = spr_playerN_grab;
 		spr_mach2jump = spr_playerN_mach2jump;
 		spr_Timesup = spr_playerN_timesup;
-		//spr_deathstart = spr_playerN_deathstart;
 		spr_deathend = spr_playerN_deathend;
-	//	spr_machpunch1 = spr_playerN_machpunch1;
-	//	spr_machpunch2 = spr_playerN_machpunch2;
 		spr_hurtjump = spr_playerN_hurtjump;
 		spr_entergate = spr_playerN_entergate;
 		spr_gottreasure = spr_playerN_gottreasure;
-		spr_bossintro = spr_playerN_bossintro;
 		spr_hurtidle = spr_playerN_hurtidle;
 		spr_hurtwalk = spr_playerN_hurtwalk;
 		spr_suplexmash1 = spr_playerN_suplexmash1;
 		spr_suplexmash2 = spr_playerN_suplexmash2;
 		spr_suplexmash3 = spr_playerN_suplexmash3;
 		spr_suplexmash4 = spr_playerN_suplexmash4;
-		spr_tackle = spr_playerN_tackle;
 		spr_airdash1 = spr_playerN_airdash1;
 		spr_airdash2 = spr_playerN_airdash2;
 		spr_keyget = spr_playerN_keyget;
@@ -383,16 +360,12 @@ function scr_characterspr()
 		spr_fireassground = spr_playerN_fireassground;
 		spr_tumbleend = spr_playerN_tumbleend;
 		spr_tumble = spr_playerN_tumble;
-		spr_stunned = spr_playerN_stunned;
 		spr_clown = spr_playerN_clown;
 		spr_clownbump = spr_playerN_clownbump;
-		//spr_clowncrouch = spr_playerN_clowncrouch;
 		spr_clownfall = spr_playerN_clownfall;
 		spr_clownjump = spr_playerN_clownjump;
-		spr_clownwallclimb = spr_playerN_clownwallclimb;
 		spr_downpizzabox = spr_playerN_downpizzabox;
 		spr_uppizzabox = spr_playerN_uppizzabox;
-		//spr_slipnslide = spr_playerN_slipnslide;
 		spr_mach3boost = spr_playerN_mach3boost;
 		spr_facehurtup = spr_playerN_facehurtup;
 		spr_facehurt = spr_playerN_facehurt;
@@ -489,9 +462,6 @@ function scr_characterspr()
 		spr_boxxedpepidle = spr_playerN_boxxedidle;
 		spr_boxxedpepwalk = spr_playerN_boxxedmove;
 		spr_boxxedpepair = spr_playerN_boxxedfall;
-		spr_boxxedpepdashstart = spr_playerN_boxxeddashstart;
-		spr_boxxedpepdashend = spr_playerN_boxxeddashend;
-		spr_boxxedpepdash = spr_playerN_boxxeddash;
 		spr_cheesepepintro = spr_playerN_cheesedland;
 		spr_cheesepepidle = spr_playerN_cheesedidle;
 		spr_cheesepepwalk = spr_playerN_cheesedmove;

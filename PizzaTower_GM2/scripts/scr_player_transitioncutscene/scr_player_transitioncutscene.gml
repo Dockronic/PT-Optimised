@@ -1,7 +1,6 @@
 function scr_player_transitioncutscene()
 {
 	costumercutscenetimer--;
-	global.heattime = 60;
 	if (sprite_index == spr_player_knock && costumercutscenetimer < 0)
 	{
 		xscale *= -1;

@@ -3,7 +3,7 @@ with (other)
 {
 	if (state != states.gotoplayer && state != states.ghost && state != states.actor)
 	{
-		if (boxxed == false && isgustavo == false && other.buffer == 0 && other.sprite_index == spr_dashpad)
+		if (!boxxed && !isgustavo && other.buffer == 0 && other.sprite_index == spr_dashpad)
 		{
 			if (state == states.trashjump || state == states.trashstart)
 			{
@@ -35,24 +35,12 @@ with (other)
 			}
 			vsp = 0;
 			create_particle(x, y, particletypes.jumpdust, 0);
-			if (character == "P")
+			if (sprite_index != spr_dashpadmach)
 			{
-				if (sprite_index != spr_dashpadmach)
-				{
-					sprite_index = spr_dashpadmach;
-					image_index = 0;
-				}
-			}
-			else if (character == "N")
-			{
-				if (sprite_index != spr_crazyrun)
-				{
-					sprite_index = spr_crazyrun;
-					image_index = 0;
-				}
+				sprite_index = spr_dashpadmach;
+				image_index = 0;
 			}
 			scr_fmod_soundeffect(snd_dashpad, x, y);
-			machhitAnim = false;
 			state = states.mach3;
 			xscale = sign(other.image_xscale);
 			dir = xscale;

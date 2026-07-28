@@ -53,7 +53,6 @@ function scr_pizzaface_p3_do_player_attack(_player)
 	{
 		state = states.supergrab;
 		substate = states.grab;
-		attackcooldown = 0;
 		baddieID = other.id;
 		image_index = 0;
 		randomize_animations([spr_suplexmash1, spr_suplexmash2, spr_suplexmash3, spr_suplexmash4, spr_player_suplexmash5, spr_player_suplexmash6, spr_player_suplexmash7, spr_punch]);
@@ -68,7 +67,7 @@ function scr_pizzaface_p3_do_player_attack(_player)
 
 function scr_pizzaface_p3_arenaintro()
 {
-	with (obj_player1)
+	with (obj_player)
 	{
 		if (ANIMATION_END && sprite_index == spr_player_levelcomplete)
 		{
@@ -80,13 +79,13 @@ function scr_pizzaface_p3_arenaintro()
 		case states.arenaintro:
 			hsp = 0;
 			vsp = 0;
-			obj_player1.hsp = 0;
+			obj_player.hsp = 0;
 			if (ANIMATION_END)
 			{
 				image_index = image_number - 1;
 				introstate = states.idle;
 				introbuffer = 80;
-				with (obj_player1)
+				with (obj_player)
 				{
 					if (x != other.x)
 					{
@@ -100,7 +99,7 @@ function scr_pizzaface_p3_arenaintro()
 			break;
 		case states.idle:
 			image_index = image_number - 1;
-			if (obj_player1.sprite_index != obj_player1.spr_victory)
+			if (obj_player.sprite_index != obj_player.spr_victory)
 			{
 				if (introbuffer > 0)
 				{
@@ -123,9 +122,9 @@ function scr_pizzaface_p3_arenaintro()
 		case states.jump:
 			if (floor(image_index) >= 50)
 			{
-				if (x != obj_player1.x)
+				if (x != obj_player.x)
 				{
-					image_xscale = sign(obj_player1.x - x);
+					image_xscale = sign(obj_player.x - x);
 				}
 			}
 			if (ANIMATION_END)
@@ -138,7 +137,7 @@ function scr_pizzaface_p3_arenaintro()
 				{
 					image_index = image_number - 3;
 				}
-				with (obj_player1)
+				with (obj_player)
 				{
 					if (sprite_index == spr_idle)
 					{
@@ -153,7 +152,7 @@ function scr_pizzaface_p3_arenaintro()
 					}
 				}
 			}
-			with (obj_player1)
+			with (obj_player)
 			{
 				if (sprite_index == spr_gustavo_grab)
 				{
@@ -162,7 +161,7 @@ function scr_pizzaface_p3_arenaintro()
 					{
 						with (other)
 						{
-							scr_pizzaface_p3_do_player_attack(obj_player1);
+							scr_pizzaface_p3_do_player_attack(obj_player);
 						}
 					}
 				}
@@ -491,89 +490,14 @@ function scr_pizzaface_p3_staggered()
 	}
 }
 
-function scr_pizzaface_p3_handstandjump()
-{
-	sprite_index = spr_pizzahead_bigkickstart;
-	hsp = image_xscale * (10 + wastedhits);
-	if (attackcooldown > 0)
-	{
-		attackcooldown--;
-	}
-	else
-	{
-		state = states.normal;
-	}
-}
-
-function scr_pizzaface_p3_supergrab()
-{
-	hsp = Approach(hsp, 0, 0.5);
-	sprite_index = spr_pizzahead_hurt;
-	with (playerid)
-	{
-		image_speed = 1.2;
-		if (state == states.supergrab)
-		{
-			switch (substate)
-			{
-				case states.grab:
-					hsp = 0;
-					vsp = 0;
-					x = other.x + (other.image_xscale * 12);
-					y = other.y;
-					if (ANIMATION_END)
-					{
-						if (punchcount > 0)
-						{
-							other.hsp = -other.image_xscale * 6;
-							punchcount--;
-							image_index = 0;
-							randomize_animations([spr_suplexmash1, spr_suplexmash2, spr_suplexmash3, spr_suplexmash4, spr_player_suplexmash5, spr_player_suplexmash6, spr_player_suplexmash7, spr_punch]);
-						}
-						else if (other.elitehit > 1)
-						{
-							sprite_index = choose(spr_finishingblow1, spr_finishingblow2, spr_finishingblow3, spr_finishingblow4, spr_finishingblow4, spr_finishingblow5);
-							substate = states.finishingblow;
-							shot = false;
-						}
-						else
-						{
-							other.state = states.finale;
-							state = states.finale;
-							other.finale_x = x + ((other.x - x) / 2);
-						}
-					}
-					break;
-				case states.finishingblow:
-					if (floor(image_index) >= 3 && !shot)
-					{
-						fmod_event_one_shot_3d("event:/sfx/pep/punch", x, y);
-						shot = true;
-						with (other)
-						{
-							hitX = x;
-							hitY = y;
-							hithsp = -image_xscale * 25;
-							hitvsp = -5;
-							linethrown = true;
-							state = states.hit;
-							hitLag = 1;
-						}
-					}
-					break;
-			}
-		}
-	}
-}
-
 function scr_pizzaface_p3_finale()
 {
 	hsp = 0;
 	vsp = 0;
 	x = -200;
 	y = -200;
-	obj_player1.x = -200;
-	obj_player1.y = -200;
-	obj_player1.hsp = 0;
-	obj_player1.vsp = 0;
+	obj_player.x = -200;
+	obj_player.y = -200;
+	obj_player.hsp = 0;
+	obj_player.vsp = 0;
 }

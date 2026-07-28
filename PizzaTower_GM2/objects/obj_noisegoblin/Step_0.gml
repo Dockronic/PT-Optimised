@@ -7,14 +7,8 @@ switch (state)
 	case states.charge:
 		scr_enemy_charge();
 		break;
-	case states.turn:
-		scr_enemy_turn();
-		break;
 	case states.walk:
 		scr_enemy_walk();
-		break;
-	case states.land:
-		scr_enemy_land();
 		break;
 	case states.hit:
 		scr_enemy_hit();
@@ -42,7 +36,7 @@ switch (state)
 		}
 		break;
 }
-if (state == states.stun && stunned > 100 && birdcreated == false)
+if (state == states.stun && stunned > 100 && !birdcreated)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -55,7 +49,7 @@ if (state != states.stun)
 	birdcreated = false;
 }
 scr_scareenemy();
-if (flash == true && alarm[2] <= 0)
+if (flash && alarm[2] <= 0)
 {
 	alarm[2] = 0.15 * room_speed;
 }
@@ -71,7 +65,7 @@ if (bombreset > 0)
 {
 	bombreset--;
 }
-targetplayer = global.coop ? instance_nearest(x, y, obj_player) : obj_player1;
+targetplayer = obj_player;
 if ((sprite_index == spr_archergoblin_shoot || sprite_index == spr_archergoblin_wave) && x != targetplayer.x)
 {
 	image_xscale = -sign(x - targetplayer.x);
@@ -90,7 +84,7 @@ if (x != targetplayer.x && targetplayer.state != states.bombpep && state != stat
 				image_xscale = -sign(x - targetplayer.x);
 			}
 			state = states.pizzagoblinthrow;
-			if (!obj_player1.ispeppino && !provoked)
+			if (!obj_player.ispeppino && !provoked)
 			{
 				sprite_index = spr_archergoblin_wave;
 				state = states.actor;
@@ -100,7 +94,7 @@ if (x != targetplayer.x && targetplayer.state != states.bombpep && state != stat
 		}
 	}
 }
-if (boundbox == false)
+if (!boundbox)
 {
 	with (instance_create(x, y, obj_baddiecollisionbox))
 	{

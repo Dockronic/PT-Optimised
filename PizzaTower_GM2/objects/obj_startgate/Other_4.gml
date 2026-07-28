@@ -127,49 +127,4 @@ if (object_index == obj_startgate && level != "exit" && level != "tutorial" && l
 		}
 	}
 }
-switch (level)
-{
-	case "entrance":
-		msg = "ENTRANCE";
-		break;
-	case "medieval":
-		msg = "PIZZASCAPE";
-		break;
-	case "chateau":
-		msg = "PIZZASCARE";
-		break;
-	case "ruin":
-		msg = "TEH ANCIENT CHEESE";
-		break;
-	case "dungeon":
-		msg = "BLOODSAUCE DUNGEON";
-		break;
-	case "floorroom":
-		msg = "OREGANO DESERT";
-		break;
-	case "graveyard":
-		msg = "THE WASTEYARD";
-		break;
-	case "farm":
-		msg = "FUN FARM";
-		break;
-	case "ufo":
-		msg = "SPACE PINBALL";
-		break;
-	case "strongcold":
-		msg = "STRONGCOLD";
-		break;
-	case "forest":
-		msg = "GNOME FOREST";
-		break;
-	case "beach":
-		msg = "PINEAPPLE BEACH";
-		break;
-	case "dragonlair":
-		msg = "DRAGON LAIR";
-		break;
-	case "snickchallenge":
-		msg = "SNICK CHALLENGE";
-		break;
-}
 scr_hub_bg_reinit(x, y);

@@ -6,7 +6,7 @@ function scr_dotaunt()
 		pistolanim = noone;
 		flash = false;
 		notification_push(notifications.taunted, [room]);
-		if ((!key_up || !supercharged) && room != war_1 && global.tauntcount < 10 && place_meeting(x, y, obj_exitgate) && (global.panic == true || instance_exists(obj_wartimer) || (instance_exists(obj_randomsecret) && obj_randomsecret.start)) && global.combotime > 0)
+		if ((!key_up || !supercharged) && room != war_1 && global.tauntcount < 10 && place_meeting(x, y, obj_exitgate) && (global.panic || instance_exists(obj_wartimer) || (instance_exists(obj_randomsecret) && obj_randomsecret.start)) && global.combotime > 0)
 		{
 			global.tauntcount++;
 			notification_push(notifications.gate_taunted, []);
@@ -63,14 +63,8 @@ function scr_create_parryhitbox()
 	parrytimer = taunt_to_parry_max;
 	instance_destroy(parry_inst);
 	parry_inst = instance_create(x, y, obj_parryhitbox);
-	var _playerid = 1;
-	if (object_index == obj_player2)
-	{
-		_playerid = 2;
-	}
 	with (parry_inst)
 	{
-		player_id = _playerid;
 		image_xscale = other.xscale;
 	}
 }

@@ -1,4 +1,4 @@
-if (flash == true && alarm[2] <= 0)
+if (flash && alarm[2] <= 0)
 {
 	alarm[2] = 0.15 * room_speed;
 }
@@ -6,7 +6,7 @@ if (pepx != 0)
 {
 	pepx += 5;
 }
-else if (flashed == false)
+else if (!flashed)
 {
 	flash = true;
 	flashed = true;

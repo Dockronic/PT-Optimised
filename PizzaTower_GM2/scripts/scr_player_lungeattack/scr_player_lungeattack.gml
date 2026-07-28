@@ -25,7 +25,6 @@ function scr_player_lungeattack()
 	}
 	if (key_slap2 && supercharged)
 	{
-		suplexmove = true;
 		fmod_event_instance_play(suplexdashsnd);
 		state = states.handstandjump;
 		movespeed = 5;
@@ -40,8 +39,6 @@ function scr_player_lungeattack()
 		{
 			ds_list_clear(hitlist);
 			hit_connected = false;
-			uplaunch = false;
-			downlaunch = false;
 			if (input_attack_buffer > 0)
 			{
 				if (finisher)
@@ -74,8 +71,6 @@ function scr_player_lungeattack()
 		{
 			ds_list_clear(hitlist);
 			hit_connected = false;
-			uplaunch = false;
-			downlaunch = false;
 			if (input_attack_buffer > 0)
 			{
 				if (finisher)
@@ -148,7 +143,6 @@ function DoFinisher()
 	{
 		sprite_index = spr_player_breakdance;
 		image_index = 0;
-		machhitAnim = false;
 		state = states.tumble;
 		movespeed = 4;
 		state = states.tumble;

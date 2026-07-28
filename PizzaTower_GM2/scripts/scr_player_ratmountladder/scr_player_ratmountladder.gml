@@ -31,7 +31,7 @@ function scr_player_ratmountladder()
 		image_speed = 0;
 	}
 	ladderbuffer = 20;
-	if (!place_meeting(x, y, obj_ladder) && !place_meeting(x, y, obj_stairs))
+	if (!place_meeting(x, y, obj_ladder))
 	{
 		state = states.ratmountjump;
 		sprite_index = spr_player_ratmountgroundpoundfall;

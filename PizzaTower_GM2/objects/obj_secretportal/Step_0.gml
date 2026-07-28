@@ -43,7 +43,6 @@ if (ANIMATION_END)
 				{
 					with (obj_player)
 					{
-						lastTargetDoor = targetDoor;
 						targetDoor = "S";
 						if (other.soundtest)
 						{

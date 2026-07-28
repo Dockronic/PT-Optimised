@@ -258,18 +258,6 @@ function scr_text_arr_size(_array)
 	return [w, h];
 }
 
-function reset_surface_if_resized(_surf, _width, _height)
-{
-	if (!surface_exists(_surf))
-	{
-		exit;
-	}
-	if (surface_get_width(_surf) != _width || surface_get_height(_surf) != _height)
-	{
-		surface_free(_surf);
-	}
-}
-
 function scr_draw_granny_texture(_x, _y, _width, _height, _tile_x, _tile_y, _tilespr = spr_pizzagrannytexture, _bubblespr = spr_tutorialbubble)
 {
 	var w = sprite_get_width(_bubblespr) * _width;
@@ -362,7 +350,7 @@ function scr_draw_text_arr(_x, _y, _array, _color = c_white, _alpha = 1, _effect
 						}
 						break;
 					case button_icons.player_forward:
-						if (instance_exists(obj_player1) && obj_player1.xscale < 0)
+						if (instance_exists(obj_player) && obj_player.xscale < 0)
 						{
 							icon = tdp_get_tutorial_icon("player_left");
 						}
@@ -372,7 +360,7 @@ function scr_draw_text_arr(_x, _y, _array, _color = c_white, _alpha = 1, _effect
 						}
 						break;
 					case button_icons.player_backward:
-						if (instance_exists(obj_player1) && obj_player1.xscale > 0)
+						if (instance_exists(obj_player) && obj_player.xscale > 0)
 						{
 							icon = tdp_get_tutorial_icon("player_left");
 						}

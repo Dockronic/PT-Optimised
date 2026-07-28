@@ -2,19 +2,12 @@ function scr_player_slipnslide()
 {
 	mach2 = 0;
 	jumpAnim = true;
-	dashAnim = true;
 	landAnim = false;
-	moveAnim = true;
-	stopAnim = true;
-	crouchslideAnim = true;
 	crouchAnim = false;
-	machhitAnim = false;
 	alarm[5] = -1;
 	alarm[8] = 60;
 	alarm[7] = 120;
 	hurted = true;
-	machhitAnim = false;
-	crouchslideAnim = true;
 	if (!ispeppino && instance_exists(obj_surfback))
 	{
 		image_speed = 0.35;

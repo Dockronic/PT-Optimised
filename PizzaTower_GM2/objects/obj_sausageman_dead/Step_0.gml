@@ -15,7 +15,7 @@ x += hsp;
 y += floor(vsp);
 if (buffer <= 0)
 {
-	var p = obj_player1.id;
+	var p = obj_player.id;
 	if (p.instakillmove && place_meeting(x, y, p))
 	{
 		vsp = random_range(-10, -18);
@@ -24,8 +24,6 @@ if (buffer <= 0)
 		angle = 0;
 		spinspeed = choose(0, 0, 0, 10, 20);
 		alarm[0] = 5;
-		cigar = false;
-		stomped = false;
 		instance_create(x, y, obj_bangeffect);
 		buffer = 10;
 		if (x != p.x)

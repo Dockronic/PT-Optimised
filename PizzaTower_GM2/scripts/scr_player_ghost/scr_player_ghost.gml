@@ -373,17 +373,6 @@ function scr_player_ghost()
 				{
 					hsp = dx * ghostbump;
 					vsp = dy * ghostbump;
-					//sprite_index = spr_player_ghostbump;
-				}
-				else
-				{
-					var mh = sign(hsp);
-					var mv = sign(vsp);
-					if (move_h != 0 || move_v != 0)
-					{
-						mh = move_h;
-						mv = move_v;
-					}
 				}
 			}
 			else
@@ -391,26 +380,7 @@ function scr_player_ghost()
 				sprite_index = spr_ghostidle;
 			}
 		}
-		//if (place_meeting(x, y, obj_tombstone) && sprite_index != spr_ghostend)
-		//{
-		//	sprite_index = spr_ghostend;
-		//	image_index = 0;
-		//	image_alpha = 1;
-		//	vsp = 10;
-		//	hsp = 0;
-		//	grav = 0.5;
-		//	movespeed = 0;
-		//	with (instance_place(x, y, obj_tombstone))
-		//	{
-		//		other.x = x;
-		//		other.y = y;
-		//	}
-		//}
 	}
-	//if (sprite_index == spr_ghostend && ANIMATION_END)
-	//{
-	//	state = states.normal;
-	//}
 	if (place_meeting(x, y, obj_ghosttransparency))
 	{
 		image_alpha = 0.5;
@@ -421,14 +391,3 @@ function scr_player_ghost()
 	}
 }
 
-function scr_player_ghostpossess()
-{
-	visible = false;
-	hsp = 0;
-	if (!instance_exists(possessID))
-	{
-		visible = true;
-		state = states.ghost;
-		sprite_index = spr_ghostidle;
-	}
-}

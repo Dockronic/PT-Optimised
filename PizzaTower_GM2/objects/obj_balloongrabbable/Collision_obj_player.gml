@@ -10,7 +10,7 @@ if (active)
 			cooldown = 100;
 			other.balloonbuffer = 250;
 		}
-		else if (other.isgustavo == false)
+		else if (!other.isgustavo)
 		{
 			fmod_event_one_shot_3d("event:/sfx/rat/grab", x, y);
 			other.state = states.balloon;

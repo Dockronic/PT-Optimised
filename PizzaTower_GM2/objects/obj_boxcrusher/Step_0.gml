@@ -1,4 +1,4 @@
-if (y == ystart && obj_player.boxxed == false && obj_player.state != states.boxxedpep && obj_player.state != states.boxxedpepspin && obj_player.state != states.boxxedpepjump && (obj_player.x > (x - 50) && obj_player.x < (x + 50)) && (obj_player.y > y && obj_player.y < (y + 200)))
+if (y == ystart && !obj_player.boxxed && obj_player.state != states.boxxedpep && obj_player.state != states.boxxedpepspin && obj_player.state != states.boxxedpepjump && (obj_player.x > (x - 50) && obj_player.x < (x + 50)) && (obj_player.y > y && obj_player.y < (y + 200)))
 {
 	vsp = 10;
 	sprite_index = spr_boxcrusher_fall;
@@ -21,7 +21,7 @@ if (sprite_index == spr_boxcrusher_land && ANIMATION_END)
 	sprite_index = spr_boxcrusher_idle;
 	gobackup = true;
 }
-if (gobackup == true)
+if (gobackup)
 {
 	y = Approach(y, ystart, 2);
 }

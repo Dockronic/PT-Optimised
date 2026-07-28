@@ -1,5 +1,5 @@
 
-if (ds_list_find_index(global.saveroom, id) == -1 && global.snickchallenge == false)
+if (ds_list_find_index(global.saveroom, id) == -1)
 {
 	if (room == tower_finalhallway)
 	{
@@ -7,7 +7,7 @@ if (ds_list_find_index(global.saveroom, id) == -1 && global.snickchallenge == fa
 	}
 	with (obj_baddie)
 	{
-		if (escape == true)
+		if (escape)
 		{
 			visible = true;
 			instance_create(x, y, obj_genericpoofeffect);
@@ -123,13 +123,6 @@ if (ds_list_find_index(global.saveroom, id) == -1 && global.snickchallenge == fa
 	instance_create(x, y, obj_baddiegibs);
 	instance_create(x, y, obj_baddiegibs);
 	instance_create(x, y, obj_baddiegibs);
-	if (global.coop == true)
-	{
-		obj_player1.x = x;
-		obj_player2.x = x;
-		obj_player1.y = y;
-		obj_player2.y = y;
-	}
 	with (obj_camera)
 	{
 		shake_mag = 3;

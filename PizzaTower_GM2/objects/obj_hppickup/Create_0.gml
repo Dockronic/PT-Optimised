@@ -5,13 +5,11 @@ hsp_carry = 0;
 vsp_carry = 0;
 platformid = noone;
 grav = 0.5;
-part = false;
 partx = 0;
 party = 0;
 if (place_meeting(x, y, obj_solid))
 {
 	y = 16;
-	part = true;
 	partx = x;
 	party = y;
 	alarm[0] = 1;

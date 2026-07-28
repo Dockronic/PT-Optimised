@@ -64,7 +64,6 @@ function scr_player_grabbing()
 		mach2 = 0;
 		image_index = 0;
 		machslideAnim = true;
-		machhitAnim = false;
 		instance_create(x + 10, y + 10, obj_bumpeffect);
 	}
 	if ((scr_solid(x - 1, y) && xscale == -1) && (!place_meeting(x + sign(hsp), y, obj_slope) || scr_solid_slope(x + sign(hsp), y)))
@@ -78,7 +77,6 @@ function scr_player_grabbing()
 		mach2 = 0;
 		image_index = 0;
 		machslideAnim = true;
-		machhitAnim = false;
 		instance_create(x - 10, y + 10, obj_bumpeffect);
 	}
 	if (!instance_exists(obj_slidecloud) && grounded && movespeed > 5)

@@ -1,4 +1,3 @@
-pal_swap_init_system(shd_pal_swapper);
 instance_destroy(obj_pigtotal);
 instance_destroy(obj_swapmodefollow);
 global.gameframe_caption_text = lang_get_value("caption_mainmenu");
@@ -14,5 +13,4 @@ with (obj_player)
 global.swapmode = false;
 global.leveltorestart = noone;
 global.leveltosave = noone;
-global.startgate = false;
 global.exitrank = false;

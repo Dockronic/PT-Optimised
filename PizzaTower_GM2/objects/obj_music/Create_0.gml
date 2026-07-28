@@ -13,7 +13,6 @@ savedmusicpos = 0;
 exitmusic = false;
 pillarmusicID = fmod_event_create_instance("event:/music/pillarmusic");
 panicmusicP = fmod_event_create_instance("event:/music/pizzatime");
-panicmusicN = fmod_event_create_instance("event:/music/pizzatimenoise");
 panicmusicID = panicmusicP;
 kidspartychaseID = fmod_event_create_instance("event:/music/w5/kidspartychase");
 panicstart = false;
@@ -177,7 +176,7 @@ add_music(forest_1, "event:/music/w3/forest", "event:/music/w3/forestsecret", fa
 			s = 1;
 			break;
 		case forest_G1:
-			if (obj_player1.isgustavo || obj_player1.noisecrusher)
+			if (obj_player.isgustavo || obj_player.noisecrusher)
 			{
 				s = 2;
 			}

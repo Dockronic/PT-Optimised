@@ -2,7 +2,7 @@ if (other.state == states.gotoplayer)
 {
 	exit;
 }
-if (!instance_exists(obj_deliverytimer) && obj_player1.ispeppino && !global.swapmode)
+if (!instance_exists(obj_deliverytimer) && obj_player.ispeppino && !global.swapmode)
 {
 	exit;
 }
@@ -13,7 +13,6 @@ if (ds_list_find_index(global.saveroom, id) == -1)
 	var yy = y + (customer_y * image_yscale);
 	var player = other.id;
 	var door = id;
-	global.heattime = 60;
 	xscale = sign(image_xscale);
 	if (other.ispeppino && !global.swapmode)
 	{

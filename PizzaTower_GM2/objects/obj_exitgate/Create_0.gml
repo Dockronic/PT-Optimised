@@ -14,7 +14,6 @@ if (room != rm_blank)
 }
 random_secret = false;
 roomname = room_get_name(room);
-global.progress = string_letters(roomname);
 drop = false;
 drop_y = y;
 vsp = 0;

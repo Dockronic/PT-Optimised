@@ -3,9 +3,7 @@ if (instance_exists(baddieID) && other.team == 1 && baddieID.invtime == 0 && bad
 	fmod_event_one_shot_3d("event:/sfx/pep/punch", x, y);
 	if (!baddieID.important)
 	{
-		global.style += (5 + global.combo);
 		global.combotime = 60;
-		global.heattime = 60;
 	}
 	if (!baddieID.elite || baddieID.elitehit <= 0)
 	{

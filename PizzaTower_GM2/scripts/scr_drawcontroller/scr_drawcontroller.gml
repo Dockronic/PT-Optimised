@@ -67,7 +67,7 @@ function enemy_is_superslam(_enemy)
 	{
 		if (state == states.grabbed)
 		{
-			var g = (grabbedby == 1) ? obj_player1.id : obj_player2.id;
+			var g = obj_player.id;
 			if (g.state == states.superslam || (g.state == states.chainsaw && g.tauntstoredstate == states.superslam))
 			{
 				return true;
@@ -83,7 +83,7 @@ function enemy_is_swingding(_enemy)
 	{
 		if (state == states.grabbed)
 		{
-			var g = (grabbedby == 1) ? obj_player1.id : obj_player2.id;
+			var g = obj_player.id;
 			if ((g.state == states.grab || (g.state == states.chainsaw && g.tauntstoredstate == states.grab)) && g.sprite_index == g.spr_swingding)
 			{
 				return true;
@@ -107,7 +107,7 @@ function draw_enemy(_draw_healthbar, _pal, _color = c_white)
 		exit;
 	}
 	var _stun = 0;
-	if ((state == states.stun && thrown == false && object_index != obj_peppinoclone) || state == states.pizzaheadjump || (state == states.supergrab && sprite_index == stunfallspr))
+	if ((state == states.stun && !thrown && object_index != obj_peppinoclone) || state == states.pizzaheadjump || (state == states.supergrab && sprite_index == stunfallspr))
 	{
 		_stun = 25;
 	}
@@ -121,10 +121,6 @@ function draw_enemy(_draw_healthbar, _pal, _color = c_white)
 		if (elite)
 		{
 			c = c_yellow;
-		}
-		if (elitegrab)
-		{
-			c = c_green;
 		}
 		if (_color != c_white)
 		{
@@ -142,7 +138,7 @@ function draw_enemy(_draw_healthbar, _pal, _color = c_white)
 			pal_swap_set(spr_peppalette, 0);
 			if (!global.swapmode)
 			{
-				if ((object_index == obj_fakepepboss || object_index == obj_gustavograbbable) && obj_player1.ispeppino)
+				if ((object_index == obj_fakepepboss || object_index == obj_gustavograbbable) && obj_player.ispeppino)
 				{
 					pattern_set(global.Base_Pattern_Color, sprite_index, image_index, image_xscale * xscale, image_yscale * yscale, global.palettetexture);
 				}
@@ -217,7 +213,7 @@ function draw_superslam_enemy()
 	{
 		with (baddiegrabbedID)
 		{
-			draw_enemy(global.kungfu, true);
+			draw_enemy(false, true);
 		}
 	}
 }
@@ -265,10 +261,8 @@ function draw_player()
 		ps = info.paletteselect;
 		spr = info.spr_palette;
 	}
-	if (object_index == obj_player1)
-	{
-		pattern_set(global.Base_Pattern_Color, _sprite_index, _image_index, xscale * scale_xs, yscale * scale_ys, pattern);
-	}
+	pattern_set(global.Base_Pattern_Color, _sprite_index, _image_index, xscale * scale_xs, yscale * scale_ys, pattern);
+
 	if (isgustavo)
 	{
 		spr = spr_ratmountpalette;

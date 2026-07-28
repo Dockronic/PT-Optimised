@@ -1,9 +1,7 @@
 scr_get_languages();
-global.texture_load_count = ds_list_create();
 tex_list = noone;
 var group_arr = ["hubgroup", "playergroup", "noisegroup", "introgroup", "smallgroup", "hudgroup", "levelstructuregroup", "baddiegroup"];
 tex_list = array_create(0);
-tex_pos = 0;
 for (var i = 0; i < array_length(group_arr); i++)
 {
 	var _tex_array = texturegroup_get_textures(group_arr[i]);
@@ -13,7 +11,6 @@ for (var i = 0; i < array_length(group_arr); i++)
 	}
 }
 tex_max = array_length(tex_list);
-ext_tex_pos = 0;
 lang_max = ds_queue_size(global.lang_to_load);
 lang_tex_max = 0;
 var arr = [];

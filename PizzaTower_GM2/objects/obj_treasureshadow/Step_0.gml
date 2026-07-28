@@ -1,6 +1,6 @@
-x = playerid.x;
-y = playerid.y;
-if (playerid.grounded)
+x = obj_player.x;
+y = obj_player.y;
+if (obj_player.grounded)
 {
 	visible = true;
 }
@@ -8,8 +8,8 @@ else
 {
 	visible = false;
 }
-image_xscale = playerid.xscale;
-if (!playerid.visible)
+image_xscale = obj_player.xscale;
+if (!obj_player.visible)
 {
 	visible = false;
 }

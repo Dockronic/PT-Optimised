@@ -1,5 +1,5 @@
 hsp = image_xscale * movespeed;
-if (speedline == false)
+if (!speedline)
 {
 	with (instance_create(x, y, obj_brickballspeedline))
 	{
@@ -9,11 +9,11 @@ if (speedline == false)
 }
 if (!kicked)
 {
-	x = obj_player1.x + (xoffset * obj_player1.xscale);
-	y = obj_player1.y;
+	x = obj_player.x + (xoffset * obj_player.xscale);
+	y = obj_player.y;
 	if (scr_solid(x, y))
 	{
-		x = obj_player1.x;
+		x = obj_player.x;
 	}
 }
 if (blur_effect > 0)
@@ -25,7 +25,7 @@ else
 	blur_effect = 2;
 	create_blur_afterimage(x, y, sprite_index, image_index - 1, image_xscale);
 }
-if (hitbox == false)
+if (!hitbox)
 {
 	with (instance_create(x, y, obj_shotgunbullet))
 	{

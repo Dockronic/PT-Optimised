@@ -1,12 +1,9 @@
 
-targetplayer = obj_player1.id;
+targetplayer = obj_player.id;
 switch (state)
 {
 	case states.idle:
 		scr_enemy_idle();
-		break;
-	case states.turn:
-		scr_enemy_turn();
 		break;
 	case states.walk:
 		x = -200;
@@ -81,9 +78,6 @@ switch (state)
 			junkspawn = 100;
 		}
 		break;
-	case states.land:
-		scr_enemy_land();
-		break;
 	case states.hit:
 		scr_enemy_hit();
 		break;
@@ -96,17 +90,8 @@ switch (state)
 	case states.grabbed:
 		scr_boss_grabbed();
 		break;
-	case states.pummel:
-		scr_enemy_pummel();
-		break;
 	case states.staggered:
 		scr_enemy_staggered();
-		break;
-	case states.rage:
-		scr_enemy_rage();
-		break;
-	case states.ghostpossess:
-		scr_enemy_ghostpossess();
 		break;
 	case states.transitioncutscene:
 		if (ANIMATION_END)
@@ -123,7 +108,7 @@ if (prevhp != elitehit)
 	state = states.transitioncutscene;
 	hsp = 0;
 }
-if (state == states.stun && stunned > 100 && birdcreated == false)
+if (state == states.stun && stunned > 100 && !birdcreated)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -151,7 +136,7 @@ if (!invincible && !flash && alarm[5] == -1)
 {
 	alarm[5] = 10;
 }
-if (flash == true && alarm[2] <= 0)
+if (flash && alarm[2] <= 0)
 {
 	alarm[2] = 0.15 * room_speed;
 }
@@ -164,7 +149,7 @@ if (state != states.stun)
 {
 	thrown = false;
 }
-if (boundbox == false)
+if (!boundbox)
 {
 	with (instance_create(x, y, obj_baddiecollisionbox))
 	{

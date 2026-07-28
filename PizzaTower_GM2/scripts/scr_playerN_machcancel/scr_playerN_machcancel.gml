@@ -1,18 +1,3 @@
-function scr_playerN_machcancelstart()
-{
-	hsp = 0;
-	vsp = 0;
-	movespeed = 0;
-	image_speed = 0.5;
-	if (ANIMATION_END)
-	{
-		state = states.machcancel;
-		sprite_index = spr_playerN_jetpackboost;
-		instance_create(x, y, obj_jumpdust);
-		movespeed = 15;
-	}
-}
-
 function scr_playerN_machcancel()
 {
 	noisemachcancelbuffer = 10;
@@ -163,12 +148,6 @@ function scr_playerN_machcancel()
 	}
 	if (!ispeppino && key_up && input_buffer_jump > 0 && !scr_check_groundpound2())
 	{
-		freefallstart = 0;
-		railmomentum = false;
-		if (place_meeting(x, y + 1, obj_railparent))
-		{
-			railmomentum = true;
-		}
 		scr_player_do_noisecrusher();
 	}
 	if (grounded && !key_attack && vsp >= 0 && sprite_index == spr_playerN_wallbounce)

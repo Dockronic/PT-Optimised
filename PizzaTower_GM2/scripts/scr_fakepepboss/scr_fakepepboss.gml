@@ -23,23 +23,6 @@ function fakepep_set_attack(_phase, _current_hit, _attack, _cooldown, _deformed_
 	};
 }
 
-function fakepep_clamp(_phase, _current_hit)
-{
-	if (_phase >= array_length(attacklist))
-	{
-		_phase = array_length(attacklist) - 1;
-	}
-	if (_current_hit >= array_length(attacklist[_phase]))
-	{
-		_current_hit = array_length(attacklist[_phase]) - 1;
-	}
-	return 
-	{
-		phase: _phase,
-		hit: _current_hit
-	};
-}
-
 function fakepep_get_attack(_phase, _current_hit)
 {
 	return attack_list[_phase][_current_hit];

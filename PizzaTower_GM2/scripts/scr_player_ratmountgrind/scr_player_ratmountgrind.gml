@@ -26,34 +26,12 @@ function scr_player_ratmountgrind()
 		}
 	}
 	image_speed = 0.35;
-	if (!place_meeting(x, y, obj_grindrailslope))
+	with (instance_place(x, y, obj_grindrail))
 	{
-		with (instance_place(x, y, obj_grindrail))
-		{
-			other.y = y;
-		}
-	}
-	if (move != 0)
-	{
-		var inst = instance_place(x + hsp, y - 32, obj_grindrailslope);
-		if (inst == noone)
-		{
-			inst = instance_place(x + hsp, y + 32, obj_grindrailslope);
-		}
-		with (inst)
-		{
-			if (other.xscale == sign(image_xscale))
-			{
-				other.vsp = -5;
-			}
-			else
-			{
-				other.vsp = 5;
-			}
-		}
+		other.y = y;
 	}
 	ds_list_clear(global.instancelist);
-	if (!place_meeting(x, y, obj_grindrail) && !place_meeting(x, y, obj_grindrailslope))
+	if (!place_meeting(x, y, obj_grindrail))
 	{
 		if (ispeppino)
 		{

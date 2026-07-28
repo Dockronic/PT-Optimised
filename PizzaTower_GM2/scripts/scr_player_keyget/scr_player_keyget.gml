@@ -6,19 +6,14 @@ function scr_player_keyget()
 	movespeed = 0;
 	mach2 = 0;
 	jumpAnim = true;
-	dashAnim = true;
 	landAnim = false;
-	moveAnim = true;
-	stopAnim = true;
-	crouchslideAnim = true;
 	crouchAnim = true;
-	machhitAnim = false;
 	global.combotime = 60;
 	sprite_index = spr_keyget;
 	if (!keysound && floor(image_index) >= 16)
 	{
 		keysound = true;
-		scr_fmod_soundeffect(snd_voiceok, obj_player1.x, obj_player1.y);
+		scr_fmod_soundeffect(snd_voiceok, obj_player.x, obj_player.y);
 	}
 	if (ANIMATION_END)
 	{

@@ -9,7 +9,6 @@ group_arr = noone;
 boss = false;
 drawing = false;
 targetDoor = "A";
-msg = "";
 highscore = 0;
 secret_count = 0;
 toppin = array_create(5, 0);

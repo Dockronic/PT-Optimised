@@ -1,4 +1,4 @@
-if (ds_list_find_index(global.baddieroom, id) == -1 && important == false)
+if (ds_list_find_index(global.baddieroom, id) == -1 && !important)
 {
 	notification_push(notifications.pizzaboy_killed, [room]);
 	fmod_event_one_shot_3d("event:/sfx/enemies/kill", x, y);
@@ -18,7 +18,7 @@ if (ds_list_find_index(global.baddieroom, id) == -1 && important == false)
 		sprite_index = other.spr_dead;
 	}
 }
-else if (ds_list_find_index(global.baddieroom, id) == -1 && important == true)
+else if (ds_list_find_index(global.baddieroom, id) == -1 && important)
 {
 	instance_create(x, y, obj_slapstar);
 	instance_create(x, y, obj_slapstar);

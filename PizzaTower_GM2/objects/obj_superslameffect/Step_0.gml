@@ -1,6 +1,6 @@
-x = playerid.x;
-y = playerid.y;
-if (playerid.state != states.freefall && playerid.state != states.superslam && playerid.sprite_index != spr_player_ratmountwalljump)
+x = obj_player.x;
+y = obj_player.y;
+if (obj_player.state != states.freefall && obj_player.state != states.superslam && obj_player.sprite_index != spr_player_ratmountwalljump)
 {
 	instance_destroy();
 }

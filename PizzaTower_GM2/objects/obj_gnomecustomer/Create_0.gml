@@ -1,6 +1,5 @@
 customer_x = 32;
 customer_y = 18;
-player_standx = 132;
 content = obj_pizzakinshroom;
 spr_idle = spr_gnome4_idle;
 spr_happy = spr_gnome4_happy;

@@ -8,5 +8,5 @@ if (state == states.crouchslide)
 }
 else if ((state == states.reloading || (state == states.stun && savedthrown == thrown && !savedthrown)) && wastedhits == 4 && phase == 1 && (other.instakillmove || other.state == states.handstandjump))
 {
-	scr_vigilante_do_hurt_phase2(other);
+	scr_boss_do_hurt_phase2(other);
 }

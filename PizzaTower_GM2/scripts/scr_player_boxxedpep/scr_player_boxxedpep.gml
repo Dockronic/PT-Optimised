@@ -1,7 +1,7 @@
 function scr_player_boxxedpep()
 {
 	mask_index = spr_crouchmask;
-	if (boxxeddash == true)
+	if (boxxeddash)
 	{
 		image_speed = abs(movespeed) / 15;
 	}
@@ -18,7 +18,7 @@ function scr_player_boxxedpep()
 	{
 		noisejetpack = 80;
 	}
-	if (!key_jump2 && jumpstop == false && vsp < 0.5 && stompAnim == false)
+	if (!key_jump2 && !jumpstop && vsp < 0.5 && !stompAnim)
 	{
 		vsp /= 2;
 		jumpstop = true;
@@ -89,11 +89,6 @@ function scr_player_boxxedpep()
 		}
 		jumpstop = false;
 	}
-	//if (sprite_index == spr_boxxedpepdash || sprite_index == spr_boxxedpepdashstart)
-	//{
-	//	sprite_index = spr_boxxedpepdashend;
-	//	image_index = 0;
-	//}
 	if (sprite_index == spr_boxxedpep_spin && ANIMATION_END)
 	{
 		sprite_index = (move != 0) ? spr_boxxedpepwalk : spr_boxxedpepidle;
@@ -106,7 +101,7 @@ function scr_player_boxxedpep()
 			{
 				movespeed += (xscale * 0.8);
 			}
-			if (boxxeddash == false)
+			if (!boxxeddash)
 			{
 				xscale = move;
 			}
@@ -115,7 +110,7 @@ function scr_player_boxxedpep()
 				movespeed = Approach(movespeed, 0, 0.8);
 			}
 		}
-		else if (boxxeddash == false)
+		else if (!boxxeddash)
 		{
 			movespeed = Approach(movespeed, 0, 0.8);
 		}

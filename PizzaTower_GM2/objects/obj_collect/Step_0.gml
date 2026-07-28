@@ -19,7 +19,7 @@ else
 {
 	depth = 2;
 }
-if (abs(distance_to_object(obj_player1)) < 25 && !place_meeting(x, y, obj_destructibles) && !place_meeting(x, y, obj_iceblock_breakable) && !place_meeting(x, y, obj_iceblock) && !place_meeting(x, y, obj_ghostblock))
+if (abs(distance_to_object(obj_player)) < 25 && !place_meeting(x, y, obj_destructibles) && !place_meeting(x, y, obj_iceblock_breakable) && !place_meeting(x, y, obj_iceblock) && !place_meeting(x, y, obj_ghostblock))
 {
 	if (!gotowardsplayer)
 	{
@@ -27,7 +27,7 @@ if (abs(distance_to_object(obj_player1)) < 25 && !place_meeting(x, y, obj_destru
 	}
 	gotowardsplayer = true;
 }
-if (gotowardsplayer == true)
+if (gotowardsplayer)
 {
 	move_towards_point(obj_player.x, obj_player.y, movespeed);
 	movespeed++;

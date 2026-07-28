@@ -8,10 +8,6 @@ function Instakill()
 		hy = other.baddieID.hitY;
 	}
 	other.baddieID.grabbedby = 1;
-	if (object_index == obj_player2)
-	{
-		other.baddieID.grabbedby = 2;
-	}
 	if (state == states.firemouth)
 	{
 		repeat (8)
@@ -23,7 +19,7 @@ function Instakill()
 			}
 		}
 	}
-	if (state == states.mach3 && sprite_index != spr_player_Sjumpcancel && sprite_index != spr_mach3hit && (character == "P" || character == "V"))
+	if (state == states.mach3 && sprite_index != spr_player_Sjumpcancel && sprite_index != spr_mach3hit)
 	{
 		if (sprite_index != spr_fightball)
 		{
@@ -42,43 +38,30 @@ function Instakill()
 		sprite_index = spr_player_chainsawhit;
 	}
 	other.baddieID.invtime = 25;
-	suplexmove = true;
-	if (object_index == obj_player1)
-	{
-		other.baddieID.grabbedby = 1;
-	}
-	else
-	{
-		other.baddieID.grabbedby = 2;
-	}
+	other.baddieID.grabbedby = 1;
+
 	fmod_event_one_shot_3d("event:/sfx/pep/punch", x, y);
 	if (other.baddieID.elite && other.baddieID.object_index != obj_pepperman && other.baddieID.object_index != obj_pizzafaceboss && other.baddieID.object_index != obj_vigilanteboss && other.baddieID.object_index != obj_noiseboss && other.baddieID.object_index != obj_fakepepboss && other.baddieID.object_index != obj_pf_fakepep && other.baddieID.object_index != obj_pizzafaceboss_p3)
 	{
 		other.baddieID.elitehit = 0;
 	}
 	other.baddieID.player_instakillmove = true;
-	if (!other.baddieID.important)
-	{
-		global.style += (2 + global.combo);
-	}
-	if (!other.baddieID.elite || other.baddieID.elitehit <= 0)
+		if (!other.baddieID.elite || other.baddieID.elitehit <= 0)
 	{
 		other.baddieID.mach3destroy = true;
 	}
-	if (!other.baddieID.killprotection && !global.kungfu && (!other.baddieID.elite || other.baddieID.elitehit <= 0))
+	if (!other.baddieID.killprotection && (!other.baddieID.elite || other.baddieID.elitehit <= 0))
 	{
 		other.baddieID.instakilled = true;
 	}
 	if (!other.baddieID.important)
 	{
 		global.combotime = 60;
-		global.heattime = 60;
 	}
 	global.hit += 1;
 	if (!grounded && state != states.ratmountgroundpound && state != states.ratmountpunch && state != states.ratmountpunch && state != states.boxxedpepspin && state != states.freefall && (key_jump2 || input_buffer_jump > 0 || state == states.jetpackjump))
 	{
 		input_buffer_jump = 0;
-		suplexmove = false;
 		vsp = -11;
 	}
 	if (state == states.boxxedpepspin)
@@ -89,12 +72,6 @@ function Instakill()
 		}
 		boxxedpepjump = 10;
 		noisejetpack = 80;
-	}
-	if (character == "M" && state == states.freefall)
-	{
-		vsp = -11;
-		state = states.jump;
-		sprite_index = spr_jump;
 	}
 	if (state != states.chainsaw)
 	{
@@ -119,13 +96,13 @@ function Instakill()
 			sprite_index = spr_player_ungroundedattack;
 		}
 	}
-	if (state == states.chainsawbump && !global.kungfu)
+	if (state == states.chainsawbump)
 	{
 		sprite_index = spr_player_chainsawhit;
 		image_index = 0;
 	}
 	var lag;
-	if (other.baddieID.heavy == true)
+	if (other.baddieID.heavy)
 	{
 		lag = 15;
 	}

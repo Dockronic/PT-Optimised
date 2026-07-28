@@ -1,4 +1,4 @@
-if (hurtbuffer <= 0 && stop == false)
+if (hurtbuffer <= 0 && !stop)
 {
 	event_inherited();
 }

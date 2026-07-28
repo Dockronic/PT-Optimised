@@ -16,7 +16,6 @@ if (elitehit <= 0 && pizzahead && destroyable)
 	instance_destroy(obj_uziprojectile);
 	instance_destroy(obj_vigilantedynamite);
 	instance_destroy(obj_vigilanteshot);
-	//instance_destroy(obj_ladderhorizontal);
 	instance_destroy(obj_noisey);
 	with (instance_create(room_width / 4, room_height + 100, obj_noiseboss))
 	{

@@ -6,14 +6,7 @@ if (brownfade < 1)
 {
 	shader_set(global.Pal_Shader);
 	pattern_set(global.Base_Pattern_Color, sprite_index, image_index, image_xscale, image_yscale, global.palettetexture);
-	if (global.collect >= global.collectN)
-	{
-		pal_swap_set(obj_player1.spr_palette, obj_player1.paletteselect, false);
-	}
-	if (global.collectN > global.collect)
-	{
-		pal_swap_set(obj_player2.spr_palette, obj_player2.paletteselect, false);
-	}
+	pal_swap_set(obj_player.spr_palette, obj_player.paletteselect, false);
 	scr_draw_rank();
 	pattern_reset();
 	shader_reset();

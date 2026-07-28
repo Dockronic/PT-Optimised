@@ -14,9 +14,6 @@ var _offset_x = 32 * image_xscale;
 var _offset_y = 14 * image_yscale;
 with (other)
 {
-	if (other.stored_spd == 0)
-	{
-	}
 	hsp = 0;
 	vsp = 0;
 	movespeed = 0;

@@ -1,4 +1,3 @@
-compiled = true;
 var p = 1;
 var l = string_length(text);
 var old_text = text;

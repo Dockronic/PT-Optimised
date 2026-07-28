@@ -13,5 +13,4 @@ if (global.panic && r != "towertutorial" && r != "towertutorialN")
 	instance_destroy();
 	exit;
 }
-compiled = false;
 alarm[1] = 1;

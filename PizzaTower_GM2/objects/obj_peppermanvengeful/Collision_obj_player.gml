@@ -1,4 +1,4 @@
-if (!other.ispeppino && (other.instakillmove == true || other.state == states.handstandjump || other.state == states.mach2))
+if (!other.ispeppino && (other.instakillmove || other.state == states.handstandjump || other.state == states.mach2))
 {
 	var t = other.id;
 	fmod_event_one_shot_3d("event:/sfx/enemies/kill", x, y);

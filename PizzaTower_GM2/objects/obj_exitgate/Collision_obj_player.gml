@@ -1,4 +1,4 @@
-if (image_index == 1 && global.panic == false && room != war_13)
+if (image_index == 1 && !global.panic && room != war_13)
 {
 	with (obj_player)
 	{
@@ -7,7 +7,7 @@ if (image_index == 1 && global.panic == false && room != war_13)
 			fmod_event_one_shot_3d("event:/sfx/pep/groundpound", x, y);
 			GamepadSetVibration(0, 1, 1, 0.9);
 			GamepadSetVibration(1, 1, 1, 0.9);
-			with (obj_player1)
+			with (obj_player)
 			{
 				lastroom = room;
 				sprite_index = spr_Timesup;
@@ -16,20 +16,6 @@ if (image_index == 1 && global.panic == false && room != war_13)
 				{
 					shake_mag = 10;
 					shake_mag_acc = 30 / room_speed;
-				}
-			}
-			if (global.coop == true)
-			{
-				with (obj_player2)
-				{
-					lastroom = room;
-					sprite_index = spr_Timesup;
-					image_index = 0;
-					with (obj_camera)
-					{
-						shake_mag = 10;
-						shake_mag_acc = 30 / room_speed;
-					}
 				}
 			}
 			other.image_index = 0;
@@ -43,10 +29,9 @@ if (drop && dropstate != states.idle)
 }
 with (obj_player)
 {
-	if (grounded && (x > (other.x - 160) && x < (other.x + 160)) && key_up && (state == states.normal || state == states.Sjumpprep || state == states.mach1 || state == states.mach2 || state == states.mach3) && (global.panic == true || global.snickchallenge == true || room == war_13 || other.random_secret))
+	if (grounded && (x > (other.x - 160) && x < (other.x + 160)) && key_up && (state == states.normal || state == states.Sjumpprep || state == states.mach1 || state == states.mach2 || state == states.mach3) && (global.panic || room == war_13 || other.random_secret))
 	{
 		global.noisejetpack = false;
-		global.startgate = false;
 		stop_music();
 		if (global.collect <= 0)
 		{

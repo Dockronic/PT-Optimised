@@ -2,14 +2,11 @@ pause = false;
 i = false;
 color = make_color_rgb(121, 103, 151);
 scr_init_input();
-player1 = noone;
-player2 = noone;
 selected = 0;
 stickpressed = false;
 image_speed = 0;
 depth = -500;
 backbuffer = 2;
-savedmusicmuffle = 0;
 offload_textures = false;
 offload_arr = noone;
 pause_menu = ["pause_resume", "pause_options", "pause_restart", "pause_exit"];
@@ -43,25 +40,22 @@ ds_map_set(pause_menu_map, "pause_restart", [2, function()
 	{
 		exit;
 	}
-	if (!global.snickchallenge)
+	var rm = global.leveltorestart;
+	if (rm != noone && rm != -1)
 	{
-		var rm = global.leveltorestart;
-		if (rm != noone && rm != -1)
-		{
-			alarm[5] = 1;
-			roomtorestart = rm;
-			pause_unpause_music();
-			stop_music();
-			scr_pause_activate_objects();
-			scr_pause_stop_sounds();
-			instance_destroy(obj_option);
-			instance_destroy(obj_keyconfig);
-			pause = false;
-		}
-		else
-		{
-			fmod_event_one_shot("event:/sfx/ui/select");
-		}
+		alarm[5] = 1;
+		roomtorestart = rm;
+		pause_unpause_music();
+		stop_music();
+		scr_pause_activate_objects();
+		scr_pause_stop_sounds();
+		instance_destroy(obj_option);
+		instance_destroy(obj_keyconfig);
+		pause = false;
+	}
+	else
+	{
+		fmod_event_one_shot("event:/sfx/ui/select");
 	}
 }]);
 
@@ -92,16 +86,14 @@ var exit_function = function()
 		}
 		hub = true;
 		arr = ["hubgroup"];
-		global.stargate = false;
 		global.leveltorestart = noone;
 	}
 	else
 	{
 		hub = false;
 		arr = ["menugroup"];
-		with (obj_player1)
+		with (obj_player)
 		{
-			character = "P";
 			ispeppino = true;
 			scr_characterspr();
 		}
@@ -123,8 +115,6 @@ var exit_function = function()
 ds_map_set(pause_menu_map, "pause_exit", [3, exit_function]);
 ds_map_set(pause_menu_map, "pause_exit_title", [3, exit_function]);
 cursor_index = 0;
-cursor_sprite_number = sprite_get_number(spr_angelpriest);
-cursor_sprite_height = sprite_get_height(spr_angelpriest);
 cursor_x = -1000;
 cursor_y = -1000;
 cursor_actualx = 0;
@@ -150,7 +140,6 @@ savedkidspartypause = false;
 fade = 0;
 fadein = false;
 screensprite = noone;
-screensize = 0;
 guisprite = noone;
 instance_list = ds_list_create();
 sound_list = ds_list_create();

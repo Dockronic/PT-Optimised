@@ -14,7 +14,7 @@ function scr_player_crouchslide()
 	{
 		movespeed -= 0.2;
 	}
-	if (!key_jump2 && jumpstop == false && vsp < 0.5 && stompAnim == false)
+	if (!key_jump2 && !jumpstop && vsp < 0.5 && !stompAnim)
 	{
 		vsp /= 20;
 		jumpstop = true;

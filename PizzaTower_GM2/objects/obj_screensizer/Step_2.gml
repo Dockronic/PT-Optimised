@@ -62,8 +62,6 @@ if (window_has_focus())
 {
 	savedwidth = window_get_width();
 	savedheight = window_get_height();
-	saved_guiwidth = display_get_gui_width();
-	saved_guiheight = display_get_gui_height();
 }
 else
 {
@@ -121,7 +119,6 @@ if (window_has_focus() && (dirty || window_width_current != ww || window_height_
 		}
 	}
 	last_scale_mode = global.option_scale_mode;
-	last_fullscreen = gameframe_get_fullscreen();
 	window_width_current = window_get_width();
 	window_height_current = window_get_height();
 	normal_size_fix_x = (SCREEN_WIDTH - 960) / 2;

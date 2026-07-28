@@ -1,6 +1,6 @@
 with (other)
 {
-	if (other.hurtplayer == false)
+	if (!other.hurtplayer)
 	{
 		if (key_jump2)
 		{

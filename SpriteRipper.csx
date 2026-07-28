@@ -15,6 +15,7 @@ public class ConfigData
     public string ProjectPath { get; set; } = string.Empty;
     public bool CopyIncludedFiles { get; set; } = false;
     public List<string> SpriteIgnore { get; set; } = new();
+    public Dictionary<string, string> SpriteRenames { get; set; } = new();
 }
 
 public class TextureToRip
@@ -180,7 +181,7 @@ StartProgressBarUpdater();
 
 SetUMTConsoleText("Running...");
 
-var parallelOptions = new ParallelOptions { MaxDegreeOfParallelism = 4 }; // Limit to 2 threads
+var parallelOptions = new ParallelOptions { MaxDegreeOfParallelism = 4 }; // Limit to 4 threads
 await Task.Run(() => Parallel.ForEach(sprDirs, parallelOptions, path =>
 {
     ProcessSprite(path);
@@ -210,16 +211,20 @@ void ProcessSprite(string sprDir)
     string json = File.ReadAllText(yyPath);
     var sprite = JsonSerializer.Deserialize<GMSprite>(json, jsonOptions);
 
+    // if this sprite was renamed locally, look it up in the game data under its original name instead.
+    string originalName = config.SpriteRenames.TryGetValue(spriteName, out var mappedName) ? mappedName : spriteName;
+
     int index = Data.Sprites
     .Select((sprite, idx) => new { sprite, idx })
-    .Where(x => x.sprite.Name.Content == spriteName)
+    .Where(x => x.sprite.Name.Content == originalName)
     .Select(x => x.idx)
     .DefaultIfEmpty(-1)
     .First();
 
     if (index == -1)
     {
-        errors.Add($"Cannot find sprite asset '{spriteName}' in the games data file.");
+        string notFoundLabel = originalName == spriteName ? $"'{spriteName}'" : $"'{spriteName}' (mapped to original name '{originalName}')";
+        errors.Add($"Cannot find sprite asset {notFoundLabel} in the games data file.");
         return;
     }
 

@@ -1,4 +1,4 @@
-if (fall == true && other.fall == true)
+if (fall && other.fall)
 {
 	instance_destroy();
 }

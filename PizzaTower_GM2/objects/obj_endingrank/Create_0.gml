@@ -5,7 +5,7 @@ fmod_event_instance_play(music);
 bg_index = 0;
 bg_x = 0;
 bg_y = 0;
-ispeppino = obj_player1.ispeppino;
+ispeppino = obj_player.ispeppino;
 snd_drumroll = fmod_event_create_instance("event:/sfx/playerN/finaljudgement_drumroll");
 snd_verdict = fmod_event_create_instance("event:/sfx/playerN/finaljudgement_verdict");
 snd_start = fmod_event_create_instance("event:/sfx/playerN/finaljudgement_start");
@@ -194,7 +194,7 @@ if (!ispeppino)
 	}
 }
 ini_write_string("Game", "finalrank", r);
-if (ini_read_real("Game", "snotty", false) == false)
+if (!ini_read_real("Game", "snotty", false))
 {
 	ini_write_real("Game", "finalsnotty", true);
 }

@@ -1,6 +1,6 @@
 var cx = camera_get_view_x(view_camera[0]);
 var cy = camera_get_view_y(view_camera[0]);
-draw_sprite_ext(sprite1122, 0, cx, cy, SCREEN_WIDTH / 64, SCREEN_HEIGHT / 64, 0, c_white, 1);
+draw_rectangle_color(cx, cy, cx + SCREEN_WIDTH, cy + SCREEN_HEIGHT, c_black, c_black, c_black, c_black, false);
 var i = 0;
 if (is_holiday(holidays.halloween))
 {
@@ -18,7 +18,7 @@ with (obj_explosioneffect)
 shader_set(global.Pal_Shader);
 var _x = SCREEN_WIDTH * 0.50625;
 var _y = y;
-var pal = obj_player1.paletteselect;
+var pal = obj_player.paletteselect;
 var tex = noone;
 if (currentselect != -1)
 {

@@ -1,8 +1,3 @@
-function get_buffer_group_name()
-{
-	return "saves";
-}
-
 function get_save_folder()
 {
 	return "saves";
@@ -108,7 +103,7 @@ function gamesave_async_load()
 		if (state == 0)
 		{
 			loadbuff = buffer_create(1, buffer_grow, 1);
-			buffer_async_group_begin(get_buffer_group_name());
+			buffer_async_group_begin(get_save_folder());
 			buffer_load_async(loadbuff, get_savefile_ini(ispeppino), 0, -1);
 			loadid = buffer_async_group_end();
 			state = 2;

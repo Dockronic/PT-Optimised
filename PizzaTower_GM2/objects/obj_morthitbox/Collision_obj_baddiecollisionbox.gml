@@ -1,4 +1,4 @@
-if (instance_exists(other.baddieID) && !other.baddieID.invincible && other.baddieID.destroyable && playerid.state != states.chainsaw && other.baddieID.state != states.hit && !other.baddieID.thrown)
+if (instance_exists(other.baddieID) && !other.baddieID.invincible && other.baddieID.destroyable && obj_player.state != states.chainsaw && other.baddieID.state != states.hit && !other.baddieID.thrown)
 {
 	with (other)
 	{

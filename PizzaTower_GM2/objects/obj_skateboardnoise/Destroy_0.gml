@@ -6,7 +6,6 @@ if (playerid != noone)
 	with (playerid)
 	{
 		xscale = other.image_xscale;
-		//sprite_index = spr_player_skateboard;
 		state = states.bump;
 		sprite_index = spr_bump;
 		hsp = -xscale * 4;

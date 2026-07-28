@@ -29,8 +29,6 @@ function scr_do_rank(_showtoppins = true, _isboss = false)
 	}
 	targetDoor = "none";
 	obj_camera.alarm[2] = -1;
-	var roomname = room_get_name(room);
-	var namestring = string_letters(roomname);
 	if (!global.tutorial_room)
 	{
 		if (!_isboss)
@@ -90,7 +88,7 @@ function scr_do_rank(_showtoppins = true, _isboss = false)
 		var _lap = false;
 		ini_open_from_string(obj_savesystem.ini_str);
 		ini_write_real("Tutorial", "finished", true);
-		if ((global.level_minutes < 2 || (global.level_minutes < 1 || (global.level_minutes == 1 && global.level_seconds <= 40))) && ini_read_real("Tutorial", "lapunlocked", false) == false)
+		if ((global.level_minutes < 2 || (global.level_minutes < 1 || (global.level_minutes == 1 && global.level_seconds <= 40))) && !ini_read_real("Tutorial", "lapunlocked", false))
 		{
 			ini_write_real("Tutorial", "lapunlocked", true);
 			_lap = true;
@@ -108,7 +106,7 @@ function scr_do_rank(_showtoppins = true, _isboss = false)
 		obj_camera.alarm[4] = -1;
 		for (var i = 0; i < global.comboscore; i += 10)
 		{
-			create_collect(obj_player1.x + irandom_range(-60, 60), (obj_player1.y - 100) + irandom_range(-60, 60), choose(spr_shroomcollect, spr_tomatocollect, spr_cheesecollect, spr_sausagecollect, spr_pineapplecollect), 10);
+			create_collect(obj_player.x + irandom_range(-60, 60), (obj_player.y - 100) + irandom_range(-60, 60), choose(spr_shroomcollect, spr_tomatocollect, spr_cheesecollect, spr_sausagecollect, spr_pineapplecollect), 10);
 		}
 		global.comboscore = 0;
 	}
@@ -159,21 +157,11 @@ function scr_do_rank(_showtoppins = true, _isboss = false)
 			}
 		}
 	}
-	obj_player1.state = states.door;
-	obj_player1.sprite_index = obj_player1.spr_lookdoor;
-	if (instance_exists(obj_player2))
-	{
-		obj_player2.state = states.door;
-		obj_player2.sprite_index = obj_player2.spr_lookdoor;
-		if (global.coop)
-		{
-			obj_player2.visible = true;
-		}
-	}
+	obj_player.state = states.door;
+	obj_player.sprite_index = obj_player.spr_lookdoor;
 	obj_endlevelfade.alarm[0] = 235;
 	image_index = 0;
 	global.panic = false;
-	global.snickchallenge = false;
 	global.leveltorestart = noone;
 	gamesave_async_save();
 }

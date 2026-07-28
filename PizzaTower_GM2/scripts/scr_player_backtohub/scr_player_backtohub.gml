@@ -58,7 +58,6 @@ function scr_player_backtohub()
 		{
 			state = states.normal;
 			landAnim = false;
-			facestompAnim = true;
 		}
 	}
 }

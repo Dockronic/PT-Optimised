@@ -6,7 +6,7 @@ x = Approach(x, x1, spd);
 y = Approach(y, y1, spd);
 if (x == x1 && y == y1 && state != states.gameover)
 {
-	if (other.horseyfinish == false)
+	if (!other.horseyfinish)
 	{
 		fmod_event_one_shot_3d("event:/sfx/misc/loserace", x, y);
 	}

@@ -10,7 +10,6 @@ if (!pizza && (highscore > 0 || (boss && hats > 0)) && bbox_in_camera(view_camer
 		{
 			y_to = other.y - 125;
 			highscore = [];
-			highscorepos = 0;
 			var s = string(other.highscore);
 			for (var i = 1; i <= string_length(s); i++)
 			{

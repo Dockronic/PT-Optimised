@@ -1,5 +1,5 @@
 var a = random_range(-20, 20);
-if (state == states.stun && hsp != 0 && thrown == true)
+if (state == states.stun && hsp != 0 && thrown)
 {
 	alarm[1] = 5;
 }

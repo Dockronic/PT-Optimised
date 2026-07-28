@@ -25,11 +25,4 @@ if (cow)
 		}
 	}
 }
-else
-{
-	with (instance_create(x, y, obj_junk))
-	{
-		vsp = -6;
-	}
-}
 fmod_event_one_shot_3d("event:/sfx/pep/groundpound", x, y);

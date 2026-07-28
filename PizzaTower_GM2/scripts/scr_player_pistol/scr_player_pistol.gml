@@ -33,11 +33,10 @@ function scr_player_pistol()
 			instance_create(x + (xscale * 10), y + 10, obj_bumpeffect);
 		}
 	}
-	if (key_down && grounded && global.attackstyle != 2)
+	if (key_down && grounded)
 	{
 		grav = 0.5;
 		sprite_index = spr_crouchslip;
-		machhitAnim = false;
 		state = states.crouchslide;
 		movespeed += 3;
 	}

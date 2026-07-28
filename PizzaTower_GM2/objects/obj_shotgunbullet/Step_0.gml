@@ -24,7 +24,7 @@ if (shotgun)
 		}
 	}
 }
-if (brick == true)
+if (brick)
 {
 	if (!instance_exists(brickid))
 	{

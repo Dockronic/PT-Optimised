@@ -4,13 +4,7 @@ if (ds_list_find_index(global.saveroom, id) == -1)
 	scr_sound_multiple("event:/sfx/misc/collect", x, y);
 	fmod_event_one_shot_3d("event:/sfx/misc/breakblock", x, y);
 	fmod_event_one_shot_3d("event:/sfx/misc/breakblock", x, y);
-	global.heattime += 10;
-	global.heattime = clamp(global.heattime, 0, 60);
 	global.combotime = 60;
-	with (obj_camera)
-	{
-		healthshaketime = 30;
-	}
 	global.collect += 100;
 	with (obj_camera)
 	{

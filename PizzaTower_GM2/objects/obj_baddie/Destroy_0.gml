@@ -26,7 +26,7 @@ if (ds_list_find_index(global.baddieroom, id) == -1 && (!elite || elitehit <= 0)
 			{
 				image_alpha = 0.3;
 			}
-			if (other.object_index == obj_noiseboss && other.pizzahead && !obj_player1.ispeppino)
+			if (other.object_index == obj_noiseboss && other.pizzahead && !obj_player.ispeppino)
 			{
 				sprite_index = spr_doise_deadair;
 				hsp = 0;
@@ -57,7 +57,7 @@ if (ds_list_find_index(global.baddieroom, id) == -1 && (!elite || elitehit <= 0)
 			i++;
 		}
 	}
-	if (object_index == obj_sausageman && whoopass == true)
+	if (object_index == obj_sausageman && whoopass)
 	{
 		with (instance_create(x, y, obj_whoop))
 		{
@@ -98,7 +98,7 @@ if (ds_list_find_index(global.baddieroom, id) == -1 && (!elite || elitehit <= 0)
 	}
 	notification_push(notifications.generic_killed, [room, id, object_index]);
 }
-if (ds_list_find_index(global.baddieroom, id) == -1 && important == false)
+if (ds_list_find_index(global.baddieroom, id) == -1 && !important)
 {
 	if (global.prank_cankillenemy && !global.prank_enemykilled)
 	{
@@ -109,7 +109,7 @@ if (ds_list_find_index(global.baddieroom, id) == -1 && important == false)
 	{
 		if (!elite || elitehit <= 0)
 		{
-			with (obj_player1)
+			with (obj_player)
 			{
 				supercharge += 1;
 			}
@@ -152,7 +152,7 @@ if (ds_list_find_index(global.baddieroom, id) == -1 && important == false)
 		ds_list_add(global.escaperoom, id);
 	}
 }
-else if (ds_list_find_index(global.baddieroom, id) == -1 && important == true)
+else if (ds_list_find_index(global.baddieroom, id) == -1 && important)
 {
 	trace("destroy unimportant");
 	instance_create(x, y, obj_slapstar);

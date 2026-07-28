@@ -60,7 +60,7 @@ function scr_player_ratmountskid()
 		particle_set_scale(particletypes.jumpdust, xscale, 1);
 		create_particle(x, y, particletypes.jumpdust, 0);
 		input_buffer_slap = 0;
-		if (brick == true)
+		if (brick)
 		{
 			with (instance_create(x, y, obj_brickcomeback))
 			{

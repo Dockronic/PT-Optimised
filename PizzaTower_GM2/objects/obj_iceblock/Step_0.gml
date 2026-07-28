@@ -23,7 +23,6 @@ if (place_meeting(x, y - 1, obj_player))
 							icemovespeed = 8;
 						}
 						icedir = -xscale;
-						savedicedir = -xscale;
 					}
 					if (prevmove != move && move == 0)
 					{

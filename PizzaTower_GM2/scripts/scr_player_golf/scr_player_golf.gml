@@ -5,7 +5,6 @@ function scr_player_golf()
 	movespeed = 0;
 	image_speed = 0.35;
 	global.combotime = 60;
-	global.heattime = 60;
 	if (sprite_index == spr_golfidle)
 	{
 		move = key_left + key_right;

@@ -41,18 +41,10 @@ player_xpad = 44;
 player_ypad = 42;
 player_index = 0;
 player_hpsprite = spr_bossfight_playerhp;
-bosstimer_x = 257;
-bosstimer_y = 466;
-bell_sprite = spr_null;
-bell_index = 0;
-bell_buffer = 0;
 bar_surface = noone;
 barfill_x = 0;
-round_timermax = 36000;
-round_timer = round_timermax;
 round_timer_init = false;
 state = states.arenaintro;
-intro_buffer = 300;
 playerx = -415;
 bossx = SCREEN_WIDTH;
 vsy = -400;
@@ -65,7 +57,7 @@ vstitleplayer = spr_vstitle_player;
 playerspr = spr_vspeppino;
 playersprshadow = spr_vspeppinoshadow;
 bossspr = spr_vsnoise;
-if (!obj_player1.ispeppino)
+if (!obj_player.ispeppino)
 {
 	playerspr = spr_vsnoiseplayer;
 	playersprshadow = spr_vsnoiseplayershadow;

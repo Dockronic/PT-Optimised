@@ -2,7 +2,7 @@ if (sprite_index != spr_mortspawn && !instance_exists(obj_backtohub_fadeout) && 
 {
 	with (other)
 	{
-		if (state != states.mort && state != states.mortjump && state != states.mortattack && state != states.morthook && state != states.ridecow)
+		if (state != states.mort && state != states.mortjump && state != states.mortattack && state != states.morthook)
 		{
 			repeat (6)
 			{

@@ -16,15 +16,10 @@ function scr_init_input()
 	key_taunt2 = false;
 	key_attack = false;
 	key_attack2 = false;
-	key_shoot = false;
 	key_shoot2 = false;
 	key_start = false;
-	key_escape = false;
-	key_chainsaw = false;
 	key_chainsaw2 = false;
 	stickpressed = false;
-	stickpressed_horizontal = false;
-	stickpressed_vertical = false;
 }
 
 function scr_check_superjump()
@@ -73,14 +68,6 @@ function scr_check_groundpound2()
 		gp = global.keyboard_groundpound;
 	}
 	return (gp && key_down) || key_groundpound2;
-}
-
-function scr_switch_get_menu_input()
-{
-	var _dvc = obj_inputAssigner.player_input_device[0];
-	key_jump = gamepad_button_check_pressed(_dvc, gp_face2);
-	key_jump2 = gamepad_button_check(_dvc, gp_face2);
-	key_back = gamepad_button_check_pressed(_dvc, gp_face1);
 }
 
 function scr_menu_getinput()
@@ -167,18 +154,10 @@ function scr_getinput()
 	{
 		exit;
 	}
-	if (instance_exists(obj_consoledebug) && obj_consoledebug.state > 0)
-	{
-		exit;
-	}
 	if (instance_exists(obj_softlockcrash))
 	{
 		exit;
 	}
-	var verticaldeadzone = global.input_controller_deadzone_vertical;
-	var horizontaldeadzone = global.input_controller_deadzone_horizontal;
-	var vertpress_dz = global.input_controller_deadzone_press;
-	var horizpress_dz = global.input_controller_deadzone_press;
 	key_start = tdp_input_get("menu_start").pressed || tdp_input_get("menu_startC").pressed;
 	if (key_start_p2)
 	{
@@ -196,7 +175,6 @@ function scr_getinput()
 		key_down2 = tdp_input_get("player_down").pressed || tdp_input_get("player_downC").pressed;
 		key_jump = tdp_input_get("player_jump").pressed || tdp_input_get("player_jumpC").pressed;
 		key_jump2 = tdp_input_get("player_jump").held || tdp_input_get("player_jumpC").held;
-		key_jump3 = tdp_input_get("player_jump").released || tdp_input_get("player_jumpC").released;
 		key_slap = tdp_input_get("player_slap").held || tdp_input_get("player_slapC").held;
 		key_slap2 = tdp_input_get("player_slap").pressed || tdp_input_get("player_slapC").pressed;
 		key_taunt = tdp_input_get("player_taunt").held || tdp_input_get("player_tauntC").held;
@@ -219,7 +197,6 @@ function scr_getinput()
 		key_down2 = tdp_input_get("player_downC").pressed;
 		key_jump = tdp_input_get("player_jumpC").pressed;
 		key_jump2 = tdp_input_get("player_jumpC").held;
-		key_jump3 = tdp_input_get("player_jumpC").released;
 		key_slap = tdp_input_get("player_slapC").held;
 		key_slap2 = tdp_input_get("player_slapC").pressed;
 		key_taunt = tdp_input_get("player_tauntC").held;
@@ -230,84 +207,64 @@ function scr_getinput()
 		key_groundpound = tdp_input_get("player_groundpoundC").pressed;
 		key_groundpound2 = tdp_input_get("player_groundpoundC").held;
 	}
-	key_shoot = false;
 	key_shoot2 = false;
-	key_chainsaw = false;
 	key_chainsaw2 = false;
 	key_left_axis = scr_get_move_axis("player_leftC");
 	key_right_axis = scr_get_move_axis("player_rightC");
 	key_up_axis = scr_get_move_axis("player_upC");
 	key_down_axis = scr_get_move_axis("player_downC");
-	if (gamepad_axis_value(_dvc, gp_axislh) >= horizpress_dz || gamepad_axis_value(_dvc, gp_axislh) <= -horizpress_dz)
+	if (state == states.Sjumpprep || state == states.crouch || state == states.ratmountcrouch || state == states.machcancel)
 	{
-		stickpressed_horizontal = true;
-	}
-	else
-	{
-		stickpressed_horizontal = false;
-	}
-	if (gamepad_axis_value(_dvc, gp_axislv) >= vertpress_dz || gamepad_axis_value(_dvc, gp_axislv) <= -vertpress_dz)
-	{
-		stickpressed_vertical = true;
-	}
-	else
-	{
-		stickpressed_vertical = false;
-	}
-	if (object_index == obj_player1)
-	{
-		if (state == states.Sjumpprep || state == states.crouch || state == states.ratmountcrouch || state == states.machcancel)
+		var in, dz;
+		if (state == states.Sjumpprep)
 		{
-			var in, dz;
-			if (state == states.Sjumpprep)
+			in = tdp_input_get("player_upC");
+			dz = global.gamepad_deadzone_superjump;
+		}
+		else
+		{
+			in = tdp_input_get("player_downC");
+			dz = global.gamepad_deadzone_crouch;
+		}
+		for (var i = 0; i < array_length(in.actions); i++)
+		{
+			var b = in.actions[i];
+			with (b)
 			{
-				in = tdp_input_get("player_upC");
-				dz = global.gamepad_deadzone_superjump;
-			}
-			else
-			{
-				in = tdp_input_get("player_downC");
-				dz = global.gamepad_deadzone_crouch;
-			}
-			for (var i = 0; i < array_length(in.actions); i++)
-			{
-				var b = in.actions[i];
-				with (b)
+				if (type == tdp_input_actiontypes.gamepad_axis)
 				{
-					if (type == tdp_input_actiontypes.gamepad_axis)
+					var inverted_axis;
+					switch (value)
 					{
-						var inverted_axis;
-						switch (value)
+						case gp_axislv:
+							inverted_axis = gamepad_axis_value(_dvc, gp_axislh);
+							break;
+						case gp_axisrv:
+							inverted_axis = gamepad_axis_value(_dvc, gp_axisrh);
+							break;
+						case gp_axislh:
+							inverted_axis = gamepad_axis_value(_dvc, gp_axislv);
+							break;
+						case gp_axisrh:
+							inverted_axis = gamepad_axis_value(_dvc, gp_axisrv);
+							break;
+					}
+					if (other.state == states.Sjumpprep)
+					{
+						if (axis_value <= (-0.8 + dz) && (axis_value != 0 || inverted_axis != 0))
 						{
-							case gp_axislv:
-								inverted_axis = gamepad_axis_value(_dvc, gp_axislh);
-								break;
-							case gp_axisrv:
-								inverted_axis = gamepad_axis_value(_dvc, gp_axisrh);
-								break;
-							case gp_axislh:
-								inverted_axis = gamepad_axis_value(_dvc, gp_axislv);
-								break;
-							case gp_axisrh:
-								inverted_axis = gamepad_axis_value(_dvc, gp_axisrv);
-								break;
+							other.key_up = true;
 						}
-						if (other.state == states.Sjumpprep)
-						{
-							if (axis_value <= (-0.8 + dz) && (axis_value != 0 || inverted_axis != 0))
-							{
-								other.key_up = true;
-							}
-						}
-						else if (axis_value >= (0.8 - dz) && (axis_value != 0 || inverted_axis != 0))
-						{
-							other.key_down = true;
-						}
+					}
+					else if (axis_value >= (0.8 - dz) && (axis_value != 0 || inverted_axis != 0))
+					{
+						other.key_down = true;
 					}
 				}
 			}
 		}
 	}
+
 }
 
 function scr_get_move_axis(_inputname)

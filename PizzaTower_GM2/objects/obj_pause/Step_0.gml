@@ -2,7 +2,7 @@ if (instance_exists(obj_softlockcrash))
 {
 	exit;
 }
-if (!pause && instance_exists(obj_player1) && alarm[3] == -1 && obj_player1.key_start && room != Mainmenu && room != Finalintro && room != hub_loadingscreen && room != Endingroom && room != Creditsroom && room != Johnresurrectionroom && room != Longintro && room != Realtitlescreen && room != rank_room)
+if (!pause && instance_exists(obj_player) && alarm[3] == -1 && obj_player.key_start && room != Mainmenu && room != Finalintro && room != hub_loadingscreen && room != Endingroom && room != Creditsroom && room != Johnresurrectionroom && room != Longintro && room != Realtitlescreen && room != rank_room)
 {
 	var _cutscenehandler = false;
 	with (obj_cutscene_handler)
@@ -149,7 +149,7 @@ if (!pause && instance_exists(obj_player1) && alarm[3] == -1 && obj_player1.key_
 		backbuffer = 2;
 		var _state = noone;
 		var _txt = noone;
-		with (obj_player1)
+		with (obj_player)
 		{
 			_state = state;
 			if (state == states.chainsaw)
@@ -272,7 +272,7 @@ if (!pause && instance_exists(obj_player1) && alarm[3] == -1 && obj_player1.key_
 		fmod_event_instance_set_paused(pausemusicID, false);
 	}
 }
-with (obj_player1)
+with (obj_player)
 {
 	other.paletteselect = paletteselect;
 	other.spr_palette = spr_palette;
@@ -331,7 +331,6 @@ if (!instance_exists(obj_loadingscreen))
 }
 cursor_index += 0.35;
 pause_update_priests();
-var prevpause = pause;
 if (pause && !instance_exists(obj_loadingscreen) && alarm[3] == -1)
 {
 	with (obj_music)

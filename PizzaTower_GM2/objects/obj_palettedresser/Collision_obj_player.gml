@@ -9,11 +9,11 @@ if (other.key_up2 && other.ispeppino == ispeppino)
 			vsp = -irandom_range(6, 11);
 			usepalette = true;
 			sprite_index = spr_palettedresserdebris;
-			if (!obj_player1.ispeppino)
+			if (!obj_player.ispeppino)
 			{
 				sprite_index = spr_palettedresserdebrisN;
 			}
-			spr_palette = obj_player1.spr_palette;
+			spr_palette = obj_player.spr_palette;
 			paletteselect = other.paletteselect;
 			oldpalettetexture = global.palettetexture;
 		}

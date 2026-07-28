@@ -1,4 +1,3 @@
-pal_swap_init_system(shd_pal_swapper);
 //global.roommessage = "PIZZA TOWER AT HALLOWEEN";
 global.gameframe_caption_text = lang_get_value("caption_halloween");
 notification_push(notifications.pumpkindoor_entered, [room]);
@@ -12,7 +11,7 @@ with (obj_pumpkincounter)
 	}
 }
 instance_destroy(obj_pumpkincounter);
-if (obj_player1.state == states.ghost)
+if (obj_player.state == states.ghost)
 {
 	instance_create(0, 0, obj_softlockcrash);
 }

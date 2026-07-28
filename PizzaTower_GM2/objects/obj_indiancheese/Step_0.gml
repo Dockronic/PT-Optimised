@@ -6,18 +6,12 @@ switch (state)
 	case states.charge:
 		scr_enemy_charge();
 		break;
-	case states.turn:
-		scr_enemy_turn();
-		break;
 	case states.walk:
 		scr_enemy_walk();
 		if (totemID != noone)
 		{
 			state = states.dance;
 		}
-		break;
-	case states.land:
-		scr_enemy_land();
 		break;
 	case states.hit:
 		scr_enemy_hit();
@@ -33,9 +27,6 @@ switch (state)
 		break;
 	case states.rage:
 		scr_enemy_rage();
-		break;
-	case states.ghostpossess:
-		scr_enemy_ghostpossess();
 		break;
 }
 scr_scareenemy();
@@ -86,7 +77,7 @@ else if (state == states.dance && totemID == noone)
 {
 	state = states.walk;
 }
-if (state == states.stun && stunned > 40 && birdcreated == false)
+if (state == states.stun && stunned > 40 && !birdcreated)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -98,16 +89,16 @@ if (state != states.stun)
 {
 	birdcreated = false;
 }
-if (flash == true && alarm[2] <= 0)
+if (flash && alarm[2] <= 0)
 {
 	alarm[2] = 0.15 * room_speed;
 }
 var player = instance_nearest(x, y, obj_player);
-if (elite && ragecooldown > 0)
+if (ragecooldown > 0)
 {
 	ragecooldown--;
 }
-if (state == states.walk && state != states.stun && sprite_index == walkspr && sprite_index != spr_indiancheese_scared && elite && ragecooldown == 0)
+if (state == states.walk && state != states.stun && sprite_index == walkspr && sprite_index != spr_indiancheese_scared && ragecooldown == 0)
 {
 	if ((player.x > (x - 400) && player.x < (x + 400)) && (y <= (player.y + 60) && y >= (player.y - 60)))
 	{
@@ -143,7 +134,7 @@ if (state != states.stun)
 {
 	thrown = false;
 }
-if (boundbox == false)
+if (!boundbox)
 {
 	with (instance_create(x, y, obj_baddiecollisionbox))
 	{

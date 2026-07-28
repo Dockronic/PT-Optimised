@@ -4,9 +4,6 @@ switch (state)
 	case states.idle:
 		scr_enemy_idle();
 		break;
-	case states.turn:
-		scr_enemy_turn();
-		break;
 	case states.walk:
 		image_speed = 0.35;
 		if (!grounded)
@@ -38,9 +35,6 @@ switch (state)
 			}
 		}
 		break;
-	case states.land:
-		scr_enemy_land();
-		break;
 	case states.hit:
 		scr_enemy_hit();
 		break;
@@ -53,17 +47,11 @@ switch (state)
 	case states.grabbed:
 		scr_enemy_grabbed();
 		break;
-	case states.pummel:
-		scr_enemy_pummel();
-		break;
 	case states.staggered:
 		scr_enemy_staggered();
 		break;
-	case states.rage:
-		scr_enemy_rage();
-		break;
 }
-if (state == states.stun && stunned > 100 && birdcreated == false)
+if (state == states.stun && stunned > 100 && !birdcreated)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -75,12 +63,12 @@ if (state != states.stun)
 {
 	birdcreated = false;
 }
-if (flash == true && alarm[2] <= 0)
+if (flash && alarm[2] <= 0)
 {
 	alarm[2] = 0.15 * room_speed;
 }
 scr_scareenemy();
-var targetplayer = global.coop ? instance_nearest(x, y, obj_player) : obj_player1;
+var targetplayer = obj_player;
 if (bombreset > 0)
 {
 	bombreset--;
@@ -106,7 +94,7 @@ if (state != states.stun)
 {
 	thrown = false;
 }
-if (boundbox == false)
+if (!boundbox)
 {
 	with (instance_create(x, y, obj_baddiecollisionbox))
 	{

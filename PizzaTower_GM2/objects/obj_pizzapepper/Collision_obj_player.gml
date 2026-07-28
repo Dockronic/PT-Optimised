@@ -1,4 +1,4 @@
-if (visible == true)
+if (visible)
 {
 	GamepadSetVibration(0, 0.9, 0.9, 0.8);
 	fmod_event_one_shot_3d("event:/sfx/pep/jetpackjump", x, y);

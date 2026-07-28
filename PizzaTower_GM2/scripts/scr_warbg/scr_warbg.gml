@@ -20,30 +20,6 @@ function warbg_end()
 	}
 }
 
-function pizzahead_bg_start()
-{
-	if (event_type == ev_draw && event_number == 0)
-	{
-		var time = shader_get_uniform(shd_rainbow, "u_time");
-		var _speed = shader_get_uniform(shd_rainbow, "u_speed");
-		shader_set(shd_rainbow);
-		shader_set_uniform_f(time, current_time / 1000);
-		shader_set_uniform_f(_speed, 1);
-	}
-}
-
-function pizzahead_bg_end()
-{
-	if (event_type == ev_draw && event_number == 0)
-	{
-		shader_reset();
-	}
-}
-
-function pizzahead_bg_init()
-{
-}
-
 function warbg_generic(_start_func, _end_func, _map = noone)
 {
 	var arr = ["Foreground_1", "Foreground_2", "Foreground_3", "Foreground_Ground1"];

@@ -11,7 +11,6 @@ switch (state)
 		{
 			y = y_to;
 			state++;
-			highscorepos = 0;
 		}
 		break;
 	case 1:

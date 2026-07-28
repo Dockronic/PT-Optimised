@@ -1,2 +1,2 @@
-x = playerid.x;
-y = playerid.y;
+x = obj_player.x;
+y = obj_player.y;

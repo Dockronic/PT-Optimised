@@ -36,11 +36,6 @@ function scr_player_ratmounttumble()
 		gustavokicktimer = 5;
 		brick = false;
 		movespeed = hsp;
-		//with (instance_create(x, y + 50, obj_ratmountgroundpound))
-		//{
-		//	image_xscale = other.xscale;
-		//	image_index = 0;
-		//}
 	}
 	if (input_buffer_jump > 0 && can_jump)
 	{

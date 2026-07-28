@@ -19,10 +19,6 @@ function scr_player_ratmount()
 	}
 	move = key_left + key_right;
 	doublejump = false;
-	if (ratgrabbedID != noone && !instance_exists(ratgrabbedID))
-	{
-		ratgrabbedID = noone;
-	}
 	hsp = movespeed;
 	var r = ratmount_movespeed;
 	if ((place_meeting(x + xscale, y, obj_solid) && !place_meeting(x + hsp, y, obj_destructibles)) || (abs(movespeed) < 8 && move != xscale) || !key_attack || abs(movespeed) <= 6)
@@ -156,18 +152,17 @@ function scr_player_ratmount()
 				if (sprite_index != spr_player_ratmountidleanim)
 				{
 					sprite_index = spr_player_ratmountidle;
-					if (ratgrabbedID == noone)
+					if (idle < 400)
 					{
-						if (idle < 400)
-						{
-							idle++;
-						}
-						if (idle >= 150)
-						{
-							sprite_index = spr_player_ratmountidleanim;
-							image_index = 0;
-						}
+						idle++;
 					}
+					if (idle >= 150)
+					{
+						sprite_index = spr_player_ratmountidleanim;
+						image_index = 0;
+					}
+				
+
 				}
 				else if (ANIMATION_END)
 				{
@@ -306,7 +301,7 @@ function scr_player_ratmount()
 		particle_set_scale(particletypes.jumpdust, xscale, 1);
 		create_particle(x, y, particletypes.jumpdust, 0);
 		input_buffer_slap = 0;
-		if (brick == true)
+		if (brick)
 		{
 			with (instance_create(x, y, obj_brickcomeback))
 			{
@@ -344,10 +339,6 @@ function scr_player_ratmount()
 			}
 		}
 		brick = false;
-	}
-	with (ratgrabbedID)
-	{
-		scr_enemy_ratgrabbed();
 	}
 	ratmount_shootpowerup();
 	ratmount_dotaunt();

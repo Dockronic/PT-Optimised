@@ -20,7 +20,6 @@ switch (state)
 				state = states.normal;
 				sprite_index = selectedspr;
 				noisehead = irandom(sprite_get_number(spr_titlecard_noise) - 1);
-				surface_rebuild = true;
 				var _started = obj_mainmenu.shownoise ? global.gameN[trigger].started : global.game[trigger].started;
 				if (!_started)
 				{

@@ -1,0 +1,7 @@
+# For use in projects
+
+# Banks are big.
+*.bank filter=lfs diff=lfs merge=lfs -text
+
+# Get rid of any extra data from .yy files
+extensions/**/*.yy filter=stripextdate

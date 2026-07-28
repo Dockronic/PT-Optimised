@@ -1,5 +1,5 @@
 
-if (state == states.walk && grounded && vsp > 0 && (obj_player1.state == states.freefallland || (obj_player1.state == states.ratmountbounce && obj_player1.sprite_index == spr_playerN_noisecrusherland)) && bbox_in_camera(view_camera[0], 32))
+if (state == states.walk && grounded && vsp > 0 && (obj_player.state == states.freefallland || (obj_player.state == states.ratmountbounce && obj_player.sprite_index == spr_playerN_noisecrusherland)) && bbox_in_camera(view_camera[0], 32))
 {
 	scr_pizzaball_go_to_thrown(0, -10);
 }
@@ -9,14 +9,8 @@ switch (state)
 	case states.idle:
 		scr_enemy_idle();
 		break;
-	case states.turn:
-		scr_enemy_turn();
-		break;
 	case states.walk:
 		scr_enemy_walk();
-		break;
-	case states.land:
-		scr_enemy_land();
 		break;
 	case states.hit:
 		scr_pizzaball_hit();
@@ -40,17 +34,8 @@ switch (state)
 	case states.grabbed:
 		scr_pizzaball_grabbed();
 		break;
-	case states.pummel:
-		scr_enemy_pummel();
-		break;
 	case states.staggered:
 		scr_enemy_staggered();
-		break;
-	case states.rage:
-		scr_enemy_rage();
-		break;
-	case states.ghostpossess:
-		scr_enemy_ghostpossess();
 		break;
 }
 if (state != states.golf)
@@ -82,7 +67,7 @@ if (state != states.walk)
 {
 	sit = false;
 }
-if (state == states.stun && stunned > 100 && birdcreated == false)
+if (state == states.stun && stunned > 100 && !birdcreated)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -100,7 +85,7 @@ if (state != states.stun)
 {
 	birdcreated = false;
 }
-if (flash == true && alarm[2] <= 0)
+if (flash && alarm[2] <= 0)
 {
 	alarm[2] = 0.15 * room_speed;
 }
@@ -136,7 +121,7 @@ if (state != states.stun)
 {
 	thrown = false;
 }
-if (boundbox == false)
+if (!boundbox)
 {
 	with (instance_create(x, y, obj_baddiecollisionbox))
 	{

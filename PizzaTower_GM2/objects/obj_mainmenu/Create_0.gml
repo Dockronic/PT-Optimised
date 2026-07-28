@@ -4,8 +4,6 @@ visualselect = 0;
 state = states.titlescreen;
 image_speed = 0.35;
 depth = 0;
-mainmenu_sprite = -1;
-controls_sprite = -1;
 angrybuffer = 0;
 savedsprite = noone;
 savedindex = 0;
@@ -26,8 +24,8 @@ john = true;
 snotty = true;
 judgement = "confused";
 deletebuffer = 0;
-obj_player1.player_paletteselect[0] = 1;
-obj_player1.player_paletteselect[1] = 1;
+obj_player.player_paletteselect[0] = 1;
+obj_player.player_paletteselect[1] = 1;
 percentage = 0;
 perstatus_icon = 0;
 extrauialpha = 0;
@@ -79,43 +77,6 @@ unlock_noise = function(_showpopup)
 		{
 			instance_create(0, 0, obj_noiseunlocked);
 			ini_write_real("Game", "noiseunlocked", 1);
-			obj_savesystem.ini_str_options = ini_close();
-			gamesave_async_save_options();
-		}
-		else
-		{
-			ini_close();
-		}
-	}
-};
-
-unlock_swap = function(_showpopup)
-{
-	for (var i = 0; i < 3; i++)
-	{
-		if (global.gameN[i].judgement != "none")
-		{
-			_showpopup = true;
-			break;
-		}
-	}
-	if (!_showpopup)
-	{
-		ini_open_from_string(obj_savesystem.ini_str_options);
-		_showpopup = ini_read_real("Game", "swapunlocked", 0);
-		ini_close();
-	}
-	if (_showpopup)
-	{
-		swap_unlocked = true;
-		ini_open_from_string(obj_savesystem.ini_str_options);
-		if (ini_read_real("Game", "swapunlocked", 0) == 0)
-		{
-			with (instance_create(0, 0, obj_noiseunlocked))
-			{
-				sprite_index = spr_swapmodeunlocked;
-			}
-			ini_write_real("Game", "swapunlocked", 1);
 			obj_savesystem.ini_str_options = ini_close();
 			gamesave_async_save_options();
 		}

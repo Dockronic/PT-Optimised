@@ -52,7 +52,7 @@ function scr_player_knightpep()
 	}
 	if (sprite_index == spr_knightpepdowntrust && vsp >= 0)
 	{
-		if (knightdowncloud == true && vsp >= 12)
+		if (knightdowncloud && vsp >= 12)
 		{
 			with (instance_create(x, y - 16, obj_parryeffect))
 			{
@@ -79,7 +79,7 @@ function scr_player_knightpep()
 	{
 		sprite_index = spr_knightpepidle;
 	}
-	if (!key_jump2 && jumpstop == false && vsp < 0.5 && stompAnim == false)
+	if (!key_jump2 && !jumpstop && vsp < 0.5 && !stompAnim)
 	{
 		vsp /= 2;
 		jumpstop = true;
@@ -133,12 +133,11 @@ function scr_player_knightpep()
 		combo = 0;
 		bounce = false;
 		image_index = 0;
-		freefallstart = 0;
 		momemtum = false;
 		fmod_event_one_shot_3d("event:/sfx/pep/groundpound", x, y);
 		create_particle(x, y + 3, particletypes.groundpoundeffect, 0);
 		sprite_index = spr_knightpepland;
-		GamepadSetVibration((object_index == obj_player1) ? 0 : 1, 1, 1, 0.9);
+		GamepadSetVibration(0, 1, 1, 0.9);
 	}
 	if (ANIMATION_END && sprite_index == spr_knightpepland)
 	{

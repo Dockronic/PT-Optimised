@@ -46,7 +46,6 @@ switch (state)
 					destroy = false;
 					with (obj_monstertrackingrooms)
 					{
-						sound_buffer = 0;
 						monster_pos[other.monsterid].x = last_puppet_pos.x;
 						monster_pos[other.monsterid].y = last_puppet_pos.y;
 					}
@@ -63,7 +62,7 @@ switch (state)
 		}
 		break;
 	case states.monsterchase:
-		playerid = obj_player1.id;
+		playerid = obj_player.id;
 		sprite_index = spr_monstertomato_chase;
 		var dir = point_direction(x, y, playerid.x, playerid.y);
 		if (!(x > (playerid.x - 8) && x < (playerid.x + 8) && y > (playerid.y - 8) && y < (playerid.y + 8)))
@@ -76,10 +75,6 @@ switch (state)
 			image_xscale = sign(playerid.x - x);
 		}
 		break;
-}
-if (state != states.monsteridle)
-{
-	inactivebuffer = 900;
 }
 if (state == states.monsterchase)
 {

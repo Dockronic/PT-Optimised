@@ -4,13 +4,13 @@ if (instance_exists(obj_parryeffect))
 {
 	with (obj_parryeffect)
 	{
-		if (follow == true)
+		if (follow)
 		{
 			instance_destroy();
 		}
 	}
 }
-with (playerid)
+with (obj_player)
 {
 	if (state != states.morthook)
 	{

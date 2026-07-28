@@ -1,5 +1,5 @@
 
-if (ds_list_find_index(global.saveroom, id) == -1 && global.snickchallenge == false)
+if (ds_list_find_index(global.saveroom, id) == -1)
 {
 	repeat (6)
 	{
@@ -20,17 +20,13 @@ if (ds_list_find_index(global.saveroom, id) == -1 && global.snickchallenge == fa
 		sprite_index = spr_pizzablockdead;
 	}
 	scr_sleep(5);
-	create_baddiegibsticks(x + 16, y + 16);
 	scr_sound_multiple("event:/sfx/misc/collect", x, y);
-	global.heattime += 10;
-	global.heattime = clamp(global.heattime, 0, 60);
 	global.combotime += 10;
 	global.combotime = clamp(global.combotime, 0, 60);
-	var val = heat_calculate(10);
-	global.collect += val;
+	global.collect += 10;
 	with (instance_create(x + 16, y, obj_smallnumber))
 	{
-		number = string(val);
+		number = string(10);
 	}
 	tile_layer_delete_at(1, x, y);
 	notification_push(notifications.destroyable_destroyed, [room]);

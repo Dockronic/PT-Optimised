@@ -153,7 +153,7 @@ function scr_player_ratmountjump()
 		particle_set_scale(particletypes.jumpdust, xscale, 1);
 		create_particle(x, y, particletypes.jumpdust, 0);
 		input_buffer_slap = 0;
-		if (brick == true)
+		if (brick)
 		{
 			with (instance_create(x, y, obj_brickcomeback))
 			{
@@ -230,10 +230,6 @@ function scr_player_ratmountjump()
 			landAnim = false;
 		}
 		image_index = 0;
-	}
-	with (ratgrabbedID)
-	{
-		scr_enemy_ratgrabbed();
 	}
 	ratmount_shootpowerup();
 	ratmount_dotaunt();

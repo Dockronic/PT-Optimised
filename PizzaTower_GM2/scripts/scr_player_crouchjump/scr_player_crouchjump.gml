@@ -4,12 +4,12 @@ function scr_player_crouchjump()
 	mask_index = spr_crouchmask;
 	hsp = move * movespeed;
 	movespeed = 4;
-	if (!key_jump2 && jumpstop == false && jumpAnim == true)
+	if (!key_jump2 && !jumpstop && jumpAnim)
 	{
 		vsp /= 2;
 		jumpstop = true;
 	}
-	if (scr_solid(x, y - 1) && jumpstop == false && jumpAnim == true)
+	if (scr_solid(x, y - 1) && !jumpstop && jumpAnim)
 	{
 		vsp = grav;
 		jumpstop = true;
@@ -23,9 +23,9 @@ function scr_player_crouchjump()
 		jumpstop = false;
 		fmod_event_one_shot_3d("event:/sfx/pep/step", x, y);
 	}
-	if (jumpAnim == true)
+	if (jumpAnim)
 	{
-		if (shotgunAnim == false)
+		if (!shotgunAnim)
 		{
 			sprite_index = spr_crouchjump;
 		}
@@ -38,9 +38,9 @@ function scr_player_crouchjump()
 			jumpAnim = false;
 		}
 	}
-	if (jumpAnim == false)
+	if (!jumpAnim)
 	{
-		if (shotgunAnim == false)
+		if (!shotgunAnim)
 		{
 			sprite_index = spr_crouchfall;
 		}

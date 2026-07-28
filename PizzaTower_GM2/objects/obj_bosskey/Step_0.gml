@@ -44,12 +44,6 @@ switch (state)
 		}
 		break;
 	case states.gottreasure:
-		//if (instance_exists(obj_bosskeynoise) && obj_bosskeynoise.x <= noisex)
-		//{
-		//	x = obj_bosskeynoise.x;
-		//	y = obj_bosskeynoise.y;
-		//	noise = true;
-		//}
 		if (!instance_exists(obj_tutorialblock) && noise)
 		{
 			x = -100;

@@ -1,6 +1,6 @@
 
 image_speed = 0.35;
-targetplayer = obj_player1.id;
+targetplayer = obj_player.id;
 wastedhits = maxhp - elitehit;
 switch (state)
 {
@@ -46,9 +46,6 @@ switch (state)
 	case states.grabbed:
 		scr_boss_grabbed();
 		break;
-	case states.pummel:
-		scr_enemy_pummel();
-		break;
 }
 if (state != states.pizzaheadjump)
 {
@@ -86,7 +83,7 @@ if (prevhp != elitehit)
 		if (global.playerhit >= 3)
 		{
 			global.playerhit = 0;
-			instance_create(obj_player1.x, -15, obj_hppickup);
+			instance_create(obj_player.x, -15, obj_hppickup);
 		}
 	}
 	prevhp = elitehit;
@@ -100,7 +97,6 @@ if (state == states.stun)
 	if (grounded && vsp > 0 && savedthrown)
 	{
 		stunned = 1;
-		idle_timer = 1;
 		ammo = 6;
 	}
 }
@@ -108,7 +104,7 @@ else
 {
 	savedthrown = false;
 }
-if (state == states.stun && stunned > 100 && birdcreated == false)
+if (state == states.stun && stunned > 100 && !birdcreated)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -147,7 +143,7 @@ if (state != states.stun)
 {
 	birdcreated = false;
 }
-if (flash == true && alarm[2] <= 0)
+if (flash && alarm[2] <= 0)
 {
 	alarm[2] = 0.15 * room_speed;
 }
@@ -159,7 +155,7 @@ if (state != states.stun)
 {
 	thrown = false;
 }
-if (boundbox == false)
+if (!boundbox)
 {
 	with (instance_create(x, y, obj_baddiecollisionbox))
 	{

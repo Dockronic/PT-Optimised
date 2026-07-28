@@ -1,5 +1,3 @@
-pal_swap_init_system(shd_pal_swapper);
-global.roommessage = "PIZZA TOWER ISLAND";
 global.gameframe_caption_text = lang_get_value("caption_street");
 with (obj_secretbigblock)
 {
@@ -8,7 +6,7 @@ with (obj_secretbigblock)
 var lay_id = layer_get_id("Assets_1");
 var pep = layer_sprite_get_id(lay_id, "peppinotv");
 var noise = layer_sprite_get_id(lay_id, "noisetv");
-if (obj_player1.ispeppino)
+if (obj_player.ispeppino)
 {
 	layer_sprite_alpha(pep, 1);
 	layer_sprite_alpha(noise, 0);
