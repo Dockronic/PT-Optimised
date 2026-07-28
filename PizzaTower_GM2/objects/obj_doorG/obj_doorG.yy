@@ -26,8 +26,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "sprite12242610",
-    "path": "sprites/sprite12242610/sprite12242610.yy",
+    "name": "spr_doorG",
+    "path": "sprites/spr_doorG/spr_doorG.yy",
   },
   "spriteMaskId": null,
   "visible": false,

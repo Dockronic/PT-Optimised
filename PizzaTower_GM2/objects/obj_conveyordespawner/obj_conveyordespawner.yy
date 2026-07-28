@@ -29,8 +29,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "sprite10332571",
-    "path": "sprites/sprite10332571/sprite10332571.yy",
+    "name": "spr_convayorspawner",
+    "path": "sprites/spr_convayorspawner/spr_convayorspawner.yy",
   },
   "spriteMaskId": null,
   "visible": false,

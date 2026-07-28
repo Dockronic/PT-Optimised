@@ -15,7 +15,13 @@
         "spr_pizzafacehall_window": "Sprite4102",
         "spr_kidsparty_decoration": "Sprite3518",
         "spr_blackbg": "sprite1122",
-        "spr_pepgoblin_kickhitbox": "sprite1025"
-    },
-
+        "spr_pepgoblin_kickhitbox": "sprite1025",
+        "spr_doorB": "sprite1022",
+        "spr_doorC": "sprite1023",
+        "spr_doorD": "sprite1024",
+        "spr_doorE": "sprite1224",
+        "spr_doorF": "sprite12242609",
+        "spr_doorG": "sprite12242610",
+        "spr_convayorspawner": "sprite10332571"
+    }
 }
